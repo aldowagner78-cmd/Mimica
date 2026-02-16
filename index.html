@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mímica Pro - Family Charades</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Quicksand:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        :root {
+            --blue-dark: #1a6fb5;
+            --blue-mid: #2BA5D8;
+            --blue-light: #43C6DB;
+            --cyan: #5CE1E6;
+            --purple: #7B68EE;
+            --gold: #FFB847;
+            --gold-dark: #CC7A00;
+            --red: #E74C3C;
+            --green: #4CAF50;
+            --green-dark: #388E3C;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            overflow: auto;
+            background: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+
+        .app {
+            width: 100%;
+            max-width: 390px;
+            height: 90vh;
+            max-height: 844px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, .4);
+            border: 4px solid #333;
+        }
+
+        .screen {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            transition: opacity .4s, transform .4s;
+            overflow: hidden;
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(.95)
+        }
+
+        .screen.active {
+            opacity: 1;
+            pointer-events: all;
+            transform: scale(1)
+        }
+
+        /* ===== BACKGROUNDS ===== */
+        .bg-blue {
+            background: linear-gradient(180deg, #0D6CA8 0%, #1589C5 15%, #1E9FD8 35%, #29B5E5 50%, #1E9FD8 65%, #1589C5 85%, #0D6CA8 100%);
+            position: relative;
+        }
+
+        .bg-blue::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 60% 40% at 50% 40%, rgba(100, 220, 255, .18), transparent 70%);
+            pointer-events: none;
+        }
+
+        .bg-game {
+            background: linear-gradient(135deg, #1a8fc5 0%, #2BA5D8 30%, #43C6DB 60%, #1a8fc5 100%)
+        }
+
+        .bg-results {
+            background: linear-gradient(135deg, #5B8DEF 0%, #43C6DB 25%, #9370DB 50%, #43C6DB 75%, #7B68EE 100%);
+            background-size: 300% 300%;
+            animation: gradShift 6s ease infinite
+        }
+
+        .bg-settings {
+            background: linear-gradient(135deg, #5B8DEF 0%, #43C6DB 30%, #7B68EE 60%, #43C6DB 100%);
+            background-size: 300% 300%;
+            animation: gradShift 8s ease infinite
+        }
+
+        @keyframes gradShift {
+            0% {
+                background-position: 0% 50%
+            }
+
+            50% {
+                background-position: 100% 50%
+            }
+
+            100% {
+                background-position: 0% 50%
+            }
+        }
+
+        /* ===== PARTICLES ===== */
+        .particles {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: .15;
+            animation: floatP 8s ease-in-out infinite
+        }
+
+        .particle.bubble {
+            background: rgba(255, 255, 255, .25);
+            border: 1px solid rgba(255, 255, 255, .15)
+        }
+
+        .particle.star {
+            opacity: .5;
+            font-size: 20px
+        }
+
+        @keyframes floatP {
+
+            0%,
+            100% {
+                transform: translateY(0) scale(1)
+            }
+
+            50% {
+                transform: translateY(-30px) scale(1.1)
+            }
+        }
+
+        /* Sparkles */
+        .sparkles {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background:
+                radial-gradient(1.5px 1.5px at 15% 20%, rgba(255, 255, 255, .8), transparent),
+                radial-gradient(1px 1px at 85% 15%, rgba(255, 255, 255, .7), transparent),
+                radial-gradient(2px 2px at 45% 65%, rgba(255, 255, 255, .6), transparent),
+                radial-gradient(1px 1px at 8% 75%, rgba(255, 255, 255, .7), transparent),
+                radial-gradient(1.5px 1.5px at 72% 55%, rgba(255, 255, 255, .5), transparent),
+                radial-gradient(1px 1px at 38% 8%, rgba(255, 255, 255, .8), transparent),
+                radial-gradient(1.5px 1.5px at 60% 35%, rgba(255, 255, 255, .6), transparent),
+                radial-gradient(1px 1px at 25% 90%, rgba(255, 255, 255, .5), transparent),
+                radial-gradient(2px 2px at 92% 42%, rgba(255, 255, 255, .7), transparent),
+                radial-gradient(1px 1px at 55% 88%, rgba(255, 255, 255, .4), transparent),
+                radial-gradient(1.5px 1.5px at 5% 45%, rgba(255, 255, 255, .5), transparent),
+                radial-gradient(1px 1px at 78% 82%, rgba(255, 255, 255, .6), transparent),
+                radial-gradient(2px 2px at 32% 38%, rgba(255, 255, 255, .35), transparent),
+                radial-gradient(1px 1px at 68% 12%, rgba(255, 255, 255, .5), transparent),
+                radial-gradient(1.5px 1.5px at 48% 52%, rgba(255, 255, 255, .4), transparent);
+            animation: twinkle 3s ease-in-out infinite alternate
+        }
+
+        @keyframes twinkle {
+            0% {
+                opacity: .5
+            }
+
+            100% {
+                opacity: 1
+            }
+        }
+
+        /* ===== FLOATING 3D ELEMENTS ===== */
+        .floaters {
+            position: absolute;
+            inset: 0;
+            pointer-events: none
+        }
+
+        .fl {
+            position: absolute;
+            animation: flAnim 5s ease-in-out infinite;
+            filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, .2))
+        }
+
+        @keyframes flAnim {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg)
+            }
+
+            50% {
+                transform: translateY(-12px) rotate(8deg)
+            }
+        }
+
+        /* ===== SPLASH SCREEN ===== */
+        #splash {
+            justify-content: center;
+            align-items: center;
+            gap: 20px
+        }
+
+        .splash-logo {
+            text-align: center;
+            margin-top: -60px
+        }
+
+        .splash-title {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 72px;
+            line-height: .95;
+            background: linear-gradient(180deg, #FFD5A0 0%, #FF9A56 40%, #FF6B35 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(3px 5px 0 rgba(0, 0, 0, .15));
+            text-shadow: none
+        }
+
+        .splash-subtitle {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 56px;
+            background: linear-gradient(180deg, #B8E6FF 0%, #7BC8F0 50%, #5AA8D0 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(2px 4px 0 rgba(0, 0, 0, .1))
+        }
+
+        .splash-badge {
+            background: rgba(255, 255, 255, .9);
+            border-radius: 30px;
+            padding: 8px 24px;
+            font-weight: 700;
+            font-size: 14px;
+            color: #2BA5D8;
+            letter-spacing: 2px;
+            margin-top: 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .splash-bottom {
+            position: absolute;
+            bottom: 60px;
+            left: 0;
+            right: 0;
+            padding: 0 40px;
+            text-align: center
+        }
+
+        .load-row {
+            display: flex;
+            justify-content: space-between;
+            color: rgba(255, 255, 255, .8);
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 8px
+        }
+
+        .load-bar {
+            height: 14px;
+            border-radius: 10px;
+            background: rgba(0, 30, 60, .4);
+            overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, .3)
+        }
+
+        .load-fill {
+            height: 100%;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #4ADE80, #22C55E, #6EE7B7);
+            width: 0%;
+            transition: width 2s ease;
+            box-shadow: 0 0 12px rgba(74, 222, 128, .5)
+        }
+
+        .splash-version {
+            color: rgba(255, 255, 255, .4);
+            font-size: 12px;
+            margin-top: 12px
+        }
+
+        /* ===== HOME SCREEN ===== */
+        #home .home-title {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 42px;
+            text-align: center;
+            padding: 30px 20px 10px;
+            color: #FFD700;
+            text-shadow: 2px 3px 0 rgba(0, 0, 0, .2), -1px -1px 0 #B8860B;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, .2))
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            padding: 10px 25px 220px 25px;
+            overflow-y: auto;
+            max-height: calc(100vh - 250px);
+            align-content: start;
+            -ms-overflow-style: none;
+            scrollbar-width: none
+        }
+
+        .categories::-webkit-scrollbar {
+            display: none;
+        }
+
+        .cat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: transform .2s;
+            padding: 8px
+        }
+
+        .cat-item:hover {
+            transform: scale(1.05)
+        }
+
+        .cat-item.selected .cat-icon-wrap {
+            transform: scale(1.12) translateY(-8px);
+            filter: drop-shadow(0 20px 30px rgba(255, 215, 0, .8));
+            border: 4px solid #FFD700;
+            background: rgba(255, 215, 0, 0.15);
+            box-shadow: inset 0 0 25px rgba(255, 215, 0, 0.5), 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .cat-item.selected .cat-name {
+            color: #FFF;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.5);
+            transform: scale(1.1);
+        }
+
+        .cat-icon-wrap {
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: drop-shadow(0 8px 15px rgba(0, 0, 0, .25));
+            transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-radius: 24px;
+            border: 4px solid transparent;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .cat-icon-wrap img {
+            width: 80%;
+            height: 80%;
+            object-fit: contain
+        }
+
+        .cat-shadow {
+            width: 80px;
+            height: 12px;
+            background: rgba(0, 0, 0, .15);
+            border-radius: 50%;
+            margin-top: -4px;
+            filter: blur(4px)
+        }
+
+        .cat-name {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 18px;
+            color: #FFD700;
+            text-shadow: 1px 2px 0 rgba(0, 0, 0, .3);
+            text-transform: uppercase
+        }
+
+        /* EMPEZAR button - FIXED POSITION */
+        .btn-empezar {
+            width: 350px;
+            max-width: calc(100% - 40px);
+            margin: 0;
+            padding: 18px;
+            border: 4px solid #B8860B;
+            border-radius: 50px;
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+            background: linear-gradient(180deg, #7FD858 0%, #5CC83A 30%, #4CAF50 60%, #3D9B40 100%);
+            box-shadow: 0 6px 0 #2E7D32, 0 8px 20px rgba(76, 175, 80, .4), inset 0 2px 4px rgba(255, 255, 255, .4);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+            letter-spacing: 4px;
+            transition: all .15s;
+            position: fixed;
+            bottom: 90px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 9999;
+            overflow: hidden
+        }
+
+
+        .btn-empezar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, .2), transparent);
+            border-radius: 50px 50px 0 0
+        }
+
+        .btn-empezar:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 #2E7D32, 0 4px 10px rgba(76, 175, 80, .3), inset 0 2px 4px rgba(255, 255, 255, .4)
+        }
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 390px;
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            padding: 10px 0 25px;
+            background: rgba(0, 30, 60, 0.95);
+            z-index: 9998
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+            color: rgba(255, 255, 255, .7);
+            font-size: 12px;
+            font-weight: 600;
+            transition: color .2s
+        }
+
+        .nav-item:hover {
+            color: white
+        }
+
+        .nav-icon {
+            font-size: 24px
+        }
+
+        /* ===== HOW TO PLAY ===== */
+        #howtoplay .howto-title {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 40px;
+            text-align: center;
+            color: white;
+            text-shadow: 2px 3px 0 rgba(0, 50, 100, .3);
+            padding: 40px 20px 20px
+        }
+
+        .howto-cards {
+            display: flex;
+            gap: 12px;
+            padding: 0 15px;
+            flex: 1;
+            align-items: stretch
+        }
+
+        .howto-card {
+            flex: 1;
+            background: rgba(255, 255, 255, .92);
+            border-radius: 20px;
+            padding: 20px 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, .12)
+        }
+
+        .howto-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #4BA8E0, #3590C8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            box-shadow: 0 4px 12px rgba(59, 144, 200, .3)
+        }
+
+        .howto-card h3 {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 17px;
+            color: #2B7CB5;
+            text-align: center;
+            line-height: 1.2
+        }
+
+        .howto-card p {
+            font-size: 12px;
+            color: #5A6A7A;
+            text-align: center;
+            line-height: 1.4;
+            font-weight: 500
+        }
+
+        .btn-entendido {
+            margin: 20px 30px 40px;
+            padding: 16px;
+            border: 3px solid rgba(255, 255, 255, .3);
+            border-radius: 50px;
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 26px;
+            color: white;
+            background: linear-gradient(180deg, #6BC5F0, #4BA8E0, #3590C8);
+            box-shadow: 0 5px 0 #2B7CB5, 0 8px 20px rgba(59, 144, 200, .3), inset 0 2px 3px rgba(255, 255, 255, .3);
+            cursor: pointer;
+            letter-spacing: 3px;
+            text-shadow: 0 2px 3px rgba(0, 0, 0, .15);
+            transition: all .15s
+        }
+
+        .btn-entendido:active {
+            transform: translateY(4px);
+            box-shadow: 0 1px 0 #2B7CB5
+        }
+
+        /* ===== GAME SCREEN ===== */
+        #game {
+            align-items: center;
+            padding: 20px
+        }
+
+        .game-top {
+            display: flex;
+            align-items: flex-start;
+            width: 100%;
+            justify-content: space-between;
+            margin-bottom: 15px
+        }
+
+        .btn-home {
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #E74C3C, #C0392B);
+            border: 3px solid #A93226;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(231, 76, 60, .4);
+            font-size: 22px;
+            transition: transform .2s
+        }
+
+        .btn-home:active {
+            transform: scale(.9)
+        }
+
+        .timer {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1a3a6b, #0d2547);
+            border: 6px solid #3BA0D8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 30px rgba(59, 160, 216, .3), inset 0 0 40px rgba(0, 0, 0, .3);
+            position: relative
+        }
+
+        .timer::after {
+            content: '';
+            position: absolute;
+            inset: 8px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 200, 50, .4);
+            border-top-color: #FFD700;
+            animation: timerSpin 1s linear infinite
+        }
+
+        @keyframes timerSpin {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        .timer-text {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 42px
+        }
+
+        .timer-min {
+            color: #5BC0F0;
+            text-shadow: 0 0 10px rgba(91, 192, 240, .5)
+        }
+
+        .timer-colon {
+            color: #5BC0F0
+        }
+
+        .timer-sec {
+            color: #FFD700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, .5)
+        }
+
+        .word-card {
+            flex: 1;
+            width: calc(100% - 10px);
+            max-height: 320px;
+            background: linear-gradient(180deg, #FFF8EE, #F5E6D0);
+            border-radius: 28px;
+            border: 4px solid #E8D5B8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px 0;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, .15), inset 0 2px 8px rgba(255, 255, 255, .5)
+        }
+
+        .word-text {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 52px;
+            background: linear-gradient(180deg, #FFB347, #FF8C00, #E67E00);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(2px 4px 0 rgba(0, 0, 0, .1));
+            text-align: center;
+            padding: 20px
+        }
+
+        .game-btns {
+            display: flex;
+            gap: 15px;
+            width: 100%;
+            margin-top: 10px
+        }
+
+        .btn-pasar,
+        .btn-correcto {
+            flex: 1;
+            padding: 22px 10px;
+            border-radius: 50px;
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 32px;
+            color: white;
+            cursor: pointer;
+            letter-spacing: 2px;
+            text-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+            transition: all .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid white;
+        }
+
+        .btn-pasar {
+            background: linear-gradient(180deg, #EF6B6B, #E74C3C, #C0392B);
+            border: 4px solid #B8860B;
+            box-shadow: 0 5px 0 #8B0000, 0 8px 15px rgba(231, 76, 60, .3), inset 0 2px 3px rgba(255, 255, 255, .2)
+        }
+
+        .btn-correcto {
+            background: linear-gradient(180deg, #6BCB77, #4CAF50, #388E3C);
+            border: 4px solid #B8860B;
+            box-shadow: 0 5px 0 #1B5E20, 0 8px 15px rgba(76, 175, 80, .3), inset 0 2px 3px rgba(255, 255, 255, .2)
+        }
+
+        .btn-pasar:active,
+        .btn-correcto:active {
+            transform: translateY(4px);
+            box-shadow: 0 1px 0 currentColor
+        }
+
+        /* ===== RESULTS ===== */
+        #results {
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            text-align: center
+        }
+
+        .results-title {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 28px;
+            color: white;
+            text-shadow: 0 0 20px rgba(91, 192, 240, .5);
+            letter-spacing: 2px;
+            line-height: 1.2;
+            margin-top: 20px
+        }
+
+        .trophy-area {
+            font-size: 100px;
+            filter: drop-shadow(0 10px 20px rgba(255, 215, 0, .3));
+            animation: trophyBounce 2s ease-in-out infinite
+        }
+
+        @keyframes trophyBounce {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(-10px)
+            }
+        }
+
+        .podium {
+            display: flex;
+            align-items: flex-end;
+            gap: 0;
+            margin-top: -20px
+        }
+
+        .podium-block {
+            background: linear-gradient(180deg, #FFD700, #F0C030, #DAA520);
+            border-radius: 8px 8px 0 0;
+            box-shadow: 0 4px 15px rgba(218, 165, 32, .3)
+        }
+
+        .podium-1 {
+            width: 80px;
+            height: 80px
+        }
+
+        .podium-2 {
+            width: 60px;
+            height: 50px;
+            opacity: .8
+        }
+
+        .podium-3 {
+            width: 60px;
+            height: 50px;
+            opacity: .8
+        }
+
+        .score-card {
+            background: rgba(255, 255, 255, .92);
+            border-radius: 24px;
+            padding: 25px 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, .12)
+        }
+
+        .score-label {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 26px;
+            color: #2B7CB5;
+            text-shadow: 1px 2px 0 rgba(0, 0, 0, .05);
+            line-height: 1.3
+        }
+
+        .results-btns {
+            display: flex;
+            gap: 15px;
+            padding: 0 30px;
+            width: 100%
+        }
+
+        .btn-replay,
+        .btn-menu-r {
+            flex: 1;
+            padding: 16px 10px;
+            border-radius: 50px;
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 20px;
+            cursor: pointer;
+            letter-spacing: 1px;
+            border: none;
+            transition: all .15s
+        }
+
+        .btn-replay {
+            background: linear-gradient(180deg, #6BCB77, #4CAF50);
+            color: white;
+            box-shadow: 0 4px 0 #388E3C, 0 6px 15px rgba(76, 175, 80, .3);
+            text-shadow: 0 2px 2px rgba(0, 0, 0, .15)
+        }
+
+        .btn-menu-r {
+            background: linear-gradient(180deg, #6BC5F0, #4BA8E0);
+            color: white;
+            box-shadow: 0 4px 0 #2B7CB5, 0 6px 15px rgba(75, 168, 224, .3);
+            text-shadow: 0 2px 2px rgba(0, 0, 0, .15)
+        }
+
+        .btn-replay:active,
+        .btn-menu-r:active {
+            transform: translateY(3px);
+            box-shadow: 0 1px 0 currentColor
+        }
+
+        /* ===== SETTINGS ===== */
+        #settings {
+            padding: 20px
+        }
+
+        .btn-close {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FF6B35, #E74C3C);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(231, 76, 60, .4), inset 0 2px 3px rgba(255, 255, 255, .3);
+            font-size: 24px;
+            color: white;
+            font-weight: 800;
+            transition: transform .2s;
+            margin-bottom: 10px
+        }
+
+        .btn-close:active {
+            transform: scale(.9)
+        }
+
+        .settings-card {
+            background: rgba(255, 255, 255, .95);
+            border-radius: 28px;
+            padding: 25px 20px;
+            flex: 1;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, .12);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 16px;
+            overflow-y: auto
+        }
+
+        .s-title {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 24px;
+            color: #2C3E50;
+            text-align: center;
+            line-height: 1.2
+        }
+
+        .s-subtitle {
+            font-weight: 700;
+            font-size: 14px;
+            color: #5A6A7A;
+            text-align: center;
+            margin-top: -8px
+        }
+
+        .lang-row {
+            display: flex;
+            gap: 10px;
+            justify-content: center
+        }
+
+        .lang-btn {
+            padding: 10px 22px;
+            border-radius: 50px;
+            border: 3px solid transparent;
+            cursor: pointer;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all .2s
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, #FFB347, #FF8C00);
+            color: white;
+            border-color: #E07000;
+            box-shadow: 0 3px 10px rgba(255, 140, 0, .3)
+        }
+
+        .lang-btn.inactive {
+            background: #F0F2F5;
+            color: #5A6A7A;
+            border-color: #D0D5DD
+        }
+
+        .toggle-row {
+            display: flex;
+            align-items: center;
+            background: #F5F7FA;
+            border-radius: 18px;
+            padding: 12px 16px;
+            gap: 10px
+        }
+
+        .toggle-icon {
+            font-size: 26px
+        }
+
+        .toggle-label {
+            font-weight: 700;
+            font-size: 16px;
+            color: #2C3E50;
+            flex: 1
+        }
+
+        .toggle-sw {
+            width: 110px;
+            height: 36px;
+            border-radius: 50px;
+            background: #ccc;
+            cursor: pointer;
+            position: relative;
+            transition: background .3s;
+            padding: 3px
+        }
+
+        .toggle-sw.on {
+            background: linear-gradient(135deg, #4CAF50, #66BB6A)
+        }
+
+        .toggle-dot {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            transition: left .3s
+        }
+
+        .toggle-sw.on .toggle-dot {
+            left: calc(100% - 33px)
+        }
+
+        .toggle-texts {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            padding: 0 10px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: 700;
+            font-size: 11px;
+            color: white;
+            pointer-events: none
+        }
+
+        .toggle-sw:not(.on) .toggle-texts {
+            color: #999
+        }
+
+        .timer-section {
+            text-align: center
+        }
+
+        .timer-section h4 {
+            font-weight: 700;
+            font-size: 16px;
+            color: #2C3E50;
+            margin-bottom: 8px
+        }
+
+        .timer-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: #2C3E50
+        }
+
+        .slider {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 100%;
+            height: 10px;
+            border-radius: 5px;
+            background: #D0D5DD;
+            outline: none;
+            transition: background 0.2s;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4A90D9, #3B7DD8);
+            cursor: pointer;
+            box-shadow: 0 3px 8px rgba(74, 144, 217, 0.4);
+            border: 3px solid white;
+            margin-top: -9px;
+        }
+
+        .slider::-webkit-slider-runnable-track {
+            height: 10px;
+            border-radius: 5px;
+        }
+
+        .slider-labels {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            font-size: 13px;
+            color: #8896A6;
+            margin-top: 8px
+        }
+
+        .btn-guardar {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 26px;
+            color: white;
+            cursor: pointer;
+            background: linear-gradient(180deg, #FFB847, #F5A623, #E8951A);
+            box-shadow: 0 5px 0 #CC7A00, 0 8px 18px rgba(245, 166, 35, .3), inset 0 2px 3px rgba(255, 255, 255, .3);
+            letter-spacing: 3px;
+            text-shadow: 0 2px 3px rgba(0, 0, 0, .2);
+            transition: all .15s
+        }
+
+        .btn-guardar:active {
+            transform: translateY(4px);
+            box-shadow: 0 1px 0 #CC7A00
+        }
+
+        /* ===== EXIT MODAL ===== */
+        .modal-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, .5);
+            backdrop-filter: blur(8px);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .3s
+        }
+
+        .modal-overlay.show {
+            opacity: 1;
+            pointer-events: all
+        }
+
+        .modal-box {
+            background: white;
+            border-radius: 28px;
+            padding: 50px 30px 30px;
+            width: 85%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, .2);
+            transform: scale(.8);
+            transition: transform .3s
+        }
+
+        .modal-overlay.show .modal-box {
+            transform: scale(1)
+        }
+
+        .modal-emoji {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            border: 4px solid white;
+            box-shadow: 0 4px 15px rgba(255, 165, 0, .3)
+        }
+
+        .modal-title {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 24px;
+            color: #2BA5D8;
+            margin: 15px 0 8px
+        }
+
+        .modal-desc {
+            font-weight: 600;
+            font-size: 14px;
+            color: #5A6A7A;
+            margin-bottom: 20px
+        }
+
+        .modal-btns {
+            display: flex;
+            flex-direction: column;
+            gap: 12px
+        }
+
+        .btn-continue,
+        .btn-exit {
+            padding: 16px;
+            border-radius: 50px;
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            letter-spacing: 1px;
+            transition: all .15s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px
+        }
+
+        .btn-continue {
+            background: linear-gradient(180deg, #6BCB77, #4CAF50);
+            color: white;
+            box-shadow: 0 4px 0 #388E3C, 0 6px 12px rgba(76, 175, 80, .3);
+            text-shadow: 0 2px 2px rgba(0, 0, 0, .15)
+        }
+
+        .btn-exit {
+            background: linear-gradient(180deg, #F08080, #E74C3C);
+            color: white;
+            box-shadow: 0 4px 0 #C0392B, 0 6px 12px rgba(231, 76, 60, .3);
+            text-shadow: 0 2px 2px rgba(0, 0, 0, .15)
+        }
+
+        .btn-continue:active,
+        .btn-exit:active {
+            transform: translateY(3px);
+            box-shadow: 0 1px 0 currentColor
+        }
+
+        /* ===== RESULTS LIST BEAUTIFY ===== */
+        .results-details {
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.5) !important;
+            border-radius: 20px !important;
+            border: 2px solid rgba(255, 255, 255, 0.2) !important;
+            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .res-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 18px;
+            margin-bottom: 8px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+        }
+
+        .res-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .res-word {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 20px;
+            color: #2C3E50;
+            letter-spacing: 1px;
+        }
+
+        .res-status {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .st-ok {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
+        }
+
+        .st-skip {
+            background: linear-gradient(135deg, #FF6B6B, #ee5253);
+            box-shadow: 0 4px 8px rgba(238, 82, 82, 0.3);
+        }
+
+        .score-box {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            padding: 20px;
+            border-radius: 25px;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            border: 4px solid white;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            margin: 10px 0;
+        }
+
+        #finalScore {
+            font-size: 60px;
+            font-family: 'Luckiest Guy', cursive;
+            display: block;
+            line-height: 1;
+        }
+
+        /* ===== CONFETTI ===== */
+        .confetti-container {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1
+        }
+
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            top: -20px;
+            animation: confettiFall 3s linear infinite
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-20px) rotate(0deg);
+                opacity: 1
+            }
+
+            100% {
+                transform: translateY(900px) rotate(720deg);
+                opacity: 0
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app" id="app">
+
+        <!-- ===== SPLASH ===== -->
+        <div class="screen bg-blue active" id="splash">
+            <div class="particles">
+                <div class="particle bubble" style="width:120px;height:120px;top:8%;left:10%;animation-delay:0s"></div>
+                <div class="particle bubble" style="width:160px;height:160px;top:15%;right:5%;animation-delay:1.5s">
+                </div>
+                <div class="particle bubble" style="width:80px;height:80px;bottom:20%;right:30%;animation-delay:3s">
+                </div>
+                <div class="particle bubble" style="width:100px;height:100px;bottom:25%;left:5%;animation-delay:2s">
+                </div>
+            </div>
+            <div class="sparkles"></div>
+            <div class="floaters">
+                <div class="fl" style="top:18%;right:12%;font-size:50px;animation-delay:.5s">⭐</div>
+                <div class="fl" style="bottom:28%;left:8%;font-size:35px;animation-delay:2s">⭐</div>
+                <div class="fl" style="top:3%;right:5%;font-size:12px;color:white;animation-delay:1s">✦</div>
+                <div class="fl" style="bottom:18%;right:10%;font-size:14px;color:white;animation-delay:3s">✦</div>
+                <div class="fl" style="top:25%;left:20%;font-size:12px;color:white;animation-delay:2.5s">✦</div>
+            </div>
+            <div class="splash-logo">
+                <div class="splash-title">MÍMICA</div>
+                <div class="splash-subtitle">PRO</div>
+                <div class="splash-badge">🎮 FAMILY CHARADES</div>
+            </div>
+            <div class="splash-bottom">
+                <div class="load-row"><span>Loading Assets...</span><span id="loadPct">0%</span></div>
+                <div class="load-bar">
+                    <div class="load-fill" id="loadFill"></div>
+                </div>
+                <div class="splash-version">v2.4.0 • Build 2023</div>
+            </div>
+        </div>
+
+        <!-- ===== HOME ===== -->
+        <div class="screen bg-blue" id="home">
+            <div class="sparkles"></div>
+            <div class="floaters">
+                <div class="fl" style="top:3%;left:5%;font-size:30px;animation-delay:0s">🟣</div>
+                <div class="fl" style="top:5%;right:8%;font-size:28px;animation-delay:1s">⭐</div>
+                <div class="fl" style="top:2%;right:25%;font-size:22px;animation-delay:2s">🔷</div>
+                <div class="fl" style="bottom:22%;left:3%;font-size:20px;animation-delay:1.5s">⭐</div>
+                <div class="fl" style="bottom:18%;right:5%;font-size:26px;animation-delay:2.5s">🔷</div>
+            </div>
+            <div class="home-title" id="homeTitle">Mímica Pro</div>
+            <div class="categories" id="categoriesGrid"></div>
+            <button class="btn-empezar" id="btnEmpezar" onclick="startGame()">EMPEZAR</button>
+            <div class="bottom-nav">
+                <div class="nav-item" onclick="showScreen('settings')"><span class="nav-icon">⚙️</span><span
+                        id="navConfig">Configuración</span></div>
+            </div>
+        </div>
+
+
+
+        <!-- ===== GAME ===== -->
+        <div class="screen bg-game" id="game">
+            <div class="sparkles"></div>
+            <div class="floaters">
+                <div class="fl" style="top:5%;right:8%;font-size:28px;animation-delay:0s">⭐</div>
+                <div class="fl" style="top:8%;right:25%;font-size:22px;animation-delay:1s">🔷</div>
+                <div class="fl" style="bottom:25%;left:5%;font-size:20px;animation-delay:2s">⭐</div>
+                <div class="fl" style="bottom:20%;right:8%;font-size:18px;animation-delay:1.5s">🟣</div>
+                <div class="fl" style="top:50%;left:2%;font-size:24px;animation-delay:3s">🔷</div>
+            </div>
+            <div class="game-top">
+                <button class="btn-home" onclick="showExitModal()">🏠</button>
+                <div class="timer"><span class="timer-text"><span class="timer-min" id="tMin">0</span><span
+                            class="timer-colon">:</span><span class="timer-sec" id="tSec">45</span></span></div>
+                <div style="width:50px"></div>
+            </div>
+            <div class="word-card">
+                <div class="word-text" id="wordDisplay">LEÓN</div>
+            </div>
+            <div class="game-btns">
+                <button class="btn-pasar" id="btnPasar" onclick="skipWord()">PASAR</button>
+                <button class="btn-correcto" id="btnCorrecto" onclick="correctWord()">CORRECTO</button>
+            </div>
+            <div class="modal-overlay" id="exitModal">
+                <div class="modal-box">
+                    <div class="modal-emoji">🤔</div>
+                    <div class="modal-title" id="exitTitle">¿QUIERES SALIR?</div>
+                    <div class="modal-desc" id="exitDesc">¡Oh no! Se perderá el progreso actual.</div>
+                    <div class="modal-btns">
+                        <button class="btn-continue" id="btnContinue" onclick="hideExitModal()">▶ NO, SEGUIR</button>
+                        <button class="btn-exit" id="btnExit" onclick="exitGame()">✕ SÍ, SALIR</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== RESULTS ===== -->
+        <div class="screen bg-results" id="results">
+            <div class="confetti-container" id="confettiBox"></div>
+            <div class="sparkles"></div>
+
+            <div class="results-content"
+                style="padding: 20px; display: flex; flex-direction: column; height: 100%; overflow-y: auto; width: 100%; position: relative; z-index: 10;">
+                <div class="results-title" id="resultsTitle" style="font-size: 32px; margin-bottom: 10px;">MÍMICA
+                    PRO<br>RESULTADOS</div>
+
+                <div class="score-box" id="resultsScoreBox">
+                    <div class="score-label" id="scoreLabel">PUNTUACIÓN TOTAL</div>
+                    <span id="finalScore">0</span>
+                </div>
+
+                <div id="resDetails" class="results-details" style="margin-bottom: 20px;">
+                    <!-- JS fills this -->
+                </div>
+
+                <div class="results-btns"
+                    style="padding: 10px 0 40px 0; display: flex; flex-direction: column; gap: 15px; width: 100%;">
+                    <button class="btn-replay" id="btnReplay" onclick="playAgain()">VOLVER A JUGAR</button>
+                    <button class="btn-menu-r" id="btnMenuR" onclick="showScreen('home')">MENÚ</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== SETTINGS ===== -->
+        <div class="screen bg-settings" id="settings">
+            <div class="floaters">
+                <div class="fl" style="top:5%;left:75%;font-size:35px;animation-delay:0s">⚙️</div>
+                <div class="fl" style="top:15%;right:5%;font-size:28px;animation-delay:1s">⭐</div>
+                <div class="fl" style="top:45%;left:-2%;font-size:30px;animation-delay:2s">🔧</div>
+                <div class="fl" style="bottom:30%;right:2%;font-size:25px;animation-delay:1.5s">💜</div>
+                <div class="fl" style="bottom:10%;left:5%;font-size:32px;animation-delay:2.5s">⚙️</div>
+                <div class="fl" style="top:30%;left:3%;font-size:35px;animation-delay:3s">🌀</div>
+            </div>
+            <div style="padding:20px;display:flex;flex-direction:column;height:100%">
+                <button class="btn-close" onclick="showScreen('home')">✕</button>
+                <div class="settings-card">
+                    <div class="s-title" id="settingsTitle">Mímica Pro -<br>Configuración</div>
+                    <div class="s-subtitle" id="settingsIdioma">Idioma / Language</div>
+                    <div class="lang-row">
+                        <button class="lang-btn active" onclick="setLang(this,'es')">🇪🇸 ES</button>
+                        <button class="lang-btn inactive" onclick="setLang(this,'en')">🇬🇧 EN</button>
+                    </div>
+
+                    <div class="toggle-row">
+                        <div class="toggle-label" id="lblMusica">Música</div>
+                        <div class="toggle-sw on" onclick="this.classList.toggle('on')">
+                            <div class="toggle-dot"></div>
+                        </div>
+                    </div>
+                    <div class="toggle-row">
+                        <div class="toggle-label" id="lblVibracion">Vibración</div>
+                        <div class="toggle-sw on" onclick="this.classList.toggle('on')">
+                            <div class="toggle-dot"></div>
+                        </div>
+                    </div>
+
+                    <div class="timer-section">
+                        <h4 id="lblTiempo">Tiempo de Juego</h4>
+                        <div class="timer-display">⏳ <span id="timeVal">60 segundos</span></div>
+                        <input type="range" id="timeSlider" class="slider" min="30" max="90" value="60" step="5"
+                            oninput="updateTimerVal(this.value)">
+                        <div class="slider-labels"><span>30s</span><span>60s</span><span>90s</span></div>
+                    </div>
+                </div>
+                <button class="btn-guardar" id="btnGuardar" onclick="showScreen('home')">GUARDAR</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="gameData.js"></script>
+    <script>
+        try {
+            // ===== STATE =====
+            let lang = 'es';
+            let selectedCats = new Set(); // Empty by default
+            let gameTime = 60;
+            let score = 0;
+            let currentWords = [];
+            let wordIdx = 0;
+            let timerInterval = null;
+            let timeLeft = 0;
+
+            function t(key) { return i18n[lang][key] || key; }
+            function catName(id) { return i18n[lang].categories[id] || id; }
+
+            // ===== SPLASH LOADING =====
+            window.addEventListener('load', () => {
+                let pct = 0;
+                const fill = document.getElementById('loadFill');
+                const txt = document.getElementById('loadPct');
+                const interval = setInterval(() => {
+                    pct += Math.random() * 15 + 5;
+                    if (pct >= 100) { pct = 100; clearInterval(interval); setTimeout(() => showScreen('home'), 500); }
+                    fill.style.width = pct + '%';
+                    txt.textContent = Math.floor(pct) + '%';
+                }, 200);
+            });
+
+            // ===== CATEGORIES GRID =====
+            function renderCategories() {
+                const grid = document.getElementById('categoriesGrid');
+                grid.innerHTML = '';
+                CATEGORIES.forEach(cat => {
+                    const sel = selectedCats.has(cat.id) ? ' selected' : '';
+                    const name = catName(cat.id);
+                    grid.innerHTML += `<div class="cat-item${sel}" onclick="toggleCat('${cat.id}',this)">
+                    <div class="cat-icon-wrap"><img src="assets/iconos/${cat.icon}" alt="${name}"></div>
+                    <div class="cat-shadow"></div>
+                    <div class="cat-name">${name}</div>
+                </div>`;
+                });
+            }
+
+            function toggleCat(id, el) {
+                if (selectedCats.has(id)) selectedCats.delete(id); else selectedCats.add(id);
+                el.classList.toggle('selected');
+            }
+
+            // ===== NAVIGATION =====
+            function showScreen(id) {
+                document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+                document.getElementById(id).classList.add('active');
+
+                // Show/Hide bottom nav only on home
+                const nav = document.querySelector('.bottom-nav');
+                if (nav) {
+                    if (id === 'home') nav.style.display = 'flex';
+                    else nav.style.display = 'none';
+                }
+
+                if (id === 'home') renderCategories();
+                if (id === 'results') launchConfetti();
+            }
+
+            // ===== GAME LOGIC =====
+            let wordsHistory = []; // {word: 'Foo', status: 'ok'|'skip'}
+
+            // --- SOUND SYSTEM ---
+            const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            function playSound(type) {
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                if (type === 'correct') { // Ding!
+                    osc.type = 'sine'; osc.frequency.setValueAtTime(600, audioCtx.currentTime);
+                    osc.frequency.exponentialRampToValueAtTime(1000, audioCtx.currentTime + 0.1);
+                    gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.5);
+                    osc.start(); osc.stop(audioCtx.currentTime + 0.5);
+                } else if (type === 'skip') { // Boop
+                    osc.type = 'square'; osc.frequency.setValueAtTime(150, audioCtx.currentTime);
+                    osc.frequency.linearRampToValueAtTime(100, audioCtx.currentTime + 0.2);
+                    gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+                    gain.gain.linearRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+                    osc.start(); osc.stop(audioCtx.currentTime + 0.3);
+                } else if (type === 'end') { // Fanfare-ish
+                    // Simple sequence
+                    [523, 659, 784, 1046].forEach((f, i) => {
+                        const o = audioCtx.createOscillator(); const g = audioCtx.createGain();
+                        o.connect(g); g.connect(audioCtx.destination);
+                        o.frequency.value = f;
+                        g.gain.value = 0.2; g.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + i * 0.1 + 0.6);
+                        o.start(audioCtx.currentTime + i * 0.1); o.stop(audioCtx.currentTime + i * 0.1 + 0.6);
+                    });
+                }
+            }
+
+            function startGame() {
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                if (selectedCats.size === 0) { alert(t('seleccionaCat')); return; }
+                currentWords = [];
+                wordsHistory = [];
+
+                const wordKey = 'words_' + lang;
+                selectedCats.forEach(id => {
+                    const cat = CATEGORIES.find(c => c.id === id);
+                    if (cat && cat[wordKey]) currentWords.push(...cat[wordKey]);
+                });
+                if (currentWords.length === 0) { alert("Error: No words loaded"); return; }
+
+                currentWords.sort(() => Math.random() - 0.5);
+                wordIdx = 0; score = 0;
+                timeLeft = parseInt(gameTime);
+                showScreen('game');
+                showNextWord();
+                startTimer();
+            }
+
+            function showNextWord() {
+                if (wordIdx >= currentWords.length) wordIdx = 0;
+                document.getElementById('wordDisplay').textContent = currentWords[wordIdx].toUpperCase();
+            }
+
+            function skipWord() {
+                wordsHistory.push({ word: currentWords[wordIdx], status: 'skip' });
+                playSound('skip');
+                wordIdx++; showNextWord();
+            }
+            function correctWord() {
+                wordsHistory.push({ word: currentWords[wordIdx], status: 'ok' });
+                score++;
+                playSound('correct');
+                wordIdx++; showNextWord();
+            }
+
+            function startTimer() {
+                clearInterval(timerInterval);
+                updateTimerDisplay();
+                timerInterval = setInterval(() => {
+                    timeLeft--;
+                    updateTimerDisplay();
+                    if (timeLeft <= 0) { clearInterval(timerInterval); endGame(); }
+                }, 1000);
+            }
+
+            function updateTimerDisplay() {
+                const m = Math.floor(timeLeft / 60);
+                const s = timeLeft % 60;
+                document.getElementById('tMin').textContent = m;
+                document.getElementById('tSec').textContent = s.toString().padStart(2, '0');
+            }
+
+            function endGame() {
+                playSound('end');
+                const scoreDisplay = document.getElementById('finalScore');
+                if (scoreDisplay) scoreDisplay.textContent = score;
+
+                let html = '';
+                wordsHistory.forEach(item => {
+                    const stClass = item.status === 'ok' ? 'st-ok' : 'st-skip';
+                    const stIcon = item.status === 'ok' ? '✔' : '✘';
+                    html += `<div class="res-item">
+                        <span class="res-word">${item.word.toUpperCase()}</span>
+                        <span class="res-status ${stClass}">${stIcon}</span>
+                    </div>`;
+                });
+
+                const detailsContainer = document.getElementById('resDetails');
+                if (detailsContainer) detailsContainer.innerHTML = html;
+
+                showScreen('results');
+            }
+
+            function playAgain() { startGame(); }
+
+            // ===== EXIT MODAL =====
+            function showExitModal() { clearInterval(timerInterval); document.getElementById('exitModal').classList.add('show'); }
+            function hideExitModal() { document.getElementById('exitModal').classList.remove('show'); startTimer(); }
+            function exitGame() { hideExitModal(); clearInterval(timerInterval); showScreen('home'); }
+
+            // ===== LANGUAGE =====
+            function setLang(btn, newLang) {
+                lang = newLang;
+                document.querySelectorAll('.lang-btn').forEach(b => { b.classList.remove('active'); b.classList.add('inactive'); });
+                btn.classList.remove('inactive'); btn.classList.add('active');
+                applyTranslations();
+                renderCategories();
+            }
+
+            function updateTimerVal(val) {
+                gameTime = parseInt(val);
+                document.getElementById('timeVal').textContent = gameTime + ' ' + t('segundos');
+                updateSliderBackground();
+            }
+
+            function updateSliderBackground() {
+                const slider = document.getElementById('timeSlider');
+                if (!slider) return;
+                const pct = (slider.value - slider.min) / (slider.max - slider.min) * 100;
+                slider.style.background = `linear-gradient(to right, #4A90D9 ${pct}%, #D0D5DD ${pct}%)`;
+            }
+
+            function applyTranslations() {
+                // Home
+                document.getElementById('homeTitle').textContent = t('appTitle');
+                document.getElementById('btnEmpezar').textContent = t('empezar');
+                document.getElementById('navConfig').textContent = t('config');
+                document.getElementById('navAyuda').textContent = t('ayuda');
+                // How to play
+                document.getElementById('howtoTitle').textContent = t('comoJugar');
+                document.getElementById('howto1Title').textContent = t('howto1Title');
+                document.getElementById('howto1Desc').textContent = t('howto1Desc');
+                document.getElementById('howto2Title').textContent = t('howto2Title');
+                document.getElementById('howto2Desc').textContent = t('howto2Desc');
+                document.getElementById('howto3Title').textContent = t('howto3Title');
+                document.getElementById('howto3Desc').textContent = t('howto3Desc');
+                document.getElementById('btnEntendido').textContent = t('entendido');
+                // Game
+                document.getElementById('btnPasar').textContent = t('pasar');
+                document.getElementById('btnCorrecto').textContent = t('correcto');
+                // Results
+                const resTitle = document.getElementById('resultsTitle');
+                if (resTitle) resTitle.innerHTML = t('resultados');
+                const scoreLabel = document.getElementById('scoreLabel');
+                if (scoreLabel) scoreLabel.innerHTML = t('puntuacion');
+                const btnReplay = document.getElementById('btnReplay');
+                if (btnReplay) btnReplay.textContent = t('volverJugar');
+                const btnMenuR = document.getElementById('btnMenuR');
+                if (btnMenuR) btnMenuR.textContent = t('menu');
+                // Settings
+                document.getElementById('settingsTitle').innerHTML = t('configTitle');
+                document.getElementById('settingsIdioma').textContent = t('idioma');
+                document.getElementById('lblMusica').textContent = t('musicaLabel');
+                document.getElementById('lblVibracion').textContent = t('vibracion');
+                document.getElementById('lblTiempo').textContent = t('tiempoJuego');
+                document.getElementById('btnGuardar').textContent = t('guardar');
+                document.getElementById('timeVal').textContent = gameTime + ' ' + t('segundos');
+
+                // Keep slider sync
+                const slider = document.getElementById('timeSlider');
+                if (slider) {
+                    slider.value = gameTime;
+                    updateSliderBackground();
+                }
+
+                // Exit modal
+                document.getElementById('exitTitle').textContent = t('salirTitulo');
+                document.getElementById('exitDesc').textContent = t('salirDesc');
+                document.getElementById('btnContinue').innerHTML = t('noSeguir');
+                document.getElementById('btnExit').innerHTML = t('siSalir');
+            }
+
+            // ===== CONFETTI =====
+            function launchConfetti() {
+                const box = document.getElementById('confettiBox');
+                box.innerHTML = '';
+                const colors = ['#FFD700', '#FF6B6B', '#4CAF50', '#5BC0F0', '#FF8C00', '#9370DB', '#FF69B4', '#00CED1'];
+                for (let i = 0; i < 50; i++) {
+                    const piece = document.createElement('div');
+                    piece.className = 'confetti-piece';
+                    piece.style.cssText = `left:${Math.random() * 100}%;background:${colors[i % colors.length]};animation-delay:${Math.random() * 3}s;animation-duration:${2 + Math.random() * 2}s;border-radius:${Math.random() > .5 ? '50%' : '2px'};width:${6 + Math.random() * 8}px;height:${6 + Math.random() * 8}px;`;
+                    box.appendChild(piece);
+                }
+            }
+
+            renderCategories();
+            updateSliderBackground();
+        } catch (e) {
+            alert("AVISO DE ERROR: " + e.message);
+            console.error(e);
+        }
+    </script>
+</body>
+
+</html>
