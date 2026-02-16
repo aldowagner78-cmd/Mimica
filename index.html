@@ -8,6 +8,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Quicksand:wght@500;600;700;800&display=swap"
         rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0D6CA8">
+    <link rel="apple-touch-icon" href="assets/iconos/animales_leon.png">
     <style>
         * {
             margin: 0;
@@ -1704,6 +1707,13 @@
 
             renderCategories();
             updateSliderBackground();
+
+            // PWA Service Worker Registration
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('SW Registered'))
+                    .catch(err => console.log('SW Error', err));
+            }
         } catch (e) {
             alert("AVISO DE ERROR: " + e.message);
             console.error(e);

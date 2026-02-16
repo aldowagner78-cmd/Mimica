@@ -1,0 +1,16 @@
+{
+  "name": "Mímica Pro",
+  "short_name": "Mímica",
+  "description": "Juego de mímicas divertido para toda la familia.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0D6CA8",
+  "theme_color": "#0D6CA8",
+  "icons": [
+    {
+      "src": "assets/iconos/animales_leon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
