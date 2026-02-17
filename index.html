@@ -511,22 +511,82 @@
             text-transform: uppercase
         }
 
+        .team-a {
+            color: #5CE1E6;
+            border: 2px solid #5CE1E6;
+            background: rgba(92, 225, 230, 0.15);
+            box-shadow: 0 0 15px rgba(92, 225, 230, 0.4);
+        }
+
+        .team-b {
+            color: #FFB847;
+            border: 2px solid #FFB847;
+            background: rgba(255, 184, 71, 0.15);
+            box-shadow: 0 0 15px rgba(255, 184, 71, 0.4);
+        }
+
+        .score-display {
+            font-size: 18px;
+            font-weight: 800;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ===== TEAM MODAL ===== */
+        .team-config {
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            border: 3px solid var(--gold);
+            padding: 30px;
+            border-radius: 35px;
+            width: 90%;
+            max-width: 320px;
+        }
+
+        .team-input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .team-input-group label {
+            display: block;
+            color: var(--gold);
+            font-weight: 800;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .team-input-group input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.3);
+            color: white;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+        }
+
+        .team-input-group input:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
         /* EMPEZAR button - NOW IN BOTTOM NAV */
         .btn-empezar {
-            padding: 18px 50px;
-            font-size: 24px;
+            padding: 10px 25px;
+            font-size: 16px;
             background: linear-gradient(180deg, #4CAF50, #2E7D32);
             color: white;
             border: none;
             border-radius: 50px;
             font-family: 'Luckiest Guy', cursive;
             cursor: pointer;
-            box-shadow: 0 6px 0 #1B5E20, 0 10px 20px rgba(0, 0, 0, .3);
+            box-shadow: 0 4px 0 #1B5E20, 0 8px 15px rgba(0, 0, 0, .3);
             transition: all .2s;
             position: relative;
             overflow: hidden;
-            width: 85%;
-            letter-spacing: 2px;
+            width: 45%;
+            letter-spacing: 1.5px;
         }
 
         .btn-empezar::before {
@@ -1540,8 +1600,12 @@
 
             <div class="results-content"
                 style="padding: 20px; display: flex; flex-direction: column; height: 100%; overflow-y: auto; width: 100%; position: relative; z-index: 10;">
-                <div class="results-title" id="resultsTitle" style="font-size: 32px; margin-bottom: 10px;">MÍMICA
-                    PRO<br>RESULTADOS</div>
+                <div
+                    style="font-size: 40px; color: var(--gold); text-shadow: 0 4px 10px rgba(0,0,0,0.5); margin-bottom: 5px;">
+                    ¡FELICIDADES!</div>
+                <div class="results-title" id="resultsTitle"
+                    style="font-size: 24px; margin-bottom: 10px; opacity: 0.8;">MÍMICA
+                    PRO - RESULTADOS</div>
 
                 <div class="score-box" id="resultsScoreBox">
                     <div class="score-label" id="scoreLabel">PUNTUACIÓN TOTAL</div>
@@ -1612,6 +1676,32 @@
             </div>
         </div>
 
+        <!-- ===== TEAM CONFIG MODAL ===== -->
+        <div class="modal-overlay" id="teamModal">
+            <div class="modal-box team-config">
+                <div class="modal-emoji">👥</div>
+                <div class="modal-title">CONFIGURAR EQUIPOS</div>
+
+                <div class="team-input-group" style="margin-bottom: 25px;">
+                    <label>¿Cuántos equipos?</label>
+                    <select id="teamCount" onchange="updateTeamInputs()"
+                        style="width:100%; padding:12px; border-radius:15px; background:rgba(0,0,0,0.3); color:white; border:2px solid rgba(255,255,255,0.1); font-weight:700;">
+                        <option value="2">2 Equipos</option>
+                        <option value="3">3 Equipos</option>
+                        <option value="4">4 Equipos</option>
+                    </select>
+                </div>
+
+                <div id="teamNamesContainer">
+                    <!-- Dynamic inputs -->
+                </div>
+
+                <div class="modal-btns" style="margin-top: 20px;">
+                    <button class="btn-continue" onclick="saveTeams()">¡LISTO!</button>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <script src="gameData.js"></script>
@@ -1627,11 +1717,12 @@
             let timerInterval = null;
             let timeLeft = 0;
 
-            // Team Mode State
             let isTeamMode = false;
             let isVibrationOn = true;
-            let currentTeam = 'A'; // 'A' or 'B'
-            let teamScores = { A: 0, B: 0 };
+            let teamOrder = ['A', 'B']; // Current active teams in order
+            let currentTeamIdx = 0; // Index of team playing
+            let teamNamesMap = { A: "Azules", B: "Dorados", C: "Rojos", D: "Verdes" };
+            let teamScoresMap = { A: 0, B: 0, C: 0, D: 0 };
 
             function toggleOption(opt) {
                 if (opt === 'vib') {
@@ -1639,8 +1730,45 @@
                     document.getElementById('toggleVib').classList.toggle('on', isVibrationOn);
                 } else if (opt === 'teams') {
                     isTeamMode = !isTeamMode;
-                    document.getElementById('toggleTeams').classList.toggle('on', isTeamMode);
+                    const toggle = document.getElementById('toggleTeams');
+                    toggle.classList.toggle('on', isTeamMode);
+                    if (isTeamMode) {
+                        updateTeamInputs();
+                        document.getElementById('teamModal').classList.add('show');
+                    }
                 }
+            }
+
+            function updateTeamInputs() {
+                const count = parseInt(document.getElementById('teamCount').value);
+                const container = document.getElementById('teamNamesContainer');
+                container.innerHTML = '';
+                const keys = ['A', 'B', 'C', 'D'];
+                const colors = ['#5CE1E6', '#FFB847', '#FF6B6B', '#4CAF50'];
+                for (let i = 0; i < count; i++) {
+                    const key = keys[i];
+                    container.innerHTML += `
+                        <div class="team-input-group">
+                            <label style="color: ${colors[i]}">Nombre Equipo ${i + 1}:</label>
+                            <input type="text" id="name${key}" value="${teamNamesMap[key] || ''}" maxlength="15">
+                        </div>
+                    `;
+                }
+            }
+
+            function saveTeams() {
+                const count = parseInt(document.getElementById('teamCount').value);
+                const keys = ['A', 'B', 'C', 'D'];
+                teamOrder = [];
+                for (let i = 0; i < count; i++) {
+                    const key = keys[i];
+                    const val = document.getElementById('name' + key).value.trim();
+                    if (val) teamNamesMap[key] = val;
+                    teamOrder.push(key);
+                    teamScoresMap[key] = 0; // Reset scores on change
+                }
+                currentTeamIdx = 0;
+                document.getElementById('teamModal').classList.remove('show');
             }
 
             function t(key) { return i18n[lang][key] || key; }
@@ -1777,10 +1905,10 @@
                 // Team Mode UI setup
                 const indicator = document.getElementById('gameTeamIndicator');
                 if (isTeamMode) {
+                    const tid = teamOrder[currentTeamIdx];
                     indicator.style.display = 'block';
-                    indicator.textContent = 'Equipo ' + currentTeam;
-                    indicator.className = 'team-indicator team-' + currentTeam.toLowerCase();
-                    indicator.style.animation = 'squish 0.5s ease-out';
+                    indicator.textContent = teamNamesMap[tid];
+                    indicator.className = 'team-indicator team-' + tid.toLowerCase() + ' squishy';
                 } else {
                     indicator.style.display = 'none';
                 }
@@ -1836,7 +1964,7 @@
                 playSound('end');
 
                 if (isTeamMode) {
-                    teamScores[currentTeam] = score;
+                    teamScoresMap[teamOrder[currentTeamIdx]] = score;
                 }
 
                 document.getElementById('finalScore').textContent = score;
@@ -1845,17 +1973,30 @@
 
                 // If Team Mode, show comparison
                 if (isTeamMode) {
-                    const nextT = currentTeam === 'A' ? 'B' : 'A';
-                    const winnerText = teamScores.A > teamScores.B ? '¡GANA EQUIPO A! 🏆' :
-                        teamScores.B > teamScores.A ? '¡GANA EQUIPO B! 🏆' : '¡EMPATE! 🤝';
+                    // Find winner
+                    let winner = teamOrder[0];
+                    let maxS = teamScoresMap[winner];
+                    let isTie = false;
+                    teamOrder.slice(1).forEach(tid => {
+                        if (teamScoresMap[tid] > maxS) { winner = tid; maxS = teamScoresMap[tid]; isTie = false; }
+                        else if (teamScoresMap[tid] === maxS) isTie = true;
+                    });
 
-                    details.innerHTML = `<div style="text-align:center; margin-bottom:15px">
-                        <div style="font-size:24px; font-weight:800; color:#FFD700">${winnerText}</div>
-                        <div style="display:flex; justify-content:space-around; margin:15px 0; font-size:18px">
-                            <div class="team-a">Equipo A: ${teamScores.A}</div>
-                            <div class="team-b">Equipo B: ${teamScores.B}</div>
-                        </div>
-                    </div>`;
+                    const winnerTxt = isTie ? '¡EMPATE! 🤝' : `¡GANA ${teamNamesMap[winner].toUpperCase()}! 🏆`;
+
+                    let compareHTML = `<div style="text-align:center; margin-bottom:15px; background: rgba(0,0,0,0.2); padding: 15px; border-radius: 20px;">
+                        <div style="font-size:24px; font-weight:800; color:#FFD700; margin-bottom: 10px;">${winnerTxt}</div>
+                        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:10px; font-size:14px;">`;
+
+                    teamOrder.forEach(tid => {
+                        compareHTML += `<div class="team-indicator team-${tid.toLowerCase()}" style="display:block; margin:0; padding:6px 12px">${teamNamesMap[tid]}: ${teamScoresMap[tid]}</div>`;
+                    });
+
+                    compareHTML += `</div></div>`;
+                    details.innerHTML = compareHTML;
+
+                    // Switch to next team index
+                    currentTeamIdx = (currentTeamIdx + 1) % teamOrder.length;
                 }
 
                 wordsHistory.forEach(item => {

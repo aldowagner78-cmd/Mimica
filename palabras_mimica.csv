@@ -1,580 +1,566 @@
 Category,Spanish,English
-"animales","León","Lion"
-"animales","Elefante","Elephant"
-"animales","Jirafa","Giraffe"
-"animales","Serpiente","Snake"
-"animales","Águila","Eagle"
-"animales","Delfín","Dolphin"
-"animales","Gorila","Gorilla"
-"animales","Canguro","Kangaroo"
-"animales","Pingüino","Penguin"
-"animales","Mariposa","Butterfly"
-"animales","Tiburón","Shark"
-"animales","Tortuga","Turtle"
-"animales","Caballo","Horse"
-"animales","Gato","Cat"
-"animales","Perro","Dog"
-"animales","Oso","Bear"
-"animales","Conejo","Rabbit"
-"animales","Lobo","Wolf"
-"animales","Zorro","Fox"
-"animales","Búho","Owl"
-"animales","Mono","Monkey"
-"animales","Tigre","Tiger"
-"animales","Cocodrilo","Crocodile"
-"animales","Ratón","Mouse"
-"animales","Vaca","Cow"
-"animales","Cerdo","Pig"
-"animales","Gallina","Chicken"
-"animales","Araña","Spider"
-"animales","Abeja","Bee"
-"animales","Pulpo","Octopus"
-"animales","Loro","Parrot"
-"animales","Foca","Seal"
-"animales","Camaleón","Chameleon"
-"animales","Rinoceronte","Rhino"
-"animales","Hipopótamo","Hippo"
-"animales","Murciélago","Bat"
-"animales","Ardilla","Squirrel"
-"animales","Cebra","Zebra"
-"animales","Cangrejo","Crab"
-"animales","Medusa","Jellyfish"
-"animales","Pájaro Carpintero","Woodpecker"
-"animales","Oso Hormiguero","Anteater"
-"animales","Camello","Camel"
-"animales","Perro saltando","Dog jumping"
-"animales","Gato maullando","Cat meowing"
-"animales","Pájaro volando","Bird flying"
-"animales","Pez nadando","Fish swimming"
-"animales","Mono comiendo banana","Monkey eating banana"
-"animales","Perro persiguiendo su cola","Dog chasing tail"
-"peliculas","Titanic","Titanic"
-"peliculas","Batman","Batman"
-"peliculas","Spider-Man","Spider-Man"
-"peliculas","Frozen","Frozen"
-"peliculas","Shrek","Shrek"
-"peliculas","Matrix","Matrix"
-"peliculas","Avatar","Avatar"
-"peliculas","Rocky","Rocky"
-"peliculas","Pinocho","Pinocchio"
-"peliculas","Aladdin","Aladdin"
-"peliculas","Cenicienta","Cinderella"
-"peliculas","Toy Story","Toy Story"
-"peliculas","Jurassic Park","Jurassic Park"
-"peliculas","Indiana Jones","Indiana Jones"
-"peliculas","Star Wars","Star Wars"
-"peliculas","Harry Potter","Harry Potter"
-"peliculas","El Rey León","The Lion King"
-"peliculas","Nemo","Nemo"
-"peliculas","Coco","Coco"
-"peliculas","Encanto","Encanto"
-"peliculas","Ratatouille","Ratatouille"
-"peliculas","Moana","Moana"
-"peliculas","Up","Up"
-"peliculas","Cars","Cars"
-"peliculas","Rapunzel","Rapunzel"
-"peliculas","Mulan","Mulan"
-"peliculas","Terminator","Terminator"
-"peliculas","Gladiador","Gladiator"
-"peliculas","Tarzan","Tarzan"
-"peliculas","Peter Pan","Peter Pan"
-"peliculas","Dumbo","Dumbo"
-"peliculas","Bambi","Bambi"
-"peliculas","Luca","Luca"
-"peliculas","Soul","Soul"
-"peliculas","Juego de Tronos","Game of Thrones"
-"peliculas","La Casa de Papel","Money Heist"
-"peliculas","Stranger Things","Stranger Things"
-"peliculas","Misión Imposible","Mission Impossible"
-"peliculas","Mago de Oz","Wizard of Oz"
-"peliculas","Piratas del Caribe","Pirates of the Caribbean"
-"peliculas","El Padrino","The Godfather"
-"peliculas","Tiburón atacando","Shark attacking"
-"peliculas","Volar como Superman","Flying like Superman"
-"peliculas","Hombre Araña trepando","Spider-Man climbing"
-"peliculas","Titanic hundiéndose","Titanic sinking"
-"heroes","Superman","Superman"
-"heroes","Batman","Batman"
-"heroes","Spider-Man","Spider-Man"
-"heroes","Iron Man","Iron Man"
-"heroes","Thor","Thor"
-"heroes","Hulk","Hulk"
-"heroes","Flash","Flash"
-"heroes","Aquaman","Aquaman"
-"heroes","Wonder Woman","Wonder Woman"
-"heroes","Capitán América","Captain America"
-"heroes","Wolverine","Wolverine"
-"heroes","Deadpool","Deadpool"
-"heroes","Doctor Strange","Doctor Strange"
-"heroes","Black Panther","Black Panther"
-"heroes","Robin","Robin"
-"heroes","Linterna Verde","Green Lantern"
-"heroes","Ant-Man","Ant-Man"
-"heroes","Hawkeye","Hawkeye"
-"heroes","Venom","Venom"
-"heroes","Thanos","Thanos"
-"heroes","Scarlet Witch","Scarlet Witch"
-"heroes","Joker","Joker"
-"heroes","Catwoman","Catwoman"
-"heroes","Loki","Loki"
-"heroes","Groot","Groot"
-"heroes","Gamora","Gamora"
-"heroes","Shazam","Shazam"
-"heroes","Cyborg","Cyborg"
-"heroes","Storm","Storm"
-"heroes","Magneto","Magneto"
-"heroes","Professor X","Professor X"
-"heroes","Daredevil","Daredevil"
-"heroes","Luke Cage","Luke Cage"
-"heroes","Nightwing","Nightwing"
-"heroes","Iron Man volando","Iron Man flying"
-"heroes","Hulk aplastando","Hulk smashing"
-"heroes","Capitán América lanzando escudo","Captain America throwing shield"
-"heroes","Thor llamando al trueno","Thor calling thunder"
-"heroes","Flash corriendo rápido","Flash running fast"
-"heroes","Mujer Maravilla usando lazo","Wonder Woman using lasso"
-"accion","Correr","Run"
-"accion","Saltar","Jump"
-"accion","Nadar","Swim"
-"accion","Bailar","Dance"
-"accion","Cocinar","Cook"
-"accion","Dormir","Sleep"
-"accion","Volar","Fly"
-"accion","Conducir","Drive"
-"accion","Escalar","Climb"
-"accion","Boxear","Box"
-"accion","Surfear","Surf"
-"accion","Patinar","Skate"
-"accion","Cantar","Sing"
-"accion","Llorar","Cry"
-"accion","Reír","Laugh"
-"accion","Estornudar","Sneeze"
-"accion","Aplaudir","Clap"
-"accion","Silbar","Whistle"
-"accion","Bostezar","Yawn"
-"accion","Pintar","Paint"
-"accion","Pescar","Fish"
-"accion","Bucear","Dive"
-"accion","Disparar","Shoot"
-"accion","Lanzar","Throw"
-"accion","Atrapar","Catch"
-"accion","Empujar","Push"
-"accion","Jalar","Pull"
-"accion","Gritar","Scream"
-"accion","Rezar","Pray"
-"accion","Meditar","Meditate"
-"accion","Barrer","Sweep"
-"accion","Planchar","Iron"
-"accion","Coser","Sew"
-"accion","Tejer","Knit"
-"accion","Esquiar","Ski"
-"accion","Tomar sopa","Eating soup"
-"accion","Caminata lunar","Moonwalk"
-"accion","Matar moscas","Killing flies"
-"accion","Cambiar bombita","Changing lightbulb"
-"accion","Inflar globo","Inflating balloon"
-"accion","Abrir paraguas","Opening umbrella"
-"accion","Cepillarse los dientes","Brushing teeth"
-"accion","Atarse los cordones","Tying shoelaces"
-"accion","Tocar la puerta","Knocking on door"
-"accion","Saltar la soga","Jumping rope"
-"deportes","Fútbol","Soccer"
-"deportes","Basketball","Basketball"
-"deportes","Tenis","Tennis"
-"deportes","Natación","Swimming"
-"deportes","Boxeo","Boxing"
-"deportes","Surf","Surfing"
-"deportes","Karate","Karate"
-"deportes","Voleibol","Volleyball"
-"deportes","Golf","Golf"
-"deportes","Béisbol","Baseball"
-"deportes","Hockey","Hockey"
-"deportes","Rugby","Rugby"
-"deportes","Ciclismo","Cycling"
-"deportes","Esquí","Skiing"
-"deportes","Skateboard","Skateboarding"
-"deportes","Ping Pong","Ping Pong"
-"deportes","Bádminton","Badminton"
-"deportes","Lucha","Wrestling"
-"deportes","Judo","Judo"
-"deportes","Esgrima","Fencing"
-"deportes","Polo","Polo"
-"deportes","Escalada","Climbing"
-"deportes","Remo","Rowing"
-"deportes","Arquería","Archery"
-"deportes","Gimnasia","Gymnastics"
-"deportes","Atletismo","Athletics"
-"deportes","Snowboard","Snowboarding"
-"deportes","Patinaje","Skating"
-"deportes","Triatlón","Triathlon"
-"deportes","Waterpolo","Water Polo"
-"deportes","Handball","Handball"
-"deportes","Cricket","Cricket"
-"deportes","Salto Alto","High Jump"
-"deportes","Lanzamiento de Disco","Discus Throw"
-"deportes","Meter un gol","Scoring a goal"
-"deportes","Encestar pelota","Dunking a ball"
-"deportes","Nadar estilo mariposa","Butterfly swimming"
-"deportes","Hacer un home run","Hitting a home run"
-"deportes","Levantamiento de pesas","Weightlifting"
-"deportes","Luchar como ninja","Fighting like a ninja"
-"musica","Guitarra","Guitar"
-"musica","Piano","Piano"
-"musica","Batería","Drums"
-"musica","Trompeta","Trumpet"
-"musica","Violín","Violin"
-"musica","Flauta","Flute"
-"musica","Saxofón","Saxophone"
-"musica","DJ","DJ"
-"musica","Cantante","Singer"
-"musica","Director","Conductor"
-"musica","Arpa","Harp"
-"musica","Bajo","Bass"
-"musica","Maracas","Maracas"
-"musica","Tambor","Drum"
-"musica","Acordeón","Accordion"
-"musica","Banjo","Banjo"
-"musica","Xilófono","Xylophone"
-"musica","Micrófono","Microphone"
-"musica","Rock","Rock"
-"musica","Ópera","Opera"
-"musica","Ballet","Ballet"
-"musica","Tango","Tango"
-"musica","Reggaetón","Reggaeton"
-"musica","Salsa","Salsa"
-"musica","Hip Hop","Hip Hop"
-"musica","Rap","Rap"
-"musica","Jazz","Jazz"
-"musica","Blues","Blues"
-"musica","Cello","Cello"
-"musica","Órgano","Organ"
-"musica","Ukelele","Ukulele"
-"musica","Armónica","Harmonica"
-"musica","Pandereta","Tambourine"
-"musica","Mariachi","Mariachi"
-"musica","Tocar aire guitarra","Playing air guitar"
-"musica","Cantar bajo la lluvia","Singing in the rain"
-"musica","Dirigir orquesta","Conducting orchestra"
-"musica","Bailar breakdance","Breakdancing"
-"musica","Tocar el triángulo","Playing triangle"
-"musica","Hacer beatbox","Beatboxing"
-"profesiones","Doctor","Doctor"
-"profesiones","Bombero","Firefighter"
-"profesiones","Policía","Police"
-"profesiones","Chef","Chef"
-"profesiones","Astronauta","Astronaut"
-"profesiones","Piloto","Pilot"
-"profesiones","Maestro","Teacher"
-"profesiones","Dentista","Dentist"
-"profesiones","Veterinario","Veterinarian"
-"profesiones","Mago","Magician"
-"profesiones","Payaso","Clown"
-"profesiones","Pirata","Pirate"
-"profesiones","Ninja","Ninja"
-"profesiones","Mecánico","Mechanic"
-"profesiones","Pintor","Painter"
-"profesiones","Fotógrafo","Photographer"
-"profesiones","Jardinero","Gardener"
-"profesiones","Cartero","Mailman"
-"profesiones","Albañil","Builder"
-"profesiones","Peluquero","Barber"
-"profesiones","Electricista","Electrician"
-"profesiones","Carpintero","Carpenter"
-"profesiones","Plomero","Plumber"
-"profesiones","Abogado","Lawyer"
-"profesiones","Arqueólogo","Archaeologist"
-"profesiones","Panadero","Baker"
-"profesiones","Carnicero","Butcher"
-"profesiones","Sastre","Tailor"
-"profesiones","Soldado","Soldier"
-"profesiones","Espía","Spy"
-"profesiones","Minero","Miner"
-"profesiones","Granjero","Farmer"
-"profesiones","Enfermera","Nurse"
-"profesiones","Detective","Detective"
-"profesiones","Domador de leones","Lion tamer"
-"profesiones","Limpiador de ventanas","Window cleaner"
-"profesiones","Director de orquesta","Orchestra conductor"
-"profesiones","Cazador de fantasmas","Ghost hunter"
-"profesiones","Científico loco","Mad scientist"
-"profesiones","Pescador en bote","Fisherman on boat"
-"objetos","Teléfono","Phone"
-"objetos","Silla","Chair"
-"objetos","Paraguas","Umbrella"
-"objetos","Espejo","Mirror"
-"objetos","Reloj","Clock"
-"objetos","Escalera","Ladder"
-"objetos","Martillo","Hammer"
-"objetos","Tijeras","Scissors"
-"objetos","Cámara","Camera"
-"objetos","Bicicleta","Bicycle"
-"objetos","Computadora","Computer"
-"objetos","Guitarra","Guitar"
-"objetos","Balón","Ball"
-"objetos","Mochila","Backpack"
-"objetos","Sombrero","Hat"
-"objetos","Lentes","Glasses"
-"objetos","Zapatos","Shoes"
-"objetos","Libro","Book"
-"objetos","Lámpara","Lamp"
-"objetos","Llave","Key"
-"objetos","Candado","Padlock"
-"objetos","Linterna","Flashlight"
-"objetos","Maleta","Suitcase"
-"objetos","Almohada","Pillow"
-"objetos","Televisor","TV"
-"objetos","Control Remoto","Remote Control"
-"objetos","Cepillo","Brush"
-"objetos","Tenedor","Fork"
-"objetos","Cuchillo","Knife"
-"objetos","Botella","Bottle"
-"objetos","Globo","Balloon"
-"objetos","Corona","Crown"
-"objetos","Espada","Sword"
-"objetos","Escudo","Shield"
-"objetos","Hacha de leñador","Lumberjack axe"
-"objetos","Máquina de escribir","Typewriter"
-"objetos","Cámara fotográfica","Photo camera"
-"objetos","Lente de aumento","Magnifying glass"
-"objetos","Control de juegos","Game controller"
-"objetos","Bastón de anciano","Old man cane"
-"comida","Pizza","Pizza"
-"comida","Hamburguesa","Hamburger"
-"comida","Hot Dog","Hot Dog"
-"comida","Sushi","Sushi"
-"comida","Taco","Taco"
-"comida","Helado","Ice Cream"
-"comida","Pastel","Cake"
-"comida","Chocolate","Chocolate"
-"comida","Palomitas","Popcorn"
-"comida","Banana","Banana"
-"comida","Manzana","Apple"
-"comida","Sandía","Watermelon"
-"comida","Huevo Frito","Fried Egg"
-"comida","Espagueti","Spaghetti"
-"comida","Ensalada","Salad"
-"comida","Sopa","Soup"
-"comida","Asado","BBQ"
-"comida","Empanada","Empanada"
-"comida","Panqueque","Pancake"
-"comida","Donut","Donut"
-"comida","Galleta","Cookie"
-"comida","Queso","Cheese"
-"comida","Pan","Bread"
-"comida","Torta","Pie"
-"comida","Café","Coffee"
-"comida","Jugo","Juice"
-"comida","Batido","Smoothie"
-"comida","Papas Fritas","French Fries"
-"comida","Pollo Frito","Fried Chicken"
-"comida","Arroz","Rice"
-"comida","Churrasco","Steak"
-"comida","Flan","Flan"
-"comida","Waffle","Waffle"
-"comida","Croissant","Croissant"
-"comida","Pastel de chocolate","Chocolate cake"
-"comida","Comer espagueti","Eating spaghetti"
-"comida","Chupar pirulito","Licking lollipop"
-"comida","Pelar banana","Peeling banana"
-"comida","Batir huevos","Whisking eggs"
-"comida","Tomar sopa caliente","Eating hot soup"
-"fiesta","Cumpleaños","Birthday"
-"fiesta","Navidad","Christmas"
-"fiesta","Halloween","Halloween"
-"fiesta","Carnaval","Carnival"
-"fiesta","Boda","Wedding"
-"fiesta","Año Nuevo","New Year"
-"fiesta","Piñata","Piñata"
-"fiesta","Globos","Balloons"
-"fiesta","Confeti","Confetti"
-"fiesta","Pastel","Cake"
-"fiesta","Velas","Candles"
-"fiesta","Regalos","Gifts"
-"fiesta","Música","Music"
-"fiesta","Baile","Dance"
-"fiesta","Disfraz","Costume"
-"fiesta","Máscara","Mask"
-"fiesta","Fuegos Artificiales","Fireworks"
-"fiesta","Brindis","Toast"
-"fiesta","Karaoke","Karaoke"
-"fiesta","Limbo","Limbo"
-"fiesta","Serpentinas","Streamers"
-"fiesta","Guirnaldas","Garlands"
-"fiesta","Sorpresa","Surprise"
-"fiesta","Cotillón","Party Favors"
-"fiesta","DJ","DJ"
-"fiesta","Pista de Baile","Dance Floor"
-"fiesta","Invitaciones","Invitations"
-"fiesta","Decoración","Decoration"
-"fiesta","Fotomatón","Photo Booth"
-"fiesta","Juegos","Games"
-"fiesta","Conga","Conga"
-"fiesta","Macarena","Macarena"
-"fiesta","San Valentín","Valentine's Day"
-"fiesta","Fiesta de Pijamas","Sleepover"
-"fiesta","Romper piñata","Breaking piñata"
-"fiesta","Soplar velas","Blowing out candles"
-"fiesta","Abrir regalo","Opening gift"
-"fiesta","Bailar vals","Dancing waltz"
-"fiesta","Lanzar confeti","Throwing confetti"
-"fiesta","Hacer un brindis","Making a toast"
-"viajes","Avión","Airplane"
-"viajes","Tren","Train"
-"viajes","Barco","Ship"
-"viajes","Playa","Beach"
-"viajes","Montaña","Mountain"
-"viajes","Camping","Camping"
-"viajes","Maleta","Suitcase"
-"viajes","Pasaporte","Passport"
-"viajes","Mapa","Map"
-"viajes","Brújula","Compass"
-"viajes","Hotel","Hotel"
-"viajes","Tienda de Campaña","Tent"
-"viajes","Fotografía","Photography"
-"viajes","Recuerdo","Souvenir"
-"viajes","Aeropuerto","Airport"
-"viajes","Taxi","Taxi"
-"viajes","Autobús","Bus"
-"viajes","Metro","Subway"
-"viajes","Crucero","Cruise"
-"viajes","Safari","Safari"
-"viajes","Volcán","Volcano"
-"viajes","Cascada","Waterfall"
-"viajes","Desierto","Desert"
-"viajes","Selva","Jungle"
-"viajes","Isla","Island"
-"viajes","Faro","Lighthouse"
-"viajes","Museo","Museum"
-"viajes","Castillo","Castle"
-"viajes","Pirámide","Pyramid"
-"viajes","Torre Eiffel","Eiffel Tower"
-"viajes","Globo Aerostático","Hot Air Balloon"
-"viajes","Mochilero","Backpacker"
-"viajes","Brújula","Compass"
-"viajes","GPS","GPS"
-"viajes","Remar en canoa","Canoeing"
-"viajes","Volar en globo","Hot air balloon flying"
-"viajes","Escalar montaña","Climbing mountain"
-"viajes","Caminar en la arena","Walking on sand"
-"viajes","Tomar fotos","Taking photos"
-"viajes","Armar carpa","Setting up tent"
-"sorpresa","Regalo","Gift"
-"sorpresa","Caja Sorpresa","Surprise Box"
-"sorpresa","Mago","Magician"
-"sorpresa","Truco","Trick"
-"sorpresa","Escondite","Hide and Seek"
-"sorpresa","Cumpleaños Sorpresa","Surprise Birthday"
-"sorpresa","Lotería","Lottery"
-"sorpresa","Premio","Prize"
-"sorpresa","Tesoro","Treasure"
-"sorpresa","Cofre","Chest"
-"sorpresa","Secreto","Secret"
-"sorpresa","Misterio","Mystery"
-"sorpresa","Revelación","Reveal"
-"sorpresa","Adivinanza","Riddle"
-"sorpresa","Acertijo","Puzzle"
-"sorpresa","Escapismo","Escape Room"
-"sorpresa","Laberinto","Labyrinth"
-"sorpresa","Pista","Clue"
-"sorpresa","Enigma","Enigma"
-"sorpresa","Detective","Detective"
-"sorpresa","Lupa","Magnifying Glass"
-"sorpresa","Huella","Fingerprint"
-"sorpresa","Dado","Dice"
-"sorpresa","Ruleta","Roulette"
-"sorpresa","Carta Misteriosa","Mystery Letter"
-"sorpresa","Mensaje Secreto","Secret Message"
-"sorpresa","Código","Code"
-"sorpresa","Candado","Padlock"
-"sorpresa","Llave Maestra","Master Key"
-"sorpresa","Habitación Secreta","Secret Room"
-"sorpresa","Puerta Oculta","Hidden Door"
-"sorpresa","Pasadizo","Passage"
-"sorpresa","Trampa","Trap"
-"sorpresa","Ilusión","Illusion"
-"sorpresa","Sacar conejo de galera","Pulling rabbit from hat"
-"sorpresa","Desaparecer objeto","Making object disappear"
-"sorpresa","Encontrar tesoro","Finding treasure"
-"sorpresa","Abrir caja fuerte","Opening safe"
-"sorpresa","Seguir huellas","Following footprints"
-"sorpresa","Descifrar código","Decoding secrets"
-"verano","Playa","Beach"
-"verano","Sol","Sun"
-"verano","Piscina","Pool"
-"verano","Helado","Ice Cream"
-"verano","Sandía","Watermelon"
-"verano","Protector Solar","Sunscreen"
-"verano","Gafas de Sol","Sunglasses"
-"verano","Surfear","Surfing"
-"verano","Castillo de Arena","Sand Castle"
-"verano","Flotador","Floatie"
-"verano","Bikini","Bikini"
-"verano","Palmera","Palm Tree"
-"verano","Hamaca","Hammock"
-"verano","Limonada","Lemonade"
-"verano","Abanico","Fan"
-"verano","Ventilador","Electric Fan"
-"verano","Barbacoa","BBQ"
-"verano","Sombrilla","Umbrella"
-"verano","Toalla","Towel"
-"verano","Olas","Waves"
-"verano","Concha Marina","Seashell"
-"verano","Estrella de Mar","Starfish"
-"verano","Cangrejo","Crab"
-"verano","Medusa","Jellyfish"
-"verano","Snorkel","Snorkel"
-"verano","Kayak","Kayak"
-"verano","Jet Ski","Jet Ski"
-"verano","Pelota de Playa","Beach Ball"
-"verano","Bronceado","Suntan"
-"verano","Chiringuito","Beach Bar"
-"verano","Atardecer","Sunset"
-"verano","Fogata","Bonfire"
-"verano","Verano","Summer"
-"verano","Chapuzón","Splash"
-"verano","Ponerse protector","Applying sunscreen"
-"verano","Espantar mosquitos","Shooing mosquitoes"
-"verano","Soplar aire con abanico","Fanning yourself"
-"verano","Bucear con snorkel","Snorkeling"
-"verano","Saltar una ola","Jumping a wave"
-"verano","Mecerse en hamaca","Swinging in hammock"
-"juegos","Mario","Mario"
-"juegos","Pac-Man","Pac-Man"
-"juegos","Tetris","Tetris"
-"juegos","Minecraft","Minecraft"
-"juegos","Fortnite","Fortnite"
-"juegos","Ajedrez","Chess"
-"juegos","Damas","Checkers"
-"juegos","Monopoly","Monopoly"
-"juegos","Jenga","Jenga"
-"juegos","Uno","Uno"
-"juegos","Dado","Dice"
-"juegos","Rompecabezas","Puzzle"
-"juegos","Cartas","Cards"
-"juegos","Dominó","Dominoes"
-"juegos","Ludo","Ludo"
-"juegos","Twister","Twister"
-"juegos","Bingo","Bingo"
-"juegos","Pinball","Pinball"
-"juegos","Futbolín","Foosball"
-"juegos","Pool","Pool"
-"juegos","Dardos","Darts"
-"juegos","Boliche","Bowling"
-"juegos","Videojuego","Video Game"
-"juegos","Consola","Console"
-"juegos","Joystick","Joystick"
-"juegos","Realidad Virtual","Virtual Reality"
-"juegos","Arcade","Arcade"
-"juegos","Game Over","Game Over"
-"juegos","Power Up","Power Up"
-"juegos","Nivel","Level"
-"juegos","Boss Final","Final Boss"
-"juegos","Laberinto","Maze"
-"juegos","Trivia","Trivia"
-"juegos","Charadas","Charades"
-"juegos","Saltar como Mario","Jumping like Mario"
-"juegos","Jugar al Twister","Playing Twister"
-"juegos","Lanzar dardos","Throwing darts"
-"juegos","Derribar pinos boliche","Bowling strike"
-"juegos","Mezclar mazo cartas","Shuffling deck of cards"
-"juegos","Hacer torre Jenga","Building Jenga tower"
+animales,León,Lion
+animales,Elefante,Elephant
+animales,Jirafa,Giraffe
+animales,Serpiente,Snake
+animales,Águila,Eagle
+animales,Delfín,Dolphin
+animales,Gorila,Gorilla
+animales,Canguro,Kangaroo
+animales,Pingüino,Penguin
+animales,Mariposa,Butterfly
+animales,Tiburón,Shark
+animales,Tortuga,Turtle
+animales,Caballo,Horse
+animales,Gato,Cat
+animales,Perro,Dog
+animales,Oso,Bear
+animales,Conejo,Rabbit
+animales,Lobo,Wolf
+animales,Zorro,Fox
+animales,Búho,Owl
+animales,Mono,Monkey
+animales,Tigre,Tiger
+animales,Cocodrilo,Crocodile
+animales,Ratón,Mouse
+animales,Vaca,Cow
+animales,Cerdo,Pig
+animales,Gallina,Chicken
+animales,Araña,Spider
+animales,Abeja,Bee
+animales,Pulpo,Octopus
+animales,Loro,Parrot
+animales,Foca,Seal
+animales,Camaleón,Chameleon
+animales,Rinoceronte,Rhino
+animales,Hipopótamo,Hippo
+animales,Murciélago,Bat
+animales,Ardilla,Squirrel
+animales,Cebra,Zebra
+animales,Cangrejo,Crab
+animales,Medusa,Jellyfish
+animales,Pájaro Carpintero,Woodpecker
+animales,Oso Hormiguero,Anteater
+animales,Camello,Camel
+animales,Gato maullando,Cat meowing
+animales,Pájaro volando,Bird flying
+animales,Pez nadando,Fish swimming
+animales,Mono comiendo banana,Monkey eating banana
+animales,Perro persiguiendo su cola,Dog chasing tail
+peliculas,Titanic,Titanic
+peliculas,Batman,Batman
+peliculas,Spider-Man,Spider-Man
+peliculas,Frozen,Frozen
+peliculas,Shrek,Shrek
+peliculas,Matrix,Matrix
+peliculas,Avatar,Avatar
+peliculas,Rocky,Rocky
+peliculas,Pinocho,Pinocchio
+peliculas,Aladdin,Aladdin
+peliculas,Cenicienta,Cinderella
+peliculas,Toy Story,Toy Story
+peliculas,Jurassic Park,Jurassic Park
+peliculas,Indiana Jones,Indiana Jones
+peliculas,Star Wars,Star Wars
+peliculas,Harry Potter,Harry Potter
+peliculas,El Rey León,The Lion King
+peliculas,Nemo,Nemo
+peliculas,Coco,Coco
+peliculas,Encanto,Encanto
+peliculas,Ratatouille,Ratatouille
+peliculas,Moana,Moana
+peliculas,Up,Up
+peliculas,Cars,Cars
+peliculas,Rapunzel,Rapunzel
+peliculas,Mulan,Mulan
+peliculas,Terminator,Terminator
+peliculas,Gladiador,Gladiator
+peliculas,Tarzan,Tarzan
+peliculas,Peter Pan,Peter Pan
+peliculas,Dumbo,Dumbo
+peliculas,Bambi,Bambi
+peliculas,Luca,Luca
+peliculas,Soul,Soul
+peliculas,Juego de Tronos,Game of Thrones
+peliculas,La Casa de Papel,Money Heist
+peliculas,Stranger Things,Stranger Things
+peliculas,Misión Imposible,Mission Impossible
+peliculas,Mago de Oz,Wizard of Oz
+peliculas,Piratas del Caribe,Pirates of the Caribbean
+peliculas,El Padrino,The Godfather
+peliculas,Tiburón atacando,Shark attacking
+peliculas,Volar como Superman,Flying like Superman
+heroes,Superman,Superman
+heroes,Batman,Batman
+heroes,Spider-Man,Spider-Man
+heroes,Iron Man,Iron Man
+heroes,Thor,Thor
+heroes,Hulk,Hulk
+heroes,Flash,Flash
+heroes,Aquaman,Aquaman
+heroes,Mujer Maravilla,Wonder Woman
+heroes,Capitán América,Captain America
+heroes,Wolverine,Wolverine
+heroes,Deadpool,Deadpool
+heroes,Doctor Strange,Doctor Strange
+heroes,Black Panther,Black Panther
+heroes,Robin Hood,Robin Hood
+heroes,Linterna Verde,Green Lantern
+heroes,Ant-Man,Ant-Man
+heroes,Hawkeye,Hawkeye
+heroes,Venom,Venom
+heroes,Thanos,Thanos
+heroes,Scarlet Witch,Scarlet Witch
+heroes,Joker,Joker
+heroes,Catwoman,Catwoman
+heroes,Loki,Loki
+heroes,Groot,Groot
+heroes,Gamora,Gamora
+heroes,Storm,Storm
+heroes,Magneto,Magneto
+heroes,Professor X,Professor X
+heroes,Iron Man volando,Iron Man flying
+heroes,Hulk golpeando,Hulk hitting
+heroes,Capitán América lanzando escudo,Captain America throwing shield
+heroes,Flash corriendo rápido,Flash running fast
+heroes,Mujer Maravilla usando lazo,Wonder Woman using lasso
+accion,Correr,Run
+accion,Saltar,Jump
+accion,Nadar,Swim
+accion,Bailar,Dance
+accion,Cocinar,Cook
+accion,Dormir,Sleep
+accion,Volar,Fly
+accion,Conducir,Drive
+accion,Escalar,Climb
+accion,Boxear,Box
+accion,Surfear,Surf
+accion,Patinar,Skate
+accion,Cantar,Sing
+accion,Llorar,Cry
+accion,Reír,Laugh
+accion,Estornudar,Sneeze
+accion,Aplaudir,Clap
+accion,Silbar,Whistle
+accion,Bostezar,Yawn
+accion,Pintar,Paint
+accion,Pescar,Fish
+accion,Bucear,Dive
+accion,Disparar,Shoot
+accion,Lanzar,Throw
+accion,Atrapar,Catch
+accion,Empujar,Push
+accion,Jalar,Pull
+accion,Gritar,Scream
+accion,Rezar,Pray
+accion,Meditar,Meditate
+accion,Barrer,Sweep
+accion,Planchar,Iron
+accion,Coser,Sew
+accion,Tejer,Knit
+accion,Esquiar,Ski
+accion,Tomar sopa,Eating soup
+accion,Caminata lunar,Moonwalk
+accion,Matar moscas,Killing flies
+accion,Cambiar foco,Changing lightbulb
+accion,Inflar globo,Inflating balloon
+accion,Abrir paraguas,Opening umbrella
+accion,Cepillarse los dientes,Brushing teeth
+accion,Atarse los cordones,Tying shoelaces
+accion,Tocar la puerta,Knocking on door
+accion,Saltar la soga,Jumping rope
+deportes,Fútbol,Soccer
+deportes,Basketball,Basketball
+deportes,Tenis,Tennis
+deportes,Natación,Swimming
+deportes,Boxeo,Boxing
+deportes,Surf,Surfing
+deportes,Karate,Karate
+deportes,Voleibol,Volleyball
+deportes,Golf,Golf
+deportes,Béisbol,Baseball
+deportes,Hockey,Hockey
+deportes,Rugby,Rugby
+deportes,Ciclismo,Cycling
+deportes,Esquí,Skiing
+deportes,Ping Pong,Ping Pong
+deportes,Lucha,Wrestling
+deportes,Judo,Judo
+deportes,Esgrima,Fencing
+deportes,Polo,Polo
+deportes,Escalada,Climbing
+deportes,Remo,Rowing
+deportes,Arquería,Archery
+deportes,Gimnasia,Gymnastics
+deportes,Atletismo,Athletics
+deportes,Patinaje,Skating
+deportes,Waterpolo,Water Polo
+deportes,Handball,Handball
+deportes,Cricket,Cricket
+deportes,Salto Alto,High Jump
+deportes,Lanzamiento de Disco,Discus Throw
+deportes,Meter un gol,Scoring a goal
+deportes,Encestar pelota,Dunking a ball
+deportes,Nadar estilo mariposa,Butterfly swimming
+deportes,Hacer un home run,Hitting a home run
+deportes,Levantamiento de pesas,Weightlifting
+deportes,Luchar como ninja,Fighting like a ninja
+musica,Guitarra,Guitar
+musica,Piano,Piano
+musica,Batería,Drums
+musica,Trompeta,Trumpet
+musica,Violín,Violin
+musica,Flauta,Flute
+musica,Saxofón,Saxophone
+musica,DJ,DJ
+musica,Cantante,Singer
+musica,Director,Conductor
+musica,Arpa,Harp
+musica,Bajo,Bass
+musica,Maracas,Maracas
+musica,Tambor,Drum
+musica,Acordeón,Accordion
+musica,Banjo,Banjo
+musica,Xilófono,Xylophone
+musica,Micrófono,Microphone
+musica,Rock,Rock
+musica,Ópera,Opera
+musica,Ballet,Ballet
+musica,Tango,Tango
+musica,Reggaetón,Reggaeton
+musica,Salsa,Salsa
+musica,Hip Hop,Hip Hop
+musica,Rap,Rap
+musica,Jazz,Jazz
+musica,Blues,Blues
+musica,Cello,Cello
+musica,Órgano,Organ
+musica,Ukelele,Ukulele
+musica,Armónica,Harmonica
+musica,Pandereta,Tambourine
+musica,Mariachi,Mariachi
+musica,Tocar la guitarra,Playing guitar
+musica,Cantar bajo la lluvia,Singing in the rain
+musica,Dirigir orquesta,Conducting orchestra
+musica,Bailar breakdance,Breakdancing
+musica,Tocar el triángulo,Playing triangle
+musica,Hacer beatbox,Beatboxing
+profesiones,Doctor,Doctor
+profesiones,Bombero,Firefighter
+profesiones,Policía,Police
+profesiones,Chef,Chef
+profesiones,Astronauta,Astronaut
+profesiones,Piloto,Pilot
+profesiones,Maestro,Teacher
+profesiones,Dentista,Dentist
+profesiones,Veterinario,Veterinarian
+profesiones,Mago,Magician
+profesiones,Payaso,Clown
+profesiones,Pirata,Pirate
+profesiones,Ninja,Ninja
+profesiones,Mecánico,Mechanic
+profesiones,Pintor,Painter
+profesiones,Fotógrafo,Photographer
+profesiones,Jardinero,Gardener
+profesiones,Cartero,Mailman
+profesiones,Albañil,Builder
+profesiones,Peluquero,Barber
+profesiones,Electricista,Electrician
+profesiones,Carpintero,Carpenter
+profesiones,Plomero,Plumber
+profesiones,Abogado,Lawyer
+profesiones,Arqueólogo,Archaeologist
+profesiones,Panadero,Baker
+profesiones,Carnicero,Butcher
+profesiones,Sastre,Tailor
+profesiones,Soldado,Soldier
+profesiones,Espía,Spy
+profesiones,Minero,Miner
+profesiones,Granjero,Farmer
+profesiones,Enfermera,Nurse
+profesiones,Detective,Detective
+profesiones,Domador de leones,Lion tamer
+profesiones,Limpiador de ventanas,Window cleaner
+profesiones,Director de orquesta,Orchestra conductor
+profesiones,Cazador de fantasmas,Ghost hunter
+profesiones,Científico loco,Mad scientist
+objetos,Teléfono,Phone
+objetos,Silla,Chair
+objetos,Paraguas,Umbrella
+objetos,Espejo,Mirror
+objetos,Reloj,Clock
+objetos,Escalera,Ladder
+objetos,Martillo,Hammer
+objetos,Tijeras,Scissors
+objetos,Cámara,Camera
+objetos,Bicicleta,Bicycle
+objetos,Computadora,Computer
+objetos,Guitarra,Guitar
+objetos,Balón,Ball
+objetos,Mochila,Backpack
+objetos,Sombrero,Hat
+objetos,Lentes,Glasses
+objetos,Zapatos,Shoes
+objetos,Libro,Book
+objetos,Lámpara,Lamp
+objetos,Llave,Key
+objetos,Candado,Padlock
+objetos,Linterna,Flashlight
+objetos,Maleta,Suitcase
+objetos,Almohada,Pillow
+objetos,Televisor,TV
+objetos,Control Remoto,Remote Control
+objetos,Cepillo,Brush
+objetos,Tenedor,Fork
+objetos,Cuchillo,Knife
+objetos,Botella,Bottle
+objetos,Globo,Balloon
+objetos,Corona,Crown
+objetos,Espada,Sword
+objetos,Escudo,Shield
+objetos,Hacha de leñador,Lumberjack axe
+objetos,Máquina de escribir,Typewriter
+objetos,Cámara fotográfica,Photo camera
+objetos,Lente de aumento,Magnifying glass
+objetos,Control de juegos,Game controller
+objetos,Bastón de anciano,Old man cane
+comida,Pizza,Pizza
+comida,Hamburguesa,Hamburger
+comida,Hot Dog,Hot Dog
+comida,Sushi,Sushi
+comida,Taco,Taco
+comida,Helado,Ice Cream
+comida,Pastel,Cake
+comida,Chocolate,Chocolate
+comida,Palomitas,Popcorn
+comida,Banana,Banana
+comida,Manzana,Apple
+comida,Sandía,Watermelon
+comida,Huevo Frito,Fried Egg
+comida,Espagueti,Spaghetti
+comida,Ensalada,Salad
+comida,Sopa,Soup
+comida,Asado,BBQ
+comida,Empanada,Empanada
+comida,Panqueque,Pancake
+comida,Donut,Donut
+comida,Galleta,Cookie
+comida,Queso,Cheese
+comida,Pan,Bread
+comida,Torta,Pie
+comida,Café,Coffee
+comida,Jugo,Juice
+comida,Batido,Smoothie
+comida,Papas Fritas,French Fries
+comida,Pollo Frito,Fried Chicken
+comida,Arroz,Rice
+comida,Churrasco,Steak
+comida,Flan,Flan
+comida,Waffle,Waffle
+comida,Croissant,Croissant
+comida,Pastel de chocolate,Chocolate cake
+comida,Comer espagueti,Eating spaghetti
+comida,Chupar pirulito,Licking lollipop
+comida,Pelar banana,Peeling banana
+comida,Batir huevos,Whisking eggs
+comida,Tomar sopa caliente,Eating hot soup
+fiesta,Cumpleaños,Birthday
+fiesta,Navidad,Christmas
+fiesta,Halloween,Halloween
+fiesta,Carnaval,Carnival
+fiesta,Boda,Wedding
+fiesta,Año Nuevo,New Year
+fiesta,Piñata,Piñata
+fiesta,Globos,Balloons
+fiesta,Confeti,Confetti
+fiesta,Pastel,Cake
+fiesta,Velas,Candles
+fiesta,Regalos,Gifts
+fiesta,Música,Music
+fiesta,Baile,Dance
+fiesta,Disfraz,Costume
+fiesta,Máscara,Mask
+fiesta,Fuegos Artificiales,Fireworks
+fiesta,Brindis,Toast
+fiesta,Karaoke,Karaoke
+fiesta,Limbo,Limbo
+fiesta,Serpentinas,Streamers
+fiesta,Guirnaldas,Garlands
+fiesta,Sorpresa,Surprise
+fiesta,Cotillón,Party Favors
+fiesta,DJ,DJ
+fiesta,Pista de Baile,Dance Floor
+fiesta,Invitaciones,Invitations
+fiesta,Decoración,Decoration
+fiesta,Fotomatón,Photo Booth
+fiesta,Juegos,Games
+fiesta,Conga,Conga
+fiesta,Macarena,Macarena
+fiesta,San Valentín,Valentine's Day
+fiesta,Fiesta de Pijamas,Sleepover
+fiesta,Romper piñata,Breaking piñata
+fiesta,Soplar velas,Blowing out candles
+fiesta,Abrir regalo,Opening gift
+fiesta,Bailar vals,Dancing waltz
+fiesta,Lanzar confeti,Throwing confetti
+fiesta,Hacer un brindis,Making a toast
+viajes,Avión,Airplane
+viajes,Tren,Train
+viajes,Barco,Ship
+viajes,Playa,Beach
+viajes,Montaña,Mountain
+viajes,Camping,Camping
+viajes,Maleta,Suitcase
+viajes,Pasaporte,Passport
+viajes,Mapa,Map
+viajes,Brújula,Compass
+viajes,Hotel,Hotel
+viajes,Tienda de Campaña,Tent
+viajes,Fotografía,Photography
+viajes,Recuerdo,Souvenir
+viajes,Aeropuerto,Airport
+viajes,Taxi,Taxi
+viajes,Autobús,Bus
+viajes,Metro,Subway
+viajes,Crucero,Cruise
+viajes,Safari,Safari
+viajes,Volcán,Volcano
+viajes,Cascada,Waterfall
+viajes,Desierto,Desert
+viajes,Selva,Jungle
+viajes,Isla,Island
+viajes,Faro,Lighthouse
+viajes,Museo,Museum
+viajes,Castillo,Castle
+viajes,Pirámide,Pyramid
+viajes,Torre Eiffel,Eiffel Tower
+viajes,Globo Aerostático,Hot Air Balloon
+viajes,Mochilero,Backpacker
+viajes,Brújula,Compass
+viajes,GPS,GPS
+viajes,Remar en canoa,Canoeing
+viajes,Volar en globo,Hot air balloon flying
+viajes,Escalar montaña,Climbing mountain
+viajes,Caminar en la arena,Walking on sand
+viajes,Tomar fotos,Taking photos
+viajes,Armar carpa,Setting up tent
+sorpresa,Regalo,Gift
+sorpresa,Caja Sorpresa,Surprise Box
+sorpresa,Mago,Magician
+sorpresa,Truco,Trick
+sorpresa,Escondite,Hide and Seek
+sorpresa,Cumpleaños Sorpresa,Surprise Birthday
+sorpresa,Lotería,Lottery
+sorpresa,Premio,Prize
+sorpresa,Tesoro,Treasure
+sorpresa,Cofre,Chest
+sorpresa,Secreto,Secret
+sorpresa,Misterio,Mystery
+sorpresa,Revelación,Reveal
+sorpresa,Adivinanza,Riddle
+sorpresa,Acertijo,Puzzle
+sorpresa,Escapismo,Escape Room
+sorpresa,Laberinto,Labyrinth
+sorpresa,Pista,Clue
+sorpresa,Enigma,Enigma
+sorpresa,Detective,Detective
+sorpresa,Lupa,Magnifying Glass
+sorpresa,Huella,Fingerprint
+sorpresa,Dado,Dice
+sorpresa,Ruleta,Roulette
+sorpresa,Carta Misteriosa,Mystery Letter
+sorpresa,Mensaje Secreto,Secret Message
+sorpresa,Código,Code
+sorpresa,Candado,Padlock
+sorpresa,Llave Maestra,Master Key
+sorpresa,Habitación Secreta,Secret Room
+sorpresa,Puerta Oculta,Hidden Door
+sorpresa,Pasadizo,Passage
+sorpresa,Trampa,Trap
+sorpresa,Ilusión,Illusion
+sorpresa,Sacar conejo de galera,Pulling rabbit from hat
+sorpresa,Desaparecer objeto,Making object disappear
+sorpresa,Encontrar tesoro,Finding treasure
+sorpresa,Abrir caja fuerte,Opening safe
+sorpresa,Seguir huellas,Following footprints
+sorpresa,Descifrar código,Decoding secrets
+verano,Playa,Beach
+verano,Sol,Sun
+verano,Piscina,Pool
+verano,Helado,Ice Cream
+verano,Sandía,Watermelon
+verano,Protector Solar,Sunscreen
+verano,Gafas de Sol,Sunglasses
+verano,Surfear,Surfing
+verano,Castillo de Arena,Sand Castle
+verano,Flotador,Floatie
+verano,Bikini,Bikini
+verano,Palmera,Palm Tree
+verano,Hamaca,Hammock
+verano,Limonada,Lemonade
+verano,Abanico,Fan
+verano,Ventilador,Electric Fan
+verano,Barbacoa,BBQ
+verano,Sombrilla,Umbrella
+verano,Toalla,Towel
+verano,Olas,Waves
+verano,Concha Marina,Seashell
+verano,Estrella de Mar,Starfish
+verano,Cangrejo,Crab
+verano,Medusa,Jellyfish
+verano,Snorkel,Snorkel
+verano,Kayak,Kayak
+verano,Jet Ski,Jet Ski
+verano,Pelota de Playa,Beach Ball
+verano,Bronceado,Suntan
+verano,Chiringuito,Beach Bar
+verano,Atardecer,Sunset
+verano,Fogata,Bonfire
+verano,Verano,Summer
+verano,Chapuzón,Splash
+verano,Ponerse protector,Applying sunscreen
+verano,Espantar mosquitos,Shooing mosquitoes
+verano,Soplar aire con abanico,Fanning yourself
+verano,Bucear con snorkel,Snorkeling
+verano,Saltar una ola,Jumping a wave
+verano,Mecerse en hamaca,Swinging in hammock
+juegos,Mario,Mario
+juegos,Pac-Man,Pac-Man
+juegos,Tetris,Tetris
+juegos,Minecraft,Minecraft
+juegos,Fortnite,Fortnite
+juegos,Ajedrez,Chess
+juegos,Damas,Checkers
+juegos,Monopoly,Monopoly
+juegos,Jenga,Jenga
+juegos,Uno,Uno
+juegos,Dado,Dice
+juegos,Rompecabezas,Puzzle
+juegos,Cartas,Cards
+juegos,Dominó,Dominoes
+juegos,Ludo,Ludo
+juegos,Twister,Twister
+juegos,Bingo,Bingo
+juegos,Pinball,Pinball
+juegos,Futbolín,Foosball
+juegos,Pool,Pool
+juegos,Dardos,Darts
+juegos,Boliche,Bowling
+juegos,Videojuego,Video Game
+juegos,Consola,Console
+juegos,Joystick,Joystick
+juegos,Realidad Virtual,Virtual Reality
+juegos,Arcade,Arcade
+juegos,Game Over,Game Over
+juegos,Power Up,Power Up
+juegos,Nivel,Level
+juegos,Boss Final,Final Boss
+juegos,Laberinto,Maze
+juegos,Trivia,Trivia
+juegos,Charadas,Charades
+juegos,Saltar como Mario,Jumping like Mario
+juegos,Jugar al Twister,Playing Twister
+juegos,Lanzar dardos,Throwing darts
+juegos,Derribar pinos boliche,Bowling strike
+juegos,Mezclar mazo cartas,Shuffling deck of cards
+juegos,Hacer torre Jenga,Building Jenga tower
