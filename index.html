@@ -457,14 +457,36 @@
             z-index: 9998
         }
 
-        .bottom-nav .btn-empezar {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
+
+
+        .settings-btn {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            z-index: 10000;
+            background: rgba(13, 108, 168, 0.9);
+            border: 2px solid rgba(67, 198, 219, 0.4);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all .3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
         }
 
-        .bottom-nav .nav-item {
-            margin-left: auto;
+        .settings-btn:hover {
+            background: rgba(13, 108, 168, 1);
+            transform: scale(1.1) rotate(90deg);
+            box-shadow: 0 6px 20px rgba(67, 198, 219, 0.4);
+        }
+
+        .settings-btn .nav-icon {
+            font-size: 26px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
         }
 
         .nav-item {
@@ -1345,12 +1367,13 @@
                 <div class="fl" style="bottom:30%;left:12%;font-size:22px;animation-delay:0.3s">🟠</div>
                 <div class="fl" style="bottom:35%;right:8%;font-size:24px;animation-delay:1.9s">✨</div>
             </div>
+            <div class="settings-btn" onclick="showScreen('settings')">
+                <span class="nav-icon">⚙️</span>
+            </div>
             <div class="home-title" id="homeTitle"><img src="a.png" alt="Mímica Pro"></div>
             <div class="categories" id="categoriesGrid"></div>
             <div class="bottom-nav">
                 <button class="btn-empezar" id="btnEmpezar" onclick="startGame()">EMPEZAR</button>
-                <div class="nav-item" onclick="showScreen('settings')"><span class="nav-icon">⚙️</span><span
-                        id="navConfig">Configuración</span></div>
             </div>
         </div>
 
