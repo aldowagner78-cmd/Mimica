@@ -34,10 +34,13 @@
         html,
         body {
             height: 100%;
+            width: 100%;
             margin: 0;
             padding: 0;
             background: #111;
             overflow: hidden;
+            position: fixed;
+            /* Prevent bouncy scrolling on Safari */
         }
 
         body {
@@ -50,25 +53,32 @@
 
         .app {
             width: 100%;
-            max-width: 414px;
-            /* More standard mobile width */
+            max-width: 420px;
+            height: 100vh;
             height: 100dvh;
-            /* Dynamic Viewport Height for mobile */
+            /* Dynamic height for Chrome/Safari mobile */
             position: relative;
             overflow: hidden;
-            background: #0D6CA8;
+            background: #0B5A8F;
         }
 
         .screen {
             position: absolute;
-            inset: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
             display: flex;
             flex-direction: column;
             transition: opacity .4s, transform .4s;
             overflow: hidden;
             opacity: 0;
             pointer-events: none;
-            transform: scale(.95)
+            transform: scale(.95);
+            background: inherit;
+            /* Ensure background follows app */
         }
 
         .screen.active {
@@ -318,30 +328,41 @@
         /* ===== HOME SCREEN ===== */
         #home .home-title {
             text-align: center;
-            padding: 20px 20px 10px;
+            padding: 20px 20px 0 20px;
+            /* Exactly 20px top (~0.5cm) */
+            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 10;
+            min-height: 80px;
+            /* Ensure space for title/logo */
         }
 
         #home .home-title img {
-            max-width: 250px;
+            max-width: 260px;
             height: auto;
-            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, .3));
+            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, .4));
         }
 
         .categories {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 12px;
-            padding: 10px 25px 90px 25px;
+            padding: 10px 25px 120px 25px;
+            /* Plenty of space at bottom for nav */
             overflow-y: auto;
             flex: 1;
+            /* Key for flex scrolling */
+            min-height: 0;
+            /* MANDATORY for internal scroll */
             align-content: start;
-            /* Force scrollbar visibility */
+            /* Scrollbar styles */
             scrollbar-width: thin;
             scrollbar-color: rgba(255, 215, 0, 0.5) transparent;
+            z-index: 5;
+            -webkit-overflow-scrolling: touch;
+            /* Smooth iOS scroll */
         }
 
         .categories::-webkit-scrollbar {
@@ -456,21 +477,23 @@
 
         .bottom-nav {
             position: absolute;
-            /* Relative to .app */
-            bottom: 0;
+            bottom: 0px;
             left: 0;
             width: 100%;
+            height: 90px;
+            /* Fixed height for consistency */
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 15px 20px 25px 20px;
-            /* More bottom padding for safe area */
-            background: linear-gradient(180deg, rgba(8, 70, 115, 0.8) 0%, rgba(10, 85, 135, 1) 100%);
+            padding-bottom: 15px;
+            /* Safe area space */
+            background: linear-gradient(180deg, rgba(8, 70, 115, 0.9) 0%, rgba(10, 85, 135, 1) 100%);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border-top: 2px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
-            z-index: 9998
+            z-index: 9999;
+            pointer-events: all;
         }
 
 
