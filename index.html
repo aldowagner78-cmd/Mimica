@@ -525,6 +525,20 @@
             box-shadow: 0 0 15px rgba(255, 184, 71, 0.4);
         }
 
+        .team-c {
+            color: #FF6B6B;
+            border: 2px solid #FF6B6B;
+            background: rgba(255, 107, 107, 0.15);
+            box-shadow: 0 0 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .team-d {
+            color: #4CAF50;
+            border: 2px solid #4CAF50;
+            background: rgba(76, 175, 80, 0.15);
+            box-shadow: 0 0 15px rgba(76, 175, 80, 0.4);
+        }
+
         .score-display {
             font-size: 18px;
             font-weight: 800;
@@ -573,20 +587,23 @@
 
         /* EMPEZAR button - NOW IN BOTTOM NAV */
         .btn-empezar {
-            padding: 10px 25px;
-            font-size: 16px;
-            background: linear-gradient(180deg, #4CAF50, #2E7D32);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-family: 'Luckiest Guy', cursive;
-            cursor: pointer;
-            box-shadow: 0 4px 0 #1B5E20, 0 8px 15px rgba(0, 0, 0, .3);
-            transition: all .2s;
+            padding: 8px 16px !important;
+            font-size: 14px !important;
+            background: linear-gradient(180deg, #4CAF50, #2E7D32) !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 50px !important;
+            font-family: 'Luckiest Guy', cursive !important;
+            cursor: pointer !important;
+            box-shadow: 0 4px 0 #1B5E20, 0 8px 15px rgba(0, 0, 0, .3) !important;
+            transition: all .2s !important;
             position: relative;
             overflow: hidden;
-            width: 45%;
-            letter-spacing: 1.5px;
+            width: 120px !important;
+            /* Fixed small width */
+            height: 44px !important;
+            /* Fixed small height */
+            letter-spacing: 1px !important;
         }
 
         .btn-empezar::before {
@@ -1272,20 +1289,23 @@
         .modal-overlay {
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, .5);
-            backdrop-filter: blur(8px);
-            z-index: 100;
+            background: rgba(0, 0, 0, .85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 20000;
             display: flex;
+            /* Always flex, control visibility with opacity/pointer-events */
             align-items: center;
             justify-content: center;
             opacity: 0;
             pointer-events: none;
-            transition: opacity .3s
+            transition: opacity .3s ease;
         }
 
         .modal-overlay.show {
-            opacity: 1;
-            pointer-events: all
+            opacity: 1 !important;
+            pointer-events: all !important;
+            display: flex !important;
         }
 
         .modal-box {
@@ -1297,7 +1317,7 @@
             position: relative;
             box-shadow: 0 20px 60px rgba(0, 0, 0, .2);
             transform: scale(.8);
-            transition: transform .3s
+            transition: transform .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .modal-overlay.show .modal-box {
@@ -1513,7 +1533,7 @@
                 <div class="load-bar">
                     <div class="load-fill" id="loadFill"></div>
                 </div>
-                <div class="splash-version">v2.4.0 • Build 2023</div>
+                <div class="splash-version">v2.5.0 • Refined Experience</div>
             </div>
         </div>
 
@@ -1658,7 +1678,8 @@
                     </div>
 
                     <div class="toggle-row">
-                        <div class="toggle-label">Modo Equipos</div>
+                        <div class="toggle-label">Modo Equipos <span
+                                style="font-size:10px; opacity:0.6;">(Configurar)</span></div>
                         <div class="toggle-sw" id="toggleTeams" onclick="toggleOption('teams')">
                             <div class="toggle-dot"></div>
                         </div>
@@ -1725,6 +1746,7 @@
             let teamScoresMap = { A: 0, B: 0, C: 0, D: 0 };
 
             function toggleOption(opt) {
+                console.log("Toggle option:", opt);
                 if (opt === 'vib') {
                     isVibrationOn = !isVibrationOn;
                     document.getElementById('toggleVib').classList.toggle('on', isVibrationOn);
@@ -1732,9 +1754,14 @@
                     isTeamMode = !isTeamMode;
                     const toggle = document.getElementById('toggleTeams');
                     toggle.classList.toggle('on', isTeamMode);
+                    // Always update inputs and show modal when turning ON
                     if (isTeamMode) {
-                        updateTeamInputs();
-                        document.getElementById('teamModal').classList.add('show');
+                        setTimeout(() => {
+                            updateTeamInputs();
+                            const modal = document.getElementById('teamModal');
+                            modal.style.display = 'flex'; // Force display flex
+                            modal.classList.add('show');
+                        }, 50);
                     }
                 }
             }
