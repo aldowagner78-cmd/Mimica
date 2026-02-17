@@ -237,6 +237,41 @@
             }
         }
 
+        /* ===== ANIMATIONS ===== */
+        @keyframes squish {
+            0% {
+                transform: scale(1);
+            }
+
+            30% {
+                transform: scale(0.92, 0.85);
+            }
+
+            60% {
+                transform: scale(1.05, 1.15);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .squishy:active {
+            animation: squish 0.3s ease-out;
+        }
+
         /* ===== SPLASH SCREEN ===== */
         #splash {
             justify-content: center;
@@ -383,7 +418,41 @@
             gap: 6px;
             cursor: pointer;
             transition: transform .2s;
-            padding: 8px
+            padding: 8px;
+            animation: fadeInUp 0.5s ease-out both;
+        }
+
+        /* Staggered animation for categories */
+        .cat-item:nth-child(1) {
+            animation-delay: 0.05s;
+        }
+
+        .cat-item:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .cat-item:nth-child(3) {
+            animation-delay: 0.15s;
+        }
+
+        .cat-item:nth-child(4) {
+            animation-delay: 0.2s;
+        }
+
+        .cat-item:nth-child(5) {
+            animation-delay: 0.25s;
+        }
+
+        .cat-item:nth-child(6) {
+            animation-delay: 0.3s;
+        }
+
+        .cat-item:nth-child(7) {
+            animation-delay: 0.35s;
+        }
+
+        .cat-item:nth-child(8) {
+            animation-delay: 0.4s;
         }
 
         .cat-item:hover {
@@ -444,20 +513,20 @@
 
         /* EMPEZAR button - NOW IN BOTTOM NAV */
         .btn-empezar {
-            padding: 10px 24px;
-            border: 3px solid #B8860B;
+            padding: 18px 50px;
+            font-size: 24px;
+            background: linear-gradient(180deg, #4CAF50, #2E7D32);
+            color: white;
+            border: none;
             border-radius: 50px;
             font-family: 'Luckiest Guy', cursive;
-            font-size: 18px;
-            color: white;
             cursor: pointer;
-            background: linear-gradient(180deg, #7FD858 0%, #5CC83A 30%, #4CAF50 60%, #3D9B40 100%);
-            box-shadow: 0 4px 0 #2E7D32, 0 5px 12px rgba(76, 175, 80, .4), inset 0 2px 4px rgba(255, 255, 255, .4);
-            text-shadow: 0 2px 4px rgba(0, 0, 0, .2);
-            letter-spacing: 1.5px;
-            transition: all .15s;
-            overflow: hidden;
+            box-shadow: 0 6px 0 #1B5E20, 0 10px 20px rgba(0, 0, 0, .3);
+            transition: all .2s;
             position: relative;
+            overflow: hidden;
+            width: 85%;
+            letter-spacing: 2px;
         }
 
         .btn-empezar::before {
@@ -472,8 +541,9 @@
         }
 
         .btn-empezar:active {
-            transform: translateY(3px);
-            box-shadow: 0 1px 0 #2E7D32, 0 3px 8px rgba(76, 175, 80, .3), inset 0 2px 4px rgba(255, 255, 255, .4)
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 #1B5E20;
+            animation: squish 0.3s ease-out;
         }
 
         .bottom-nav {
@@ -1435,10 +1505,13 @@
                 <div class="fl" style="top:50%;left:2%;font-size:24px;animation-delay:3s">🔷</div>
             </div>
             <div class="game-top">
-                <button class="btn-home" onclick="showExitModal()">🏠</button>
-                <div class="timer"><span class="timer-text"><span class="timer-min" id="tMin">0</span><span
-                            class="timer-colon">:</span><span class="timer-sec" id="tSec">45</span></span></div>
-                <div style="width:50px"></div>
+                <button class="btn-home squishy" onclick="showExitModal()">🏠</button>
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <div id="gameTeamIndicator" class="team-indicator">Equipo A</div>
+                    <div class="timer"><span class="timer-text"><span class="timer-min" id="tMin">0</span><span
+                                class="timer-colon">:</span><span class="timer-sec" id="tSec">45</span></span></div>
+                </div>
+                <div class="score-display">✨ <span id="gameScore">0</span></div>
             </div>
             <div class="word-card">
                 <div class="word-text" id="wordDisplay">LEÓN</div>
@@ -1515,7 +1588,14 @@
                     </div>
                     <div class="toggle-row">
                         <div class="toggle-label" id="lblVibracion">Vibración</div>
-                        <div class="toggle-sw on" onclick="this.classList.toggle('on')">
+                        <div class="toggle-sw on" id="toggleVib" onclick="toggleOption('vib')">
+                            <div class="toggle-dot"></div>
+                        </div>
+                    </div>
+
+                    <div class="toggle-row">
+                        <div class="toggle-label">Modo Equipos</div>
+                        <div class="toggle-sw" id="toggleTeams" onclick="toggleOption('teams')">
                             <div class="toggle-dot"></div>
                         </div>
                     </div>
@@ -1539,13 +1619,29 @@
         try {
             // ===== STATE =====
             let lang = 'es';
-            let selectedCats = new Set(); // Empty by default
+            let selectedCats = new Set();
             let gameTime = 60;
             let score = 0;
             let currentWords = [];
             let wordIdx = 0;
             let timerInterval = null;
             let timeLeft = 0;
+
+            // Team Mode State
+            let isTeamMode = false;
+            let isVibrationOn = true;
+            let currentTeam = 'A'; // 'A' or 'B'
+            let teamScores = { A: 0, B: 0 };
+
+            function toggleOption(opt) {
+                if (opt === 'vib') {
+                    isVibrationOn = !isVibrationOn;
+                    document.getElementById('toggleVib').classList.toggle('on', isVibrationOn);
+                } else if (opt === 'teams') {
+                    isTeamMode = !isTeamMode;
+                    document.getElementById('toggleTeams').classList.toggle('on', isTeamMode);
+                }
+            }
 
             function t(key) { return i18n[lang][key] || key; }
             function catName(id) { return i18n[lang].categories[id] || id; }
@@ -1620,25 +1716,32 @@
             const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
             function playSound(type) {
                 if (audioCtx.state === 'suspended') audioCtx.resume();
+
+                // Haptic feedback
+                if (isVibrationOn && navigator.vibrate) {
+                    if (type === 'correct') navigator.vibrate(50);
+                    else if (type === 'skip') navigator.vibrate([30, 30]);
+                    else if (type === 'end') navigator.vibrate([100, 50, 100]);
+                }
+
                 const osc = audioCtx.createOscillator();
                 const gain = audioCtx.createGain();
                 osc.connect(gain);
                 gain.connect(audioCtx.destination);
 
-                if (type === 'correct') { // Ding!
-                    osc.type = 'sine'; osc.frequency.setValueAtTime(600, audioCtx.currentTime);
-                    osc.frequency.exponentialRampToValueAtTime(1000, audioCtx.currentTime + 0.1);
+                if (type === 'correct') { // Ding! (Higher pitch)
+                    osc.type = 'sine'; osc.frequency.setValueAtTime(800, audioCtx.currentTime);
+                    osc.frequency.exponentialRampToValueAtTime(1200, audioCtx.currentTime + 0.1);
                     gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
-                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.5);
-                    osc.start(); osc.stop(audioCtx.currentTime + 0.5);
-                } else if (type === 'skip') { // Boop
-                    osc.type = 'square'; osc.frequency.setValueAtTime(150, audioCtx.currentTime);
-                    osc.frequency.linearRampToValueAtTime(100, audioCtx.currentTime + 0.2);
+                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.4);
+                    osc.start(); osc.stop(audioCtx.currentTime + 0.4);
+                } else if (type === 'skip') { // Boop (Lower & Thumpier)
+                    osc.type = 'triangle'; osc.frequency.setValueAtTime(200, audioCtx.currentTime);
+                    osc.frequency.linearRampToValueAtTime(100, audioCtx.currentTime + 0.15);
                     gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
-                    gain.gain.linearRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
-                    osc.start(); osc.stop(audioCtx.currentTime + 0.3);
-                } else if (type === 'end') { // Fanfare-ish
-                    // Simple sequence
+                    gain.gain.linearRampToValueAtTime(0.01, audioCtx.currentTime + 0.2);
+                    osc.start(); osc.stop(audioCtx.currentTime + 0.2);
+                } else if (type === 'end') {
                     [523, 659, 784, 1046].forEach((f, i) => {
                         const o = audioCtx.createOscillator(); const g = audioCtx.createGain();
                         o.connect(g); g.connect(audioCtx.destination);
@@ -1662,40 +1765,54 @@
                 });
                 if (currentWords.length === 0) { alert("Error: No words loaded"); return; }
 
-                // Improved Randomization: Use a robust Fisher-Yates shuffle
-                function shuffle(array) {
-                    for (let i = array.length - 1; i > 0; i--) {
-                        const j = Math.floor(Math.random() * (i + 1));
-                        [array[i], array[j]] = [array[j], array[i]];
-                    }
-                    return array;
+                // Shuffle words
+                for (let i = currentWords.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [currentWords[i], currentWords[j]] = [currentWords[j], currentWords[i]];
                 }
 
-                shuffle(currentWords);
+                score = 0; wordIdx = 0;
+                document.getElementById('gameScore').textContent = score;
 
-                wordIdx = 0; score = 0;
+                // Team Mode UI setup
+                const indicator = document.getElementById('gameTeamIndicator');
+                if (isTeamMode) {
+                    indicator.style.display = 'block';
+                    indicator.textContent = 'Equipo ' + currentTeam;
+                    indicator.className = 'team-indicator team-' + currentTeam.toLowerCase();
+                    indicator.style.animation = 'squish 0.5s ease-out';
+                } else {
+                    indicator.style.display = 'none';
+                }
+
                 timeLeft = parseInt(gameTime);
                 showScreen('game');
-                showNextWord();
+                nextWord();
                 startTimer();
             }
 
-            function showNextWord() {
-                if (wordIdx >= currentWords.length) wordIdx = 0;
+            function nextWord() {
+                if (wordIdx >= currentWords.length) wordIdx = 0; // Loop words if we run out
                 document.getElementById('wordDisplay').textContent = currentWords[wordIdx].toUpperCase();
             }
 
-            function skipWord() {
-                wordsHistory.push({ word: currentWords[wordIdx], status: 'skip' });
-                playSound('skip');
-                wordIdx++; showNextWord();
+            function wordAction(type) {
+                if (type === 'correct') {
+                    score++;
+                    playSound('correct');
+                    wordsHistory.push({ word: currentWords[wordIdx], status: 'ok' });
+                } else { // type === 'skip'
+                    playSound('skip');
+                    wordsHistory.push({ word: currentWords[wordIdx], status: 'skip' });
+                }
+                document.getElementById('gameScore').textContent = score;
+                wordIdx++;
+                if (wordIdx >= currentWords.length) endGame(); // End game if no more words
+                else nextWord();
             }
-            function correctWord() {
-                wordsHistory.push({ word: currentWords[wordIdx], status: 'ok' });
-                score++;
-                playSound('correct');
-                wordIdx++; showNextWord();
-            }
+
+            function skipWord() { wordAction('skip'); }
+            function correctWord() { wordAction('correct'); }
 
             function startTimer() {
                 clearInterval(timerInterval);
@@ -1715,24 +1832,38 @@
             }
 
             function endGame() {
+                clearInterval(timerInterval);
                 playSound('end');
-                const scoreDisplay = document.getElementById('finalScore');
-                if (scoreDisplay) scoreDisplay.textContent = score;
 
-                let html = '';
-                wordsHistory.forEach(item => {
-                    const stClass = item.status === 'ok' ? 'st-ok' : 'st-skip';
-                    const stIcon = item.status === 'ok' ? '✔' : '✘';
-                    html += `<div class="res-item">
-                        <span class="res-word">${item.word.toUpperCase()}</span>
-                        <span class="res-status ${stClass}">${stIcon}</span>
+                if (isTeamMode) {
+                    teamScores[currentTeam] = score;
+                }
+
+                document.getElementById('finalScore').textContent = score;
+                const details = document.getElementById('resDetails');
+                details.innerHTML = '';
+
+                // If Team Mode, show comparison
+                if (isTeamMode) {
+                    const nextT = currentTeam === 'A' ? 'B' : 'A';
+                    const winnerText = teamScores.A > teamScores.B ? '¡GANA EQUIPO A! 🏆' :
+                        teamScores.B > teamScores.A ? '¡GANA EQUIPO B! 🏆' : '¡EMPATE! 🤝';
+
+                    details.innerHTML = `<div style="text-align:center; margin-bottom:15px">
+                        <div style="font-size:24px; font-weight:800; color:#FFD700">${winnerText}</div>
+                        <div style="display:flex; justify-content:space-around; margin:15px 0; font-size:18px">
+                            <div class="team-a">Equipo A: ${teamScores.A}</div>
+                            <div class="team-b">Equipo B: ${teamScores.B}</div>
+                        </div>
                     </div>`;
+                }
+
+                wordsHistory.forEach(item => {
+                    const icon = item.status === 'ok' ? '✅' : '❌';
+                    details.innerHTML += `<div class="res-item"><span>${icon} ${item.word}</span></div>`;
                 });
-
-                const detailsContainer = document.getElementById('resDetails');
-                if (detailsContainer) detailsContainer.innerHTML = html;
-
                 showScreen('results');
+                launchConfetti();
             }
 
             function playAgain() { startGame(); }
@@ -1822,6 +1953,7 @@
             // ===== CONFETTI =====
             function launchConfetti() {
                 const box = document.getElementById('confettiBox');
+                if (!box) return;
                 box.innerHTML = '';
                 const colors = ['#FFD700', '#FF6B6B', '#4CAF50', '#5BC0F0', '#FF8C00', '#9370DB', '#FF69B4', '#00CED1'];
                 for (let i = 0; i < 50; i++) {
