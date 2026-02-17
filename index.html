@@ -268,6 +268,18 @@
             }
         }
 
+        @keyframes pulse {
+            from {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+
+            to {
+                transform: scale(1.05);
+                opacity: 1;
+            }
+        }
+
         .squishy:active {
             animation: squish 0.3s ease-out;
         }
@@ -2019,47 +2031,31 @@
 
                 const isLastTeam = isTeamMode ? (currentTeamIdx === teamOrder.length - 1) : true;
 
-                // If Team Mode, handle tournament flow
+                // Always show current team results summary
+                if (isTeamMode) {
+                    details.innerHTML = `<div style="text-align:center; margin-bottom:15px; background: rgba(255,255,255,0.15); padding: 15px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1)">
+                        <div style="font-size:14px; font-weight:600; color:rgba(255,255,255,0.7); margin-bottom:5px">PUNTUACIÓN OBTENIDA POR:</div>
+                        <div class="team-indicator team-${teamOrder[currentTeamIdx].toLowerCase()}" style="display:inline-block; font-size:18px !important; margin:0">${teamNamesMap[teamOrder[currentTeamIdx]]}</div>
+                    </div>`;
+                }
+
                 if (isTeamMode) {
                     if (isLastTeam) {
-                        // FINAL PODIUM
-                        let winner = teamOrder[0];
-                        let maxS = teamScoresMap[winner];
-                        let isTie = false;
-                        teamOrder.slice(1).forEach(tid => {
-                            if (teamScoresMap[tid] > maxS) { winner = tid; maxS = teamScoresMap[tid]; isTie = false; }
-                            else if (teamScoresMap[tid] === maxS) isTie = true;
-                        });
-
-                        const winnerTxt = isTie ? '¡EMPATE! 🤝' : `¡GANA ${teamNamesMap[winner].toUpperCase()}! 🏆`;
-
-                        let compareHTML = `<div style="text-align:center; margin-bottom:15px; background: rgba(0,0,0,0.2); padding: 15px; border-radius: 20px; border: 2px solid rgba(255,215,0,0.3)">
-                            <div style="font-size:28px; font-weight:800; color:#FFD700; margin-bottom: 12px; text-shadow: 0 3px 6px rgba(0,0,0,0.3); font-family:'Luckiest Guy', cursive;">${winnerTxt}</div>
-                            <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:10px;">`;
-
-                        teamOrder.forEach(tid => {
-                            compareHTML += `<div class="team-indicator team-${tid.toLowerCase()}" style="display:block; margin:0; padding:8px 15px; font-size: 14px !important;">${teamNamesMap[tid]}: ${teamScoresMap[tid]}</div>`;
-                        });
-
-                        compareHTML += `</div></div>`;
-                        details.innerHTML = compareHTML;
-
-                        // Change replay button to Reset Tournament
-                        btnReplay.textContent = "NUEVO TORNEO";
-                        btnReplay.onclick = () => { resetTournament(); startGame(); };
+                        btnReplay.textContent = "🏆 VER PODIO FINAL";
+                        btnReplay.style.background = "linear-gradient(180deg, #FFD700, #CC7A00)";
+                        btnReplay.style.color = "black";
+                        btnReplay.onclick = () => revealPodiumWithSuspense();
                     } else {
-                        // MID-TOURNAMENT: Just current team results
                         const nextT = teamNamesMap[teamOrder[currentTeamIdx + 1]];
-                        details.innerHTML = `<div style="text-align:center; margin-bottom:15px; background: rgba(255,255,255,0.1); padding: 15px; border-radius: 20px;">
-                            <div style="font-size:18px; font-weight:800; color:white; margin-bottom:10px">¡FIN DEL TURNO!</div>
-                            <div class="team-indicator team-${teamOrder[currentTeamIdx].toLowerCase()}" style="display:inline-block; font-size:18px !important;">${teamNamesMap[teamOrder[currentTeamIdx]]}</div>
-                        </div>`;
-
-                        btnReplay.textContent = "TURNO: " + nextT.toUpperCase();
+                        btnReplay.textContent = "SIGUIENTE: " + nextT.toUpperCase();
+                        btnReplay.style.background = ""; // Default
+                        btnReplay.style.color = "";
                         btnReplay.onclick = () => { currentTeamIdx++; startGame(); };
                     }
                 } else {
                     btnReplay.textContent = t('volverJugar');
+                    btnReplay.style.background = "";
+                    btnReplay.style.color = "";
                     btnReplay.onclick = () => playAgain();
                 }
 
@@ -2071,9 +2067,63 @@
                 launchConfetti();
             }
 
+            function revealPodiumWithSuspense() {
+                const details = document.getElementById('resDetails');
+                const btnReplay = document.getElementById('btnReplay');
+                const scoreBox = document.getElementById('resultsScoreBox');
+
+                // Hide current elements to create suspense
+                scoreBox.style.display = 'none';
+                details.innerHTML = `
+                    <div id="suspenseContainer" style="text-align:center; padding: 40px 0; animation: pulse 1s infinite alternate;">
+                        <div style="font-size:60px; margin-bottom:20px">📊</div>
+                        <div style="font-family:'Luckiest Guy', cursive; font-size:24px; color:white; letter-spacing:2px">CALCULANDO RESULTADOS...</div>
+                        <div style="margin-top:20px; font-size:14px; color:rgba(255,255,255,0.6)">¡PREPARAOS PARA EL GANADOR!</div>
+                    </div>
+                `;
+                btnReplay.style.display = 'none';
+                playSound('skip'); // Suspenseful 'tick'
+
+                setTimeout(() => {
+                    // Actual Podium Reveal after 2.5s
+                    scoreBox.style.display = 'block';
+                    btnReplay.style.display = 'block';
+                    btnReplay.textContent = "NUEVO TORNEO";
+                    btnReplay.style.background = "";
+                    btnReplay.style.color = "";
+                    btnReplay.onclick = () => { resetTournament(); startGame(); };
+
+                    playSound('end'); // Full fanfare
+
+                    // Find winner logic
+                    let winner = teamOrder[0];
+                    let maxS = teamScoresMap[winner];
+                    let isTie = false;
+                    teamOrder.slice(1).forEach(tid => {
+                        if (teamScoresMap[tid] > maxS) { winner = tid; maxS = teamScoresMap[tid]; isTie = false; }
+                        else if (teamScoresMap[tid] === maxS) isTie = true;
+                    });
+
+                    const winnerTxt = isTie ? '¡EMPATE! 🤝' : `¡GANA ${teamNamesMap[winner].toUpperCase()}! 🏆`;
+
+                    let compareHTML = `<div style="text-align:center; margin-bottom:15px; background: rgba(0,0,0,0.3); padding: 25px; border-radius: 30px; border: 3px solid #FFD700; animation: fadeInUp 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
+                        <div style="font-size:32px; font-weight:800; color:#FFD700; margin-bottom: 15px; text-shadow: 0 4px 10px rgba(0,0,0,0.5); font-family:'Luckiest Guy', cursive;">${winnerTxt}</div>
+                        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:12px;">`;
+
+                    teamOrder.forEach(tid => {
+                        compareHTML += `<div class="team-indicator team-${tid.toLowerCase()}" style="display:block; margin:0; padding:10px 18px; font-size: 16px !important;">${teamNamesMap[tid]}: ${teamScoresMap[tid]}</div>`;
+                    });
+
+                    compareHTML += `</div></div>`;
+                    details.innerHTML = compareHTML;
+                    launchConfetti();
+                }, 2500);
+            }
+
             function resetTournament() {
                 currentTeamIdx = 0;
                 teamOrder.forEach(tid => teamScoresMap[tid] = 0);
+                document.getElementById('resultsScoreBox').style.display = 'block';
             }
 
             function playAgain() { startGame(); }
