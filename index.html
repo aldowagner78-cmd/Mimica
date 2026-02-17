@@ -1296,7 +1296,49 @@
             font-weight: 700;
             font-size: 16px;
             color: #2C3E50;
-            margin-bottom: 8px
+            margin-bottom: 8px;
+            margin-top: 15px;
+        }
+
+        .diff-grid {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .diff-btn {
+            flex: 1;
+            padding: 10px 5px;
+            border-radius: 15px;
+            background: #F2F4F7;
+            border: 2px solid #D0D5DD;
+            cursor: pointer;
+            font-family: 'Luckiest Guy', cursive;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.2s;
+            color: #667085;
+        }
+
+        .diff-btn span {
+            font-size: 10px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .diff-btn.active {
+            background: var(--blue-mid);
+            border-color: var(--blue-dark);
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(43, 165, 216, 0.3);
+        }
+
+        .diff-btn:hover:not(.active) {
+            border-color: var(--blue-mid);
         }
 
         .timer-display {
@@ -1365,6 +1407,86 @@
         .btn-guardar:active {
             transform: translateY(4px);
             box-shadow: 0 1px 0 #CC7A00
+        }
+
+        /* --- New Effects --- */
+        @keyframes pulseCorrect {
+            0% {
+                transform: scale(1);
+                border-color: #E8D5B8;
+            }
+
+            50% {
+                transform: scale(1.08);
+                border-color: #4CAF50;
+                box-shadow: 0 0 30px rgba(76, 175, 80, 0.5);
+            }
+
+            100% {
+                transform: scale(1);
+                border-color: #E8D5B8;
+            }
+        }
+
+        .correct-anim {
+            animation: pulseCorrect 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .ready-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            backdrop-filter: blur(8px);
+        }
+
+        .ready-overlay.show {
+            display: flex;
+            animation: bounceIn 0.5s;
+        }
+
+        .ready-title {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 45px;
+            margin-bottom: 10px;
+            color: #FFB847;
+        }
+
+        .ready-team {
+            font-size: 32px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 30px;
+            border-radius: 20px;
+        }
+
+        .btn-ready-go {
+            padding: 22px 50px;
+            border-radius: 50px;
+            background: #4CAF50;
+            border: 4px solid white;
+            color: white;
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 32px;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(76, 175, 80, 0.4);
+            transition: all 0.2s;
+        }
+
+        .btn-ready-go:active {
+            transform: scale(0.9);
         }
 
         /* ===== EXIT MODAL ===== */
@@ -1586,6 +1708,13 @@
 <body>
     <div class="app" id="app">
 
+        <!-- ===== READY OVERLAY ===== -->
+        <div id="readyOverlay" class="ready-overlay">
+            <div class="ready-title">¿TODO LISTO?</div>
+            <div id="readyTeamName" class="ready-team">EQUIPO A</div>
+            <button class="btn-ready-go squishy" onclick="startGameReal()">¡A JUGAR! ▶</button>
+        </div>
+
         <!-- ===== SPLASH ===== -->
         <div class="screen bg-blue active" id="splash">
             <div class="particles">
@@ -1615,7 +1744,7 @@
                 <div class="load-bar">
                     <div class="load-fill" id="loadFill"></div>
                 </div>
-                <div class="splash-version">v2.6.0 • Premium Experience</div>
+                <div class="splash-version">v2.7.3 • Tournament Edition</div>
             </div>
         </div>
 
@@ -1766,11 +1895,23 @@
                     </div>
 
                     <div class="timer-section">
+                        <h4 id="lblDificultad">Dificultad</h4>
+                        <div class="diff-grid">
+                            <div class="diff-btn active" id="diff1" onclick="setDiff(1)">1<span
+                                    id="lblDiff1">Fácil</span></div>
+                            <div class="diff-btn" id="diff2" onclick="setDiff(2)">2<span id="lblDiff2">Medio</span>
+                            </div>
+                            <div class="diff-btn" id="diff3" onclick="setDiff(3)">3<span id="lblDiff3">Difícil</span>
+                            </div>
+                        </div>
+
                         <h4 id="lblTiempo">Tiempo de Juego</h4>
                         <div class="timer-display">⏳ <span id="timeVal">60 segundos</span></div>
-                        <input type="range" id="timeSlider" class="slider" min="30" max="90" value="60" step="5"
+                        <input type="range" id="timeSlider" class="slider" min="30" max="180" value="60" step="5"
                             oninput="updateTimerVal(this.value)">
-                        <div class="slider-labels"><span>30s</span><span>60s</span><span>90s</span></div>
+                        <div class="slider-labels">
+                            <span>30s</span><span>60s</span><span>90s</span><span>120s</span><span>150s</span><span>180s</span>
+                        </div>
                     </div>
                 </div>
                 <button class="btn-guardar" id="btnGuardar" onclick="showScreen('home')">GUARDAR</button>
@@ -1813,10 +1954,12 @@
             let selectedCats = new Set();
             let gameTime = 60;
             let score = 0;
-            let currentWords = [];
-            let wordIdx = 0;
             let timerInterval = null;
             let timeLeft = 0;
+            let difficulty = 1;
+            let tournamentWords = [];
+            let tournamentWordIdx = 0;
+            let wordsHistory = [];
 
             let isTeamMode = false;
             let isVibrationOn = true;
@@ -1824,6 +1967,13 @@
             let currentTeamIdx = 0; // Index of team playing
             let teamNamesMap = { A: "Azules", B: "Dorados", C: "Rojos", D: "Verdes" };
             let teamScoresMap = { A: 0, B: 0, C: 0, D: 0 };
+
+            function setDiff(lvl) {
+                difficulty = lvl;
+                document.querySelectorAll('.diff-btn').forEach(b => b.classList.remove('active'));
+                document.getElementById('diff' + lvl).classList.add('active');
+                if (isVibrationOn && window.navigator.vibrate) window.navigator.vibrate(20);
+            }
 
             function toggleOption(opt) {
                 console.log("Toggle option:", opt);
@@ -1945,7 +2095,6 @@
             }
 
             // ===== GAME LOGIC =====
-            let wordsHistory = []; // {word: 'Foo', status: 'ok'|'skip'}
 
             // --- SOUND SYSTEM ---
             const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -1976,6 +2125,11 @@
                     gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
                     gain.gain.linearRampToValueAtTime(0.01, audioCtx.currentTime + 0.2);
                     osc.start(); osc.stop(audioCtx.currentTime + 0.2);
+                } else if (type === 'tick') { // Clock tick
+                    osc.type = 'square'; osc.frequency.setValueAtTime(400, audioCtx.currentTime);
+                    gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.05);
+                    osc.start(); osc.stop(audioCtx.currentTime + 0.05);
                 } else if (type === 'end') {
                     [523, 659, 784, 1046].forEach((f, i) => {
                         const o = audioCtx.createOscillator(); const g = audioCtx.createGain();
@@ -1990,23 +2144,57 @@
             function startGame() {
                 if (audioCtx.state === 'suspended') audioCtx.resume();
                 if (selectedCats.size === 0) { alert(t('seleccionaCat')); return; }
-                currentWords = [];
-                wordsHistory = [];
 
-                const wordKey = 'words_' + lang;
-                selectedCats.forEach(id => {
-                    const cat = CATEGORIES.find(c => c.id === id);
-                    if (cat && cat[wordKey]) currentWords.push(...cat[wordKey]);
-                });
-                if (currentWords.length === 0) { alert("Error: No words loaded"); return; }
+                // LOGIC: No repeats across teams in the same tournament
+                // Reset pool ONLY if starting Turn 0 (Team Mode) or starting Single Player
+                if (currentTeamIdx === 0 || !isTeamMode) {
+                    tournamentWords = [];
+                    tournamentWordIdx = 0;
+                    wordsHistory = [];
 
-                // Shuffle words
-                for (let i = currentWords.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [currentWords[i], currentWords[j]] = [currentWords[j], currentWords[i]];
+                    const wordKey = 'words_' + lang;
+                    selectedCats.forEach(id => {
+                        const cat = CATEGORIES.find(c => c.id === id);
+                        if (cat && cat[wordKey]) {
+                            // Support difficulty levels
+                            const diffList = cat[wordKey][difficulty] || [];
+                            tournamentWords.push(...diffList);
+                        }
+                    });
+
+                    if (tournamentWords.length === 0) {
+                        alert("¡Ouch! No encontramos palabras para esta categoría y dificultad.");
+                        return;
+                    }
+
+                    // Shuffle the entire pool once per game/tournament
+                    for (let i = tournamentWords.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [tournamentWords[i], tournamentWords[j]] = [tournamentWords[j], tournamentWords[i]];
+                    }
+                } else {
+                    // Turn > 0, we preserve current wordsHistory and tournamentWordIdx
                 }
 
-                score = 0; wordIdx = 0;
+                if (isTeamMode) {
+                    showReadyScreen();
+                } else {
+                    startGameReal();
+                }
+            }
+
+            function showReadyScreen() {
+                const overlay = document.getElementById('readyOverlay');
+                const teamName = document.getElementById('readyTeamName');
+                const tid = teamOrder[currentTeamIdx];
+                teamName.textContent = teamNamesMap[tid];
+                teamName.className = 'ready-team team-' + tid.toLowerCase();
+                overlay.classList.add('show');
+            }
+
+            function startGameReal() {
+                document.getElementById('readyOverlay').classList.remove('show');
+                score = 0;
                 document.getElementById('gameScore').textContent = score;
 
                 // Team Mode UI setup
@@ -2027,27 +2215,42 @@
             }
 
             function nextWord() {
-                if (wordIdx >= currentWords.length) wordIdx = 0; // Loop words if we run out
-                document.getElementById('wordDisplay').textContent = currentWords[wordIdx].toUpperCase();
-            }
-
-            function wordAction(type) {
-                if (type === 'correct') {
-                    score++;
-                    playSound('correct');
-                    wordsHistory.push({ word: currentWords[wordIdx], status: 'ok' });
-                } else { // type === 'skip'
-                    playSound('skip');
-                    wordsHistory.push({ word: currentWords[wordIdx], status: 'skip' });
+                if (tournamentWordIdx >= tournamentWords.length) {
+                    // Pool exhausted - auto finish
+                    alert("¡Se agotaron las palabras!");
+                    endGame();
+                    return;
                 }
-                document.getElementById('gameScore').textContent = score;
-                wordIdx++;
-                if (wordIdx >= currentWords.length) endGame(); // End game if no more words
-                else nextWord();
+                const word = tournamentWords[tournamentWordIdx];
+                document.getElementById('wordDisplay').textContent = word.toUpperCase();
             }
 
-            function skipWord() { wordAction('skip'); }
-            function correctWord() { wordAction('correct'); }
+            function skipWord() {
+                if (tournamentWordIdx >= tournamentWords.length) return;
+                const word = tournamentWords[tournamentWordIdx];
+                playSound('skip');
+                wordsHistory.push({ word: word, status: 'skip' });
+                tournamentWordIdx++;
+                nextWord();
+            }
+
+            function correctWord() {
+                if (tournamentWordIdx >= tournamentWords.length) return;
+                const word = tournamentWords[tournamentWordIdx];
+                score++;
+                playSound('correct');
+                wordsHistory.push({ word: word, status: 'ok' });
+                document.getElementById('gameScore').textContent = score;
+
+                // Visual feedback
+                const card = document.querySelector('.word-card');
+                card.classList.remove('correct-anim');
+                void card.offsetWidth; // Trigger reflow
+                card.classList.add('correct-anim');
+
+                tournamentWordIdx++;
+                nextWord();
+            }
 
             function startTimer() {
                 clearInterval(timerInterval);
@@ -2055,6 +2258,7 @@
                 timerInterval = setInterval(() => {
                     timeLeft--;
                     updateTimerDisplay();
+                    if (timeLeft <= 10 && timeLeft > 0) playSound('tick');
                     if (timeLeft <= 0) { clearInterval(timerInterval); endGame(); }
                 }, 1000);
             }
@@ -2084,7 +2288,7 @@
                 // Always show current team results summary
                 if (isTeamMode) {
                     details.innerHTML = `<div style="text-align:center; margin-bottom:15px; background: rgba(255,255,255,0.15); padding: 15px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1)">
-                        <div style="font-size:14px; font-weight:600; color:rgba(255,255,255,0.7); margin-bottom:5px">PUNTUACIÓN OBTENIDA POR:</div>
+                        <div style="font-size:14px; font-weight:600; color:rgba(255,255,255,0.7); margin-bottom:5px">${t('puntuacion')}</div>
                         <div class="team-indicator team-${teamOrder[currentTeamIdx].toLowerCase()}" style="display:inline-block; font-size:18px !important; margin:0">${teamNamesMap[teamOrder[currentTeamIdx]]}</div>
                     </div>`;
                 }
@@ -2159,7 +2363,7 @@
                     let compareHTML = `<div style="text-align:center; margin-bottom:15px; background: linear-gradient(135deg, rgba(255,215,0,0.2), rgba(255,165,0,0.1)); padding: 30px 15px; border-radius: 35px; border: 4px solid #FFD700; box-shadow: 0 15px 35px rgba(255,215,0,0.3); animation: scaleUpRotate 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
                         <div style="font-size:12px; color:#FFD700; font-weight:800; margin-bottom:5px; letter-spacing:3px;">RESULTADOS FINALES</div>
                         <div style="font-size:36px; font-weight:800; color:#FFD700; margin-bottom: 20px; text-shadow: 0 4px 15px rgba(0,0,0,0.5); font-family:'Luckiest Guy', cursive; line-height:1.2;">${winnerTxt}</div>
-                        <div style="font-size:13px; color:white; font-weight:600; margin-bottom:15px; opacity:0.8;">PUNTUACIONES FINALES:</div>
+                        <div style="font-size:13px; color:white; font-weight:600; margin-bottom:15px; opacity:0.8;">${t('puntuacionGanadora')}</div>
                         <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:12px;">`;
 
                     teamOrder.forEach(tid => {
@@ -2242,7 +2446,7 @@
 
                 // Results
                 const resTitle = document.getElementById('resultsTitle'); if (resTitle) resTitle.innerHTML = t('resultados');
-                const scoreLabel = document.getElementById('scoreLabel'); if (scoreLabel) scoreLabel.innerHTML = 'PUNTUACIÓN OBTENIDA';
+                const scoreLabel = document.getElementById('scoreLabel'); if (scoreLabel) scoreLabel.innerHTML = t('puntuacion');
                 const btnReplay = document.getElementById('btnReplay'); if (btnReplay) btnReplay.textContent = t('volverJugar');
                 const btnMenuR = document.getElementById('btnMenuR'); if (btnMenuR) btnMenuR.textContent = t('menu');
 
@@ -2254,6 +2458,11 @@
                 const lTie = document.getElementById('lblTiempo'); if (lTie) lTie.textContent = t('tiempoJuego');
                 const bGua = document.getElementById('btnGuardar'); if (bGua) bGua.textContent = t('guardar');
                 const tVal = document.getElementById('timeVal'); if (tVal) tVal.textContent = gameTime + ' ' + t('segundos');
+
+                const lblDificultad = document.getElementById('lblDificultad'); if (lblDificultad) lblDificultad.textContent = t('dificultad');
+                const lblDiff1 = document.getElementById('lblDiff1'); if (lblDiff1) lblDiff1.textContent = t('diff_facil');
+                const lblDiff2 = document.getElementById('lblDiff2'); if (lblDiff2) lblDiff2.textContent = t('diff_medio');
+                const lblDiff3 = document.getElementById('lblDiff3'); if (lblDiff3) lblDiff3.textContent = t('diff_dificil');
 
                 // Exit modal
                 const eTitle = document.getElementById('exitTitle'); if (eTitle) eTitle.textContent = t('salirTitulo');
