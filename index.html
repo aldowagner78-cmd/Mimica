@@ -374,7 +374,8 @@
         /* ===== HOME SCREEN ===== */
         #home .home-title {
             text-align: center;
-            padding: 10px 20px 10px;
+            padding: 75px 20px 10px;
+            /* Espacio para el botón de configuración */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -507,16 +508,22 @@
             transform: translateX(-50%);
             width: 100%;
             max-width: 390px;
-            display: flex;
+            display: flex !important;
+            /* Forzar visibilidad */
             justify-content: center;
             align-items: center;
-            gap: 15px;
-            padding: 12px 20px 12px 20px;
+            padding: 15px 20px 20px 20px;
+            /* Más padding para móviles */
             background: linear-gradient(180deg, rgba(13, 108, 168, 0.95) 0%, rgba(10, 85, 135, 0.98) 100%);
             backdrop-filter: blur(10px);
             border-top: 2px solid rgba(67, 198, 219, 0.3);
             box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
-            z-index: 9998
+            z-index: 9998;
+        }
+
+        #home .bottom-nav {
+            display: flex !important;
+            /* Asegurar visibilidad en home */
         }
 
 
@@ -1565,12 +1572,10 @@
             window.addEventListener('load', () => {
                 let pct = 0;
                 const fill = document.getElementById('loadFill');
-                const txt = document.getElementById('loadPct');
                 const interval = setInterval(() => {
                     pct += Math.random() * 15 + 5;
                     if (pct >= 100) { pct = 100; clearInterval(interval); setTimeout(() => showScreen('home'), 500); }
-                    fill.style.width = pct + '%';
-                    txt.textContent = Math.floor(pct) + '%';
+                    if (fill) fill.style.width = pct + '%';
                 }, 200);
             });
 
