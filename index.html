@@ -374,8 +374,8 @@
         /* ===== HOME SCREEN ===== */
         #home .home-title {
             text-align: center;
-            padding: 75px 20px 10px;
-            /* Espacio para el botón de configuración */
+            padding: 110px 20px 10px;
+            /* Desplazado aún más abajo para asegurar que no se toque con el botón */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -503,27 +503,27 @@
 
         .bottom-nav {
             position: fixed;
-            bottom: 0;
+            bottom: 0px;
             left: 50%;
             transform: translateX(-50%);
             width: 100%;
             max-width: 390px;
-            display: flex !important;
-            /* Forzar visibilidad */
+            height: 85px;
+            /* Altura explícita para asegurar visibilidad */
+            display: flex;
             justify-content: center;
             align-items: center;
-            padding: 15px 20px 20px 20px;
-            /* Más padding para móviles */
-            background: linear-gradient(180deg, rgba(13, 108, 168, 0.95) 0%, rgba(10, 85, 135, 0.98) 100%);
-            backdrop-filter: blur(10px);
-            border-top: 2px solid rgba(67, 198, 219, 0.3);
-            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
-            z-index: 9998;
+            background: linear-gradient(180deg, #0B5A8F 0%, #0A5587 100%);
+            backdrop-filter: blur(15px);
+            border-top: 2px solid rgba(67, 198, 219, 0.4);
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
+            z-index: 10001;
+            transition: transform 0.3s ease;
         }
 
-        #home .bottom-nav {
-            display: flex !important;
-            /* Asegurar visibilidad en home */
+        .bottom-nav.hidden-nav {
+            transform: translate(-50%, 100%);
+            pointer-events: none;
         }
 
 
@@ -1602,13 +1602,14 @@
             // ===== NAVIGATION =====
             function showScreen(id) {
                 document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-                document.getElementById(id).classList.add('active');
+                const target = document.getElementById(id);
+                if (target) target.classList.add('active');
 
-                // Show/Hide bottom nav only on home
+                // Toggle bottom nav visibility via class instead of manual style
                 const nav = document.querySelector('.bottom-nav');
                 if (nav) {
-                    if (id === 'home') nav.style.display = 'flex';
-                    else nav.style.display = 'none';
+                    if (id === 'home') nav.classList.remove('hidden-nav');
+                    else nav.classList.add('hidden-nav');
                 }
 
                 if (id === 'home') renderCategories();
