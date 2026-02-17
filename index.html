@@ -99,7 +99,7 @@
                     #1E9FD8 75%,
                     #1589C5 90%,
                     #0B5A8F 100%);
-            position: relative;
+            /* position: relative removed to avoid absolute positioning override */
         }
 
         .bg-blue::before {
@@ -108,6 +108,7 @@
             inset: 0;
             background: radial-gradient(ellipse 70% 50% at 50% 40%, rgba(67, 198, 219, .25), transparent 70%);
             pointer-events: none;
+            z-index: 0;
         }
 
         .bg-game {
@@ -1551,12 +1552,19 @@
 
             // ===== SPLASH LOADING =====
             window.addEventListener('load', () => {
+                applyTranslations(); // Initialize text
                 let pct = 0;
                 const fill = document.getElementById('loadFill');
                 const txt = document.getElementById('loadPct');
+                if (!fill || !txt) return;
+
                 const interval = setInterval(() => {
                     pct += Math.random() * 15 + 5;
-                    if (pct >= 100) { pct = 100; clearInterval(interval); setTimeout(() => showScreen('home'), 500); }
+                    if (pct >= 100) {
+                        pct = 100;
+                        clearInterval(interval);
+                        setTimeout(() => showScreen('home'), 500);
+                    }
                     fill.style.width = pct + '%';
                     txt.textContent = Math.floor(pct) + '%';
                 }, 200);
@@ -1565,13 +1573,20 @@
             // ===== CATEGORIES GRID =====
             function renderCategories() {
                 const grid = document.getElementById('categoriesGrid');
+                if (!grid) return;
                 grid.innerHTML = '';
+
+                // Fallback check for CATEGORIES
+                if (typeof CATEGORIES === 'undefined') {
+                    console.error('CATEGORIES not loaded yet');
+                    return;
+                }
+
                 CATEGORIES.forEach(cat => {
                     const sel = selectedCats.has(cat.id) ? ' selected' : '';
                     const name = catName(cat.id);
                     grid.innerHTML += `<div class="cat-item${sel}" onclick="toggleCat('${cat.id}',this)">
                     <div class="cat-icon-wrap"><img src="assets/iconos/${cat.icon}" alt="${name}"></div>
-                    <div class="cat-shadow"></div>
                     <div class="cat-name">${name}</div>
                 </div>`;
                 });
@@ -1750,53 +1765,58 @@
             }
 
             function applyTranslations() {
-                // Home
-                document.getElementById('homeTitle').textContent = t('appTitle');
-                document.getElementById('btnEmpezar').textContent = t('empezar');
-                document.getElementById('navConfig').textContent = t('config');
-                document.getElementById('navAyuda').textContent = t('ayuda');
-                // How to play
-                document.getElementById('howtoTitle').textContent = t('comoJugar');
-                document.getElementById('howto1Title').textContent = t('howto1Title');
-                document.getElementById('howto1Desc').textContent = t('howto1Desc');
-                document.getElementById('howto2Title').textContent = t('howto2Title');
-                document.getElementById('howto2Desc').textContent = t('howto2Desc');
-                document.getElementById('howto3Title').textContent = t('howto3Title');
-                document.getElementById('howto3Desc').textContent = t('howto3Desc');
-                document.getElementById('btnEntendido').textContent = t('entendido');
-                // Game
-                document.getElementById('btnPasar').textContent = t('pasar');
-                document.getElementById('btnCorrecto').textContent = t('correcto');
-                // Results
-                const resTitle = document.getElementById('resultsTitle');
-                if (resTitle) resTitle.innerHTML = t('resultados');
-                const scoreLabel = document.getElementById('scoreLabel');
-                if (scoreLabel) scoreLabel.innerHTML = t('puntuacion');
-                const btnReplay = document.getElementById('btnReplay');
-                if (btnReplay) btnReplay.textContent = t('volverJugar');
-                const btnMenuR = document.getElementById('btnMenuR');
-                if (btnMenuR) btnMenuR.textContent = t('menu');
-                // Settings
-                document.getElementById('settingsTitle').innerHTML = t('configTitle');
-                document.getElementById('settingsIdioma').textContent = t('idioma');
-                document.getElementById('lblMusica').textContent = t('musicaLabel');
-                document.getElementById('lblVibracion').textContent = t('vibracion');
-                document.getElementById('lblTiempo').textContent = t('tiempoJuego');
-                document.getElementById('btnGuardar').textContent = t('guardar');
-                document.getElementById('timeVal').textContent = gameTime + ' ' + t('segundos');
-
-                // Keep slider sync
-                const slider = document.getElementById('timeSlider');
-                if (slider) {
-                    slider.value = gameTime;
-                    updateSliderBackground();
+                // Home - Don't overwrite logo image
+                const titleEl = document.getElementById('homeTitle');
+                if (titleEl && !titleEl.querySelector('img')) {
+                    titleEl.textContent = t('appTitle');
                 }
 
+                const btnEmp = document.getElementById('btnEmpezar');
+                if (btnEmp) btnEmp.textContent = t('empezar');
+
+                // Remove or wrap non-existent elements to avoid crashes
+                const configEl = document.getElementById('navConfig');
+                if (configEl) configEl.textContent = t('config');
+
+                const helpEl = document.getElementById('navAyuda');
+                if (helpEl) helpEl.textContent = t('ayuda');
+
+                // How to play
+                const howTitle = document.getElementById('howtoTitle');
+                if (howTitle) howTitle.textContent = t('comoJugar');
+                // ... other elements with safety checks
+                const h1 = document.getElementById('howto1Title'); if (h1) h1.textContent = t('howto1Title');
+                const d1 = document.getElementById('howto1Desc'); if (d1) d1.textContent = t('howto1Desc');
+                const h2 = document.getElementById('howto2Title'); if (h2) h2.textContent = t('howto2Title');
+                const d2 = document.getElementById('howto2Desc'); if (d2) d2.textContent = t('howto2Desc');
+                const h3 = document.getElementById('howto3Title'); if (h3) h3.textContent = t('howto3Title');
+                const d3 = document.getElementById('howto3Desc'); if (d3) d3.textContent = t('howto3Desc');
+                const bEnt = document.getElementById('btnEntendido'); if (bEnt) bEnt.textContent = t('entendido');
+
+                // Game
+                const bPas = document.getElementById('btnPasar'); if (bPas) bPas.textContent = t('pasar');
+                const bCor = document.getElementById('btnCorrecto'); if (bCor) bCor.textContent = t('correcto');
+
+                // Results
+                const resTitle = document.getElementById('resultsTitle'); if (resTitle) resTitle.innerHTML = t('resultados');
+                const scoreLabel = document.getElementById('scoreLabel'); if (scoreLabel) scoreLabel.innerHTML = t('puntuacion');
+                const btnReplay = document.getElementById('btnReplay'); if (btnReplay) btnReplay.textContent = t('volverJugar');
+                const btnMenuR = document.getElementById('btnMenuR'); if (btnMenuR) btnMenuR.textContent = t('menu');
+
+                // Settings
+                const sTitle = document.getElementById('settingsTitle'); if (sTitle) sTitle.innerHTML = t('configTitle');
+                const sLang = document.getElementById('settingsIdioma'); if (sLang) sLang.textContent = t('idioma');
+                const lMus = document.getElementById('lblMusica'); if (lMus) lMus.textContent = t('musicaLabel');
+                const lVib = document.getElementById('lblVibracion'); if (lVib) lVib.textContent = t('vibracion');
+                const lTie = document.getElementById('lblTiempo'); if (lTie) lTie.textContent = t('tiempoJuego');
+                const bGua = document.getElementById('btnGuardar'); if (bGua) bGua.textContent = t('guardar');
+                const tVal = document.getElementById('timeVal'); if (tVal) tVal.textContent = gameTime + ' ' + t('segundos');
+
                 // Exit modal
-                document.getElementById('exitTitle').textContent = t('salirTitulo');
-                document.getElementById('exitDesc').textContent = t('salirDesc');
-                document.getElementById('btnContinue').innerHTML = t('noSeguir');
-                document.getElementById('btnExit').innerHTML = t('siSalir');
+                const eTitle = document.getElementById('exitTitle'); if (eTitle) eTitle.textContent = t('salirTitulo');
+                const eDesc = document.getElementById('exitDesc'); if (eDesc) eDesc.textContent = t('salirDesc');
+                const bCont = document.getElementById('btnContinue'); if (bCont) bCont.innerHTML = t('noSeguir');
+                const bExit = document.getElementById('btnExit'); if (bExit) bExit.innerHTML = t('siSalir');
             }
 
             // ===== CONFETTI =====
