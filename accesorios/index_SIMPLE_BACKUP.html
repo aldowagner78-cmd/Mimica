@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mímica Pro - Test Simple</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(180deg, #0D6CA8 0%, #1589C5 50%, #0D6CA8 100%);
+            min-height: 100vh;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 20px;
+            min-height: 80vh;
+        }
+
+        h1 {
+            color: #FFD700;
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 100px;
+        }
+
+        .cat-box {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .cat-box:hover {
+            background: rgba(255, 255, 0, 0.3);
+        }
+
+        .fixed-button {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(180deg, #7FD858, #4CAF50);
+            color: white;
+            border: none;
+            padding: 20px 60px;
+            border-radius: 50px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+        }
+
+        .fixed-button:hover {
+            transform: translateX(-50%) scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>MÍMICA PRO</h1>
+        <div class="categories">
+            <div class="cat-box">🦁 Animales</div>
+            <div class="cat-box">🎬 Películas</div>
+            <div class="cat-box">🦸 Héroes</div>
+            <div class="cat-box">⚡ Acción</div>
+            <div class="cat-box">⚽ Deportes</div>
+            <div class="cat-box">🎵 Música</div>
+            <div class="cat-box">👨‍⚕️ Profesiones</div>
+            <div class="cat-box">💡 Objetos</div>
+            <div class="cat-box">🍕 Comida</div>
+            <div class="cat-box">🎉 Fiesta</div>
+            <div class="cat-box">✈️ Viajes</div>
+            <div class="cat-box">🎁 Sorpresa</div>
+        </div>
+    </div>
+    <button class="fixed-button" onclick="alert('¡Botón funcionando!')">EMPEZAR</button>
+</body>
+
+</html>

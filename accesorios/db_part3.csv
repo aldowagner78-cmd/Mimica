@@ -1,0 +1,901 @@
+Categoría,Nivel,Español (Latino),Inglés
+Accion,Baja,Correr,Run
+Accion,Baja,Saltar,Jump
+Accion,Baja,Bailar,Dance
+Accion,Baja,Cantar,Sing
+Accion,Baja,Comer,Eat
+Accion,Baja,Dormir,Sleep
+Accion,Baja,Llorar,Cry
+Accion,Baja,Reír,Laugh
+Accion,Baja,Nadar,Swim
+Accion,Baja,Volar,Fly
+Accion,Baja,Escribir,Write
+Accion,Baja,Leer,Read
+Accion,Baja,Cocinar,Cook
+Accion,Baja,Pintar,Paint
+Accion,Baja,Barrer,Sweep
+Accion,Baja,Manejar,Drive
+Accion,Baja,Pescar,Fish
+Accion,Baja,Aplaudir,Clap
+Accion,Baja,Abrazar,Hug
+Accion,Baja,Besar,Kiss
+Accion,Baja,Estirar,Stretch
+Accion,Baja,Gatear,Crawl
+Accion,Baja,Tropezar,Trip
+Accion,Baja,Resbalar,Slip
+Accion,Baja,Caer,Fall
+Accion,Baja,Levantar,Lift
+Accion,Baja,Empujar,Push
+Accion,Baja,Tirar,Pull
+Accion,Baja,Abrir,Open
+Accion,Baja,Cerrar,Close
+Accion,Baja,Doblar,Fold
+Accion,Baja,Romper,Break
+Accion,Baja,Pegar,Glue
+Accion,Baja,Cortar,Cut
+Accion,Baja,Lijar,Sand
+Accion,Baja,Fregar,Scrub
+Accion,Baja,Sacudir,Shake
+Accion,Baja,Planchar,Iron
+Accion,Baja,Coser,Sew
+Accion,Baja,Tejer,Knit
+Accion,Baja,Borda,Embroider
+Accion,Baja,Hornear,Bake
+Accion,Baja,Freír,Fry
+Accion,Baja,Hervir,Boil
+Accion,Baja,Picar,Chop
+Accion,Baja,Rallar,Grate
+Accion,Baja,Batir,Whisk
+Accion,Baja,Amasar,Knead
+Accion,Baja,Mezclar,Mix
+Accion,Baja,Servir,Serve
+Accion,Baja,Beber,Drink
+Accion,Baja,Morder,Bite
+Accion,Baja,Masticar,Chew
+Accion,Baja,Tragar,Swallow
+Accion,Baja,Escupir,Spit
+Accion,Baja,Soplar,Blow
+Accion,Baja,Silbar,Whistle
+Accion,Baja,Gritar,Scream
+Accion,Baja,Susurrar,Whisper
+Accion,Baja,Hablar,Talk
+Accion,Baja,Escuchar,Listen
+Accion,Baja,Oler,Smell
+Accion,Baja,Tocar,Touch
+Accion,Baja,Mirar,Look
+Accion,Baja,Observar,Observe
+Accion,Baja,Guiñar,Wink
+Accion,Baja,Parpadear,Blink
+Accion,Baja,Sonreír,Smile
+Accion,Baja,Bostezar,Yawn
+Accion,Baja,Estornudar,Sneeze
+Accion,Baja,Tosér,Cough
+Accion,Baja,Roncar,Snore
+Accion,Baja,Soñar,Dream
+Accion,Baja,Despertar,Wake
+Accion,Baja,Estudiar,Study
+Accion,Baja,Pensar,Think
+Accion,Baja,Recordar,Remember
+Accion,Baja,Olvidar,Forget
+Accion,Baja,Imaginar,Imagine
+Accion,Baja,Crear,Create
+Accion,Baja,Destruir,Destroy
+Accion,Baja,Construir,Build
+Accion,Baja,Martillar,Hammer
+Accion,Baja,Atornillar,Screw
+Accion,Baja,Serruchar,Saw
+Accion,Baja,Cavar,Dig
+Accion,Baja,Plantar,Plant
+Accion,Baja,Regar,Water
+Accion,Baja,Cosechar,Harvest
+Accion,Baja,Podar,Prune
+Accion,Baja,Trepar,Climb
+Accion,Baja,Escalar,Scale
+Accion,Baja,Saltar,Jump
+Accion,Baja,Girar,Spin
+Accion,Baja,Rodar,Roll
+Accion,Baja,Caminar,Walk
+Accion,Baja,Marchar,March
+Accion,Baja,Correr,Run
+Accion,Baja,Trotar,Jog
+Accion,Baja,Accion Extra L1 99,Action Extra L1 99
+Accion,Media,Planchar camisa,Ironing shirt
+Accion,Media,Atar cordones,Tying shoelaces
+Accion,Media,Lavarse dientes,Brushing teeth
+Accion,Media,Cortar pasto,Mowing lawn
+Accion,Media,Inflar globo,Inflating balloon
+Accion,Media,Cambiar pañal,Changing diaper
+Accion,Media,Palar nieve,Shoveling snow
+Accion,Media,Martillar clavo,Hammering nail
+Accion,Media,Exprimir naranja,Squeezing orange
+Accion,Media,Abrir frasco,Opening jar
+Accion,Media,Manejar auto,Driving car
+Accion,Media,Andar bici,Riding bike
+Accion,Media,Pagar cuenta,Paying bill
+Accion,Media,Pedir taxi,Hailing taxi
+Accion,Media,Hacer cama,Making bed
+Accion,Media,Lavar platos,Washing dishes
+Accion,Media,Secar pelo,Drying hair
+Accion,Media,Maquillarse cara,Applying makeup
+Accion,Media,Afeitarse barba,Shaving beard
+Accion,Media,Cortarse uñas,Cutting nails
+Accion,Media,Bañar perro,Bathing dog
+Accion,Media,Dar comida,Feeding pet
+Accion,Media,Sacar basura,Taking trash
+Accion,Media,Regar plantas,Watering plants
+Accion,Media,Barrer piso,Sweeping floor
+Accion,Media,Trapear suelo,Mopping floor
+Accion,Media,Limpiar vidrios,Cleaning windows
+Accion,Media,Sacudir polvo,Dusting furniture
+Accion,Media,Ordenar cuarto,Tidying room
+Accion,Media,Doblar ropa,Folding clothes
+Accion,Media,Colgar cuadro,Hanging picture
+Accion,Media,Cambiar foco,Changing bulb
+Accion,Media,Arreglar enchufe,Fixing plug
+Accion,Media,Pintar pared,Painting wall
+Accion,Media,Lijar madera,Sanding wood
+Accion,Media,Cortar leña,Chopping wood
+Accion,Media,Prender fuego,Lighting fire
+Accion,Media,Apagar vela,Blowing candle
+Accion,Media,Soplar torta,Blowing cake
+Accion,Media,Abrir regalo,Opening gift
+Accion,Media,Envolver caja,Wrapping box
+Accion,Media,Escribir carta,Writing letter
+Accion,Media,Leer diario,Reading news
+Accion,Media,Mandar mensaje,Texting msg
+Accion,Media,Hablar celular,Talking phone
+Accion,Media,Sacar selfi,Taking selfie
+Accion,Media,Grabar video,Recording video
+Accion,Media,Buscar llaves,Finding keys
+Accion,Media,Perder billetera,Losing wallet
+Accion,Media,Encontrar moneda,Finding coin
+Accion,Media,Contar dinero,Counting money
+Accion,Media,Pagar tarjeta,Paying card
+Accion,Media,Firmar papel,Signing paper
+Accion,Media,Sellar sobre,Sealing envelope
+Accion,Media,Pegar estampilla,Sticking stamp
+Accion,Media,Tirar beso,Blowing kiss
+Accion,Media,Dar abrazo,Giving hug
+Accion,Media,Chocar manos,High five
+Accion,Media,Saludar mano,Shaking hands
+Accion,Media,Despedirse lejos,Waving goodbye
+Accion,Media,Hacer dedo,Hitchhiking
+Accion,Media,Parar bondi,Stopping bus
+Accion,Media,Subir escalera,Climbing stairs
+Accion,Media,Bajar ascensor,Taking elevator
+Accion,Media,Abrir paraguas,Opening umbrella
+Accion,Media,Cerrar campera,Zipping jacket
+Accion,Media,Atar bufanda,Tying scarf
+Accion,Media,Ponerse gorro,Putting hat
+Accion,Media,Sacarse botas,Taking boots
+Accion,Media,Colgar abrigo,Hanging coat
+Accion,Media,Hacer té,Making tea
+Accion,Media,Calentar agua,Boiling water
+Accion,Media,Servir café,Pouring coffee
+Accion,Media,Batir crema,Whipping cream
+Accion,Media,Untar manteca,Spreading butter
+Accion,Media,Cortar pan,Slicing bread
+Accion,Media,Pelar papa,Peeling potato
+Accion,Media,Hervir fideos,Boiling pasta
+Accion,Media,Colar arroz,Straining rice
+Accion,Media,Freír huevo,Frying egg
+Accion,Media,Saltear verdura,Sautéing veg
+Accion,Media,Condimentar,Seasoning food
+Accion,Media,Probar sopa,Tasting soup
+Accion,Media,Salar comida,Salting food
+Accion,Media,Soplar caliente,Blowing hot
+Accion,Media,Masticar chicle,Chewing gum
+Accion,Media,Hacer globo,Blowing bubble
+Accion,Media,Sonarse nariz,Blowing nose
+Accion,Media,Limpiar lentes,Cleaning glasses
+Accion,Media,Ponerse lentes,Wearing glasses
+Accion,Media,Sacar foto,Taking photo
+Accion,Media,Posar foto,Posing photo
+Accion,Media,Sonreír cámara,Smiling camera
+Accion,Media,Saludar cámara,Waving camera
+Accion,Media,Aplaudir show,Clapping show
+Accion,Media,Silbar canción,Whistling song
+Accion,Media,Tararear ritmo,Humming tune
+Accion,Media,Chasquear dedos,Snapping fingers
+Accion,Media,Accion Extra L2 98,Action Extra L2 98
+Accion,Media,Accion Extra L2 99,Action Extra L2 99
+Accion,Alta,Caminar sobre carbón,Walking hot coals
+Accion,Alta,Estornudar sin poder,Failed sneeze
+Accion,Alta,Pisar caca perro,Stepping dog poop
+Accion,Alta,Caminar contra viento,Wind walking
+Accion,Alta,Matar mosca molesta,Killing nuisance fly
+Accion,Alta,Ponerse jeans ajustados,Tight jeans pants
+Accion,Alta,Quemar comida esconderla,Burning hiding food
+Accion,Alta,Bailar tango escoba,Tango with broom
+Accion,Alta,Desactivar bomba miedo,Defusing bomb fear
+Accion,Alta,Equilibrio cuerda floja,Tightrope balance
+Accion,Alta,Saltar en paracaídas,Skydiving jump
+Accion,Alta,Nadar con cocodrilos,Swimming crocs
+Accion,Alta,Escalar Everest ojotas,Everest flipflops
+Accion,Alta,Correr maratón muletas,Marathon crutches
+Accion,Alta,Boxear con sombra,Shadow boxing
+Accion,Alta,Pelear con almohada,Pillow fighting
+Accion,Alta,Hacer malabares huevos,Egg juggling
+Accion,Alta,Tragar espada falsa,Fake sword swallow
+Accion,Alta,Domar silla salvaje,Taming wild chair
+Accion,Alta,Montar toro mecánico,Mech bull riding
+Accion,Alta,Surfear tsunami,Surfing tsunami
+Accion,Alta,Esquiar sin nieve,Skiing no snow
+Accion,Alta,Patinar sobre aceite,Skating on oil
+Accion,Alta,Trepar edificio vidiros,Climbing glass bldg
+Accion,Alta,Saltar charco gigante,Jumping huge puddle
+Accion,Alta,Caerse en público,Public fall
+Accion,Alta,Tropezar con aire,Tripping on air
+Accion,Alta,Chocarse puerta vidrio,Hitting glass door
+Accion,Alta,Resbalar cáscara banana,Banana slip
+Accion,Alta,Quedarse pegado chicle,Stuck in gum
+Accion,Alta,Perderse en laberinto,Lost in maze
+Accion,Alta,Buscar aguja pajar,Needle in haystack
+Accion,Alta,Intentar lamer codo,Licking elbow
+Accion,Alta,Besarse a sí mismo,Kissing self
+Accion,Alta,Abrazar aire solo,Hugging air
+Accion,Alta,Pelear con mosquito,Mosquito fight
+Accion,Alta,Huir de abejas,Fleeing bees
+Accion,Alta,Sacarse muela solo,Self tooth pull
+Accion,Alta,Cortarse pelo solo,Self haircut
+Accion,Alta,Tatuarse a sí mismo,Self tattoo
+Accion,Alta,Operar a corazón abierto,Open heart surgery
+Accion,Alta,Manejar ojos vendados,Blindfold driving
+Accion,Alta,Aterrizar avión emergencia,Emergency landing
+Accion,Alta,Robar banco silencio,Silent bank rob
+Accion,Alta,Escapar de prisión,Prison escape
+Accion,Alta,Esconderse de policía,Hiding from cops
+Accion,Alta,Mentir en juicio,Lying in court
+Accion,Alta,Llorar cebolla picada,Onion crying
+Accion,Alta,Reírse en funeral,Funeral laughing
+Accion,Alta,Dormirse en reunión,Meeting sleeping
+Accion,Alta,Roncar muy fuerte,Loud snoring
+Accion,Alta,Babear almohada,Pillow drooling
+Accion,Alta,Caerse de la cama,Bed falling
+Accion,Alta,Sonámbulo caminando techo,Roof slipwalking
+Accion,Alta,Tener pesadilla fea,Bad nightmare
+Accion,Alta,Despertar tarde examen,Late for exam
+Accion,Alta,Olvidar pantalones casa,Forget pants
+Accion,Alta,Romper jarrón caro,Breaking expensive vase
+Accion,Alta,Manchar camisa vino,Wine stain shirt
+Accion,Alta,Quemar camisa plancha,Iron burn shirt
+Accion,Alta,Coser botón dedo,Sewing finger
+Accion,Alta,Martillarse el dedo,Hammering finger
+Accion,Alta,Cortarse papel lengua,Paper cut tongue
+Accion,Alta,Pincharse con cactus,Cactus prick
+Accion,Alta,Comer ají picante,Eating hot chili
+Accion,Alta,Tragar cubo hielo,Swallowing ice cube
+Accion,Alta,Morder lengua fuerte,Biting tongue hard
+Accion,Alta,Ahogarse con agua,Choking water
+Accion,Alta,Quemar lengua café,Burning tongue coffee
+Accion,Alta,Congelar cerebro helado,Brain freeze
+Accion,Alta,Estornudar fideos nariz,Sneezing noodles
+Accion,Alta,Reírse bebida nariz,Laughing drink nose
+Accion,Alta,Vomitar en montaña rusa,Rollercoaster vomit
+Accion,Alta,Marearse en calesita,Carousel dizzy
+Accion,Alta,Perder equilibrio barco,Boat losing balance
+Accion,Alta,Caerse bici quieta,Falling stationary bike
+Accion,Alta,Chocar auto estacionado,Hitting parked car
+Accion,Alta,Rayar auto llave,Keying car
+Accion,Alta,Perder llaves alcantarilla,Keys sewer drop
+Accion,Alta,Tirar celular inodoro,Phone toilet drop
+Accion,Alta,Romper pantalla celular,Breaking phone screen
+Accion,Alta,Mojar libro prestado,Wetting borrowed book
+Accion,Alta,Perder boleto ganador,Losing win ticket
+Accion,Alta,Ganar y no cobrar,Winning collecting nil
+Accion,Alta,Saludar persona equivocada,Waving wrong person
+Accion,Alta,Chocar los cinco aire,Missed high five
+Accion,Alta,Caerse silla rompiendo,Breaking chair sit
+Accion,Alta,Sentarse sobre pastel,Sitting on cake
+Accion,Alta,Recibir tortazo cara,Pie in face
+Accion,Alta,Resbalar en ducha,Shower slip
+Accion,Alta,Quedarse sin papel baño,Out of toilet paper
+Accion,Alta,Taparse oído agua,Water stuck ear
+Accion,Alta,Sacarse agua oído,Shaking water ear
+Accion,Alta,Rascarse espalda pared,Scratching back wall
+Accion,Alta,Intentar alcanzar espalda,Reaching back itch
+Accion,Alta,Hacer yoga y trabarse,Yoga stuck pose
+Accion,Alta,Desmayarse de amor,Fainting love
+Accion,Alta,Gritar gol equipo rival,Yelling wrong goal
+Accion,Alta,Cantar desafinado ducha,Singing offkey shower
+Accion,Alta,Bailar sin música,Dancing no music
+Deportes,Baja,Fútbol,Soccer
+Deportes,Baja,Básquet,Basketball
+Deportes,Baja,Tenis,Tennis
+Deportes,Baja,Natación,Swimming
+Deportes,Baja,Boxeo,Boxing
+Deportes,Baja,Rugby,Rugby
+Deportes,Baja,Golf,Golf
+Deportes,Baja,Vóley,Volleyball
+Deportes,Baja,Béisbol,Baseball
+Deportes,Baja,Hockey,Hockey
+Deportes,Baja,Esquí,Skiing
+Deportes,Baja,Surf,Surfing
+Deportes,Baja,Ciclismo,Cycling
+Deportes,Baja,Patinaje,Skating
+Deportes,Baja,Karate,Karate
+Deportes,Baja,Gimnasia,Gymnastics
+Deportes,Baja,Pesca,Fishing
+Deportes,Baja,Atletismo,Athletics
+Deportes,Baja,Sumo,Sumo
+Deportes,Baja,Arquería,Archery
+Deportes,Baja,Judo,Judo
+Deportes,Baja,Taekwondo,Taekwondo
+Deportes,Baja,Lucha,Wrestling
+Deportes,Baja,Kung Fu,Kung Fu
+Deportes,Baja,Esgrima,Fencing
+Deportes,Baja,Remo,Rowing
+Deportes,Baja,Canotaje,Canoeing
+Deportes,Baja,Vela,Sailing
+Deportes,Baja,Buceo,Diving
+Deportes,Baja,Waterpolo,Waterpolo
+Deportes,Baja,Handball,Handball
+Deportes,Baja,Badminton,Badminton
+Deportes,Baja,Ping Pong,Ping Pong
+Deportes,Baja,Squash,Squash
+Deportes,Baja,Padel,Padel
+Deportes,Baja,Cricket,Cricket
+Deportes,Baja,Polo,Polo
+Deportes,Baja,Equitación,Riding
+Deportes,Baja,Rodeo,Rodeo
+Deportes,Baja,Automovilismo,Racing
+Deportes,Baja,Motociclismo,Motorcycling
+Deportes,Baja,Rally,Rally
+Deportes,Baja,Karting,Karting
+Deportes,Baja,Formula 1,Formula 1
+Deportes,Baja,Skate,Skate
+Deportes,Baja,Snowboard,Snowboard
+Deportes,Baja,Paracaidismo,Skydiving
+Deportes,Baja,Alpinismo,Alpinism
+Deportes,Baja,Escalada,Climbing
+Deportes,Baja,Senderismo,Hiking
+Deportes,Baja,Triatlón,Triathlon
+Deportes,Baja,Maratón,Marathon
+Deportes,Baja,Decatlón,Decathlon
+Deportes,Baja,Salto Alto,High Jump
+Deportes,Baja,Salto Largo,Long Jump
+Deportes,Baja,Garrocha,Pole Vault
+Deportes,Baja,Lanzamiento,Throw
+Deportes,Baja,Bala,Shot Put
+Deportes,Baja,Jabalina,Javelin
+Deportes,Baja,Disco,Discus
+Deportes,Baja,Martillo,Hammer
+Deportes,Baja,Carrera,Race
+Deportes,Baja,Relevos,Relay
+Deportes,Baja,Vallas,Hurdles
+Deportes,Baja,Marcha,Walk
+Deportes,Baja,Crossfit,Crossfit
+Deportes,Baja,Yoga,Yoga
+Deportes,Baja,Pilates,Pilates
+Deportes,Baja,Zumba,Zumba
+Deportes,Baja,Aeróbica,Aerobics
+Deportes,Baja,Pesas,Weights
+Deportes,Baja,Culturismo,Bodybuilding
+Deportes,Baja,Halvedrofilia,Weightlifting
+Deportes,Baja,Powerlifting,Powerlifting
+Deportes,Baja,Strongman,Strongman
+Deportes,Baja,Bolos,Bowling
+Deportes,Baja,Dardos,Darts
+Deportes,Baja,Billar,Billiards
+Deportes,Baja,Pool,Pool
+Deportes,Baja,Tejo,Shuffleboard
+Deportes,Baja,Bocha,Bocce
+Deportes,Baja,Croquet,Croquet
+Deportes,Baja,Petanca,Petanque
+Deportes,Baja,Curling,Curling
+Deportes,Baja,Lacrosse,Lacrosse
+Deportes,Baja,Softbol,Softball
+Deportes,Baja,Netball,Netball
+Deportes,Baja,Korfball,Korfball
+Deportes,Baja,Sepak Takraw,Sepak Takraw
+Deportes,Baja,Kabaddi,Kabaddi
+Deportes,Baja,Capoeira,Capoeira
+Deportes,Baja,Parkour,Parkour
+Deportes,Baja,Freerunning,Freerunning
+Deportes,Baja,Breakdance,Breakdance
+Deportes,Baja,Cheerleading,Cheerleading
+Deportes,Baja,Acrobacia,Acrobatics
+Deportes,Baja,Malabarismo,Juggling
+Deportes,Baja,Trapecio,Trapeze
+Deportes,Baja,Cuerda Floja,Tightrope
+Deportes,Baja,Cama Elástica,Trampoline
+Deportes,Media,Meter gol,Scoring goal
+Deportes,Media,Hacer home run,Home run hit
+Deportes,Media,Nocaut boxeo,Boxing knockout
+Deportes,Media,Saque tenis,Tennis serve
+Deportes,Media,Tirar penal,Penalty shot
+Deportes,Media,Caerse esquiando,Skiing fall
+Deportes,Media,Atrapar pelota,Catching ball
+Deportes,Media,Hacer pesas,Lifting weights
+Deportes,Media,Remar kayak,Kayaking
+Deportes,Media,Escalar montaña,Climbing mt
+Deportes,Media,Andar skate,Skateboarding
+Deportes,Media,Patinar hielo,Ice skating
+Deportes,Media,Hacer surf,Surfing wave
+Deportes,Media,Nadar pecho,Breaststroke
+Deportes,Media,Nadar espalda,Backstroke
+Deportes,Media,Tirar al aro,Shooting hoop
+Deportes,Media,Hacer un pase,Making pass
+Deportes,Media,Atajar gol,Saving goal
+Deportes,Media,Sacar tarjeta roja,Red card
+Deportes,Media,Cobrar falta,Calling foul
+Deportes,Media,Tirar corner,Corner kick
+Deportes,Media,Hacer lateral,Throw in
+Deportes,Media,Pedir tiempo,Timeout call
+Deportes,Media,Celebrar gol,Goal celebration
+Deportes,Media,Cambiar jugador,Sub player
+Deportes,Media,Lesionarse pierna,Leg injury
+Deportes,Media,Vendarse mano,Wrapping hand
+Deportes,Media,Ponerse casco,Wearing helmet
+Deportes,Media,Atar botines,Tying cleats
+Deportes,Media,Inflar pelota,Inflating ball
+Deportes,Media,Romper raqueta,Breaking racket
+Deportes,Media,Perder pelota,Losing ball
+Deportes,Media,Hacer hoyo uno,Hole in one
+Deportes,Media,Salir del bunker,Sand bunker
+Deportes,Media,Tirar bowling,Bowling throw
+Deportes,Media,Hacer chuza,Strike bowl
+Deportes,Media,Tirar dardos,Throwing darts
+Deportes,Media,Jugar al pool,Playing pool
+Deportes,Media,Meter la 8,Sinking 8ball
+Deportes,Media,Saltar la soga,Jumping rope
+Deportes,Media,Hacer flexiones,Pushups
+Deportes,Media,Hacer abdominales,Situps
+Deportes,Media,Correr cinta,Treadmill run
+Deportes,Media,Pedalear bici,Pedaling bike
+Deportes,Media,Cambiar rueda,Changing tire
+Deportes,Media,Poner cadena,Fixing chain
+Deportes,Media,Ajustar asiento,Adjusting seat
+Deportes,Media,Usar inflador,Using pump
+Deportes,Media,Tomar agua,Drinking water
+Deportes,Media,Secarse sudor,Drying sweat
+Deportes,Media,Tirar toalla,Towel throw
+Deportes,Media,Subir podio,Podium climb
+Deportes,Media,Ganar medalla,Winning medal
+Deportes,Media,Cantar himno,Singing anthem
+Deportes,Media,Llorar derrota,Crying loss
+Deportes,Media,Abrazar equipo,Hugging team
+Deportes,Media,Levantar copa,Lifting cup
+Deportes,Media,Firmar camiseta,Signing shirt
+Deportes,Media,Dar entrevista,Interviewing
+Deportes,Media,Sacar foto fan,Fan photo
+Deportes,Media,Hacer autógrafo,Signing autograph
+Deportes,Media,Elongar músculos,Stretching muscles
+Deportes,Media,Calentar cuerpo,Warming up
+Deportes,Media,Trotar suave,Jogging soft
+Deportes,Media,Picar pelota,Bouncing ball
+Deportes,Media,Girar pelota dedo,Spinning finger
+Deportes,Media,Hacer jueguitos,Juggling ball
+Deportes,Media,Cabecear pelota,Heading ball
+Deportes,Media,Parar de pecho,Chest stop
+Deportes,Media,Tirar caño,Nutmeg trick
+Deportes,Media,Hacer rabona,Rabona kick
+Deportes,Media,Tirar chilena,Bicycle kick
+Deportes,Media,Atajar penal,Saving penalty
+Deportes,Media,Errar penal,Missing penalty
+Deportes,Media,Pegar en palo,Hitting post
+Deportes,Media,Pinchar pelota,Popping ball
+Deportes,Media,Romper red,Breaking net
+Deportes,Media,Saltar valla,Jumping hurdle
+Deportes,Media,Lanzar jabalina,Throwing javelin
+Deportes,Media,Tirar disco,Throwing discus
+Deportes,Media,Saltar garrocha,Pole vaulting
+Deportes,Media,Caer colchoneta,Mat landing
+Deportes,Media,Nadar mariposa,Butterfly swim
+Deportes,Media,Nadar crol,Crawl swim
+Deportes,Media,Largada carrera,Race start
+Deportes,Media,Cruzar meta,Crossing finish
+Deportes,Media,Romper cinta,Breaking tape
+Deportes,Media,Cronometrar tiempo,Timing race
+Deportes,Media,Hacer record,Record break
+Deportes,Media,Ganar carrera,Winning race
+Deportes,Media,Perder carrera,Losing race
+Deportes,Media,Empatar juego,Tie game
+Deportes,Media,Ir a alargue,Overtime
+Deportes,Media,Definir penales,Penalty shootout
+Deportes,Media,Muerte súbita,Sudden death
+Deportes,Media,Hacer tacle,Tackle rugby
+Deportes,Media,Scrum rugby,Rugby scrum
+Deportes,Media,Try rugby,Rugby try
+Deportes,Media,Conversion rugby,Rugby conversion
+Deportes,Media,Deporte Extra L2 99,Sport Extra L2 99
+Deportes,Alta,Sumo bailando ballet,Sumo balcony dance
+Deportes,Alta,Tenista rompiendo raqueta,Tennis racket smash
+Deportes,Alta,Arquero miedo pelota,Goalie ball fear
+Deportes,Alta,Surfista tiburón,Surfer shark chase
+Deportes,Alta,Boxeador auto nocaut,Boxer self KO
+Deportes,Alta,Golfista festejo temprano,Golfer early celeb
+Deportes,Alta,Ciclista sin cadena,Cyclist lost chain
+Deportes,Alta,Nadador calambre,Swimmer leg cramp
+Deportes,Alta,Basquetbolista bajo,Short basketballer
+Deportes,Alta,Esquiador árbol,Skier hitting tree
+Deportes,Alta,Futbolista actuando falta,Soccer dive acting
+Deportes,Alta,Arbitro ciego,Blind referee
+Deportes,Alta,Mascota equipo bailando,Mascot dancing bad
+Deportes,Alta,Jugador perdiendo shorts,Player losing shorts
+Deportes,Alta,Pelota deshinflada aire,Ball deflating air
+Deportes,Alta,Perro entra cancha,Dog on field
+Deportes,Alta,Gol en contra final,Own goal final
+Deportes,Alta,DT gritando afónico,Coach yelling lost voice
+Deportes,Alta,Hincha dormido tribuna,Fan sleeping stands
+Deportes,Alta,Vendedor comida cancha,Food vendor field
+Deportes,Alta,Aguatero tropezando,Waterboy tripping
+Deportes,Alta,Camilla cayendo jugador,Stretcher dropping player
+Deportes,Alta,Medico corriendo lento,Medic running slow
+Deportes,Alta,Periodista pelotazo,Reporter ball hit
+Deportes,Alta,Cámara rompiéndose,Camera breaking
+Deportes,Alta,Arco cayéndose,Goal post falling
+Deportes,Alta,Red agujereada,Net with hole
+Deportes,Alta,Pasto muy alto,Grass too high
+Deportes,Alta,Lluvia inunda cancha,Rain flood field
+Deportes,Alta,Nieve tapa líneas,Snow covering lines
+Deportes,Alta,Viento lleva pelota,Wind moving ball
+Deportes,Alta,Sol ciega arquero,Sun blinding goalie
+Deportes,Alta,Reflectores apagados,Lights going out
+Deportes,Alta,Riego prende partido,Sprinklers mid game
+Deportes,Alta,Pájaro caga jugador,Bird poop player
+Deportes,Alta,Gato negro cruza,Black cat crossing
+Deportes,Alta,Topo pozo cancha,Mole hole field
+Deportes,Alta,Pelota pincha clavo,Ball popping nail
+Deportes,Alta,Zapato vuela aire,Shoe flying air
+Deportes,Alta,Camiseta rota tirón,Shirt ripped pull
+Deportes,Alta,Pantalón cae penal,Pants down penalty
+Deportes,Alta,Medias bajas,Socks down
+Deportes,Alta,Cordones desatados gol,Laces untied goal
+Deportes,Alta,Espinillera cae,Shin guard falling
+Deportes,Alta,Venda suelta,Bandage loose
+Deportes,Alta,Pelo tapa ojos,Hair covering eyes
+Deportes,Alta,Sudor entra ojos,Sweat in eyes
+Deportes,Alta,Agua botella vuelca,Water bottle spill
+Deportes,Alta,Toalla mojada cara,Wet towel face
+Deportes,Alta,Trofeo cae pie,Trophy drop foot
+Deportes,Alta,Medalla rompe diente,Medal tooth chip
+Deportes,Alta,Podio se rompe,Podium breaking
+Deportes,Alta,Himno disco rayado,Anthem skipped record
+Deportes,Alta,Bandera al revés,Flag upside down
+Deportes,Alta,Antorcha se apaga,Torch going out
+Deportes,Alta,Fuego quema pelo,Fire burning hair
+Deportes,Alta,Mascota ataca jugador,Mascot attack player
+Deportes,Alta,Fan invade cancha,Fan invading pitch
+Deportes,Alta,Policía corre fan,Cop chasing fan
+Deportes,Alta,Perro muerde pelota,Dog biting ball
+Deportes,Alta,Pelota queda techo,Ball stuck roof
+Deportes,Alta,Arquero hace gol,Goalie scoring goal
+Deportes,Alta,Defensa ataja mano,Defender hand save
+Deportes,Alta,Delantero erra solo,Striker miss open
+Deportes,Alta,Pelota pega palo x3,Ball pos x3 hit
+Deportes,Alta,Gol anulado VAR,Goal VAR cancel
+Deportes,Alta,Festejo gol offside,Offside celebration
+Deportes,Alta,Jugador choca palo,Player post hit
+Deportes,Alta,Camilla choca carrito,Stretcher cart crash
+Deportes,Alta,Carrito rompe motor,Cart motor break
+Deportes,Alta,Riego moja DT,Sprinkler soaking coach
+Deportes,Alta,DT rompe pizarra,Coach breaking board
+Deportes,Alta,Jugador ríe himno,Player laughing anthem
+Deportes,Alta,Jugador llora antes,Player crying start
+Deportes,Alta,Miedo escénico penal,Stage fright penalty
+Deportes,Alta,Vómito cancha,Vomit field
+Deportes,Alta,Diente volando golpe,Tooth flying hit
+Deportes,Alta,Sangre nariz pelotazo,Nosebleed ball hit
+Deportes,Alta,Ojo morado golpe,Black eye punch
+Deportes,Alta,Dedo doblado voley,Finger bent volley
+Deportes,Alta,Calambre dos piernas,Cramp both legs
+Deportes,Alta,Fatiga corre lento,Fatigue slow run
+Deportes,Alta,Desmayo meta maratón,Faint finish line
+Deportes,Alta,Vomito llegada carrera,Vomit finish race
+Deportes,Alta,Caída bici dominó,Bike crash domino
+Deportes,Alta,Rueda pinchada final,Flat tire finish
+Deportes,Alta,Cadena rota subida,Chain break hill
+Deportes,Alta,Freno roto bajada,Brake fail downhill
+Deportes,Alta,Pez muerde nadador,Fish bite swimmer
+Deportes,Alta,Malla rompe largada,Suit rip start
+Deportes,Alta,Antiparras llenan agua,Goggles water fill
+Deportes,Alta,Gorro sale nadando,Cap swimming away
+Deportes,Alta,Pared pileta dura,Pool wall hard
+Deportes,Alta,Trampolín rompe salto,Board break dive
+Deportes,Alta,Agua pileta verde,Pool water green
+Deportes,Alta,Cloro arde ojos,Chlorine burn eyes
+Deportes,Alta,Malla se cae salto,Suit falling dive
+Deportes,Alta,Juez puntaje cero,Judge score zero
+Deportes,Alta,Deporte Extra L3 98,Sport Extra L3 98
+Deportes,Alta,Deporte Extra L3 99,Sport Extra L3 99
+Musica,Baja,Guitarra,Guitar
+Musica,Baja,Piano,Piano
+Musica,Baja,Batería,Drums
+Musica,Baja,Violín,Violin
+Musica,Baja,Trompeta,Trumpet
+Musica,Baja,Microfono,Microphone
+Musica,Baja,Saxofón,Saxophone
+Musica,Baja,Flauta,Flute
+Musica,Baja,Acordeón,Accordion
+Musica,Baja,Arpa,Harp
+Musica,Baja,Cantante,Singer
+Musica,Baja,DJ,DJ
+Musica,Baja,Director,Conductor
+Musica,Baja,Rock,Rock
+Musica,Baja,Pop,Pop
+Musica,Baja,Jazz,Jazz
+Musica,Baja,Tango,Tango
+Musica,Baja,Salsa,Salsa
+Musica,Baja,Ópera,Opera
+Musica,Baja,Rap,Rap
+Musica,Baja,Reggae,Reggae
+Musica,Baja,Metal,Metal
+Musica,Baja,Punk,Punk
+Musica,Baja,Disco,Disco
+Musica,Baja,Funk,Funk
+Musica,Baja,Blues,Blues
+Musica,Baja,Soul,Soul
+Musica,Baja,Folk,Folk
+Musica,Baja,Country,Country
+Musica,Baja,Bachata,Bachata
+Musica,Baja,Cumbia,Cumbia
+Musica,Baja,Merengue,Merengue
+Musica,Baja,Reggaeton,Reggaeton
+Musica,Baja,Trap,Trap
+Musica,Baja,Hip Hop,Hip Hop
+Musica,Baja,Electro,Electro
+Musica,Baja,Techno,Techno
+Musica,Baja,House,House
+Musica,Baja,Trance,Trance
+Musica,Baja,Dubstep,Dubstep
+Musica,Baja,Clásica,Classical
+Musica,Baja,Barroco,Baroque
+Musica,Baja,Coral,Choral
+Musica,Baja,Gospel,Gospel
+Musica,Baja,Samba,Samba
+Musica,Baja,Bossa Nova,Bossa Nova
+Musica,Baja,Mariachi,Mariachi
+Musica,Baja,Ranchera,Ranchera
+Musica,Baja,Flamenco,Flamenco
+Musica,Baja,K-Pop,K-Pop
+Musica,Baja,J-Pop,J-Pop
+Musica,Baja,Indie,Indie
+Musica,Baja,Grunge,Grunge
+Musica,Baja,Ska,Ska
+Musica,Baja,R&B,R&B
+Musica,Baja,Bolero,Bolero
+Musica,Baja,Balada,Ballad
+Musica,Baja,Trova,Trova
+Musica,Baja,Zarzuela,Zarzuela
+Musica,Baja,Vals,Waltz
+Musica,Baja,Polka,Polka
+Musica,Baja,Marcha,March
+Musica,Baja,Himno,Anthem
+Musica,Baja,Canción,Song
+Musica,Baja,Melodía,Melody
+Musica,Baja,Ritmo,Rhythm
+Musica,Baja,Nota,Note
+Musica,Baja,Acorde,Chord
+Musica,Baja,Escala,Scale
+Musica,Baja,Pentagrama,Staff
+Musica,Baja,Clave,Clef
+Musica,Baja,Sol,G
+Musica,Baja,Fa,F
+Musica,Baja,Do,C
+Musica,Baja,Re,D
+Musica,Baja,Mi,E
+Musica,Baja,La,A
+Musica,Baja,Si,B
+Musica,Baja,Silencio,Silence
+Musica,Baja,Compás,Bar
+Musica,Baja,Tempo,Tempo
+Musica,Baja,Metrónomo,Metronome
+Musica,Baja,Diapasón,Tuning Fork
+Musica,Baja,Batuta,Baton
+Musica,Baja,Atril,Stand
+Musica,Baja,Partitura,Sheet Music
+Musica,Baja,Letra,Lyrics
+Musica,Baja,Verso,Verse
+Musica,Baja,Coro,Chorus
+Musica,Baja,Estribillo,Refrain
+Musica,Baja,Puente,Bridge
+Musica,Baja,Intro,Intro
+Musica,Baja,Outro,Outro
+Musica,Baja,Solo,Solo
+Musica,Baja,Dúo,Duo
+Musica,Baja,Trío,Trio
+Musica,Baja,Cuarteto,Quartet
+Musica,Baja,Quinteto,Quintet
+Musica,Baja,Banda,Band
+Musica,Baja,Orquesta,Orchestra
+Musica,Media,Tocar guitarra,Playing guitar
+Musica,Media,Cantar ópera,Singing opera
+Musica,Media,Dirigir orquesta,Conducting orchestra
+Musica,Media,Romper guitarra,Smashing guitar
+Musica,Media,Bailar reggaeton,Dancing reggaeton
+Musica,Media,Tocar piano,Playing piano
+Musica,Media,Hacer beatbox,Beatboxing
+Musica,Media,Afinar violín,Tuning violin
+Musica,Media,Tocar batería,Playing drums
+Musica,Media,Cantar ducha,Shower singing
+Musica,Media,Escribir canción,Writing song
+Musica,Media,Grabar disco,Recording album
+Musica,Media,Dar concierto,Giving concert
+Musica,Media,Firmar autógrafo,Signing autograph
+Musica,Media,Subir escenario,Stage dive
+Musica,Media,Bajar volumen,Volume down
+Musica,Media,Subir volumen,Volume up
+Musica,Media,Poner auriculares,Headphones on
+Musica,Media,Bailar lento,Slow dance
+Musica,Media,Cantar karaoke,Karaoke singing
+Musica,Media,Tocar timbre,Ringing bell
+Musica,Media,Silbar canción,Whistling song
+Musica,Media,Tararear,Humming
+Musica,Media,Chasquear dedos,Snapping fingers
+Musica,Media,Aplaudir ritmo,Clapping beat
+Musica,Media,Zapatear,Tap dancing
+Musica,Media,Tocar palmas,Clapping hands
+Musica,Media,Hacer pogo,Moshing
+Musica,Media,Mover cabeza,Headbanging
+Musica,Media,Saltar público,Crowd surfing
+Musica,Media,Tocar flauta,Playing flute
+Musica,Media,Soplar trompeta,Blowing trumpet
+Musica,Media,Rasguear cuerdas,Strumming
+Musica,Media,Golpear tambor,Hitting drum
+Musica,Media,Sacudir maracas,Shaking maracas
+Musica,Media,Tocar teclado,Playing keyboard
+Musica,Media,Usar pedal,Using pedal
+Musica,Media,Microfonear,Mic check
+Musica,Media,Ecualizar,EQing
+Musica,Media,Mezclar música,Mixing music
+Musica,Media,Hacer scratch,Scratching DJ
+Musica,Media,Cambiar disco,Changing record
+Musica,Media,Poner vinilo,Playing vinyl
+Musica,Media,Rebobinar cinta,Rewinding tape
+Musica,Media,Saltar canción,Skipping song
+Musica,Media,Repetir tema,Repeating track
+Musica,Media,Buscar letra,Searching lyrics
+Musica,Media,Leer partitura,Reading sheet
+Musica,Media,Marcar tempo,Marking tempo
+Musica,Media,Usar batuta,Using baton
+Musica,Media,Cantar coros,Backing vocals
+Musica,Media,Hacer segunda voz,Harmony singing
+Musica,Media,Desafinar,Singing offkey
+Musica,Media,Romper cuerda,Breaking string
+Musica,Media,Perder púa,Losing pick
+Musica,Media,Caerse escenario,Falling off stage
+Musica,Media,Olvidar letra,Forgetting lyrics
+Musica,Media,Cantar gallo,Voice cracking
+Musica,Media,Gritar gol,Yelling goal
+Musica,Media,Quedarse afónico,Losing voice
+Musica,Media,Tocar mal,Playing bad
+Musica,Media,Sonar fuerte,Sounding loud
+Musica,Media,Sonar despacio,Sounding soft
+Musica,Media,Hacer silencio,Making silence
+Musica,Media,Esperar turno,Waiting turn
+Musica,Media,Entrar tarde,Late entry
+Musica,Media,Salir tempo,Off tempo
+Musica,Media,Errar nota,Wrong note
+Musica,Media,Romper baqueta,Breaking stick
+Musica,Media,Pinchar parche,Drumhead break
+Musica,Media,Acoplar mic,Mic feedback
+Musica,Media,Cortar cable,Cutting cable
+Musica,Media,Quemar amplificador,Amp burnout
+Musica,Media,Saltar plomos,Fuse blowing
+Musica,Media,Probar sonido,Sound check
+Musica,Media,Chequear línea,Line check
+Musica,Media,Afinar voz,Tuning voice
+Musica,Media,Calentar garganta,Warming throat
+Musica,Media,Tomar agua,Drinking water
+Musica,Media,Saludar público,Waving crowd
+Musica,Media,Pedir otra,Encore call
+Musica,Media,Tirar beso,Throwing kiss
+Musica,Media,Agarrar regalo,Catching gift
+Musica,Media,Esquivar botella,Dodging bottle
+Musica,Media,Firmar disco,Signing album
+Musica,Media,Sacar foto,Taking photo
+Musica,Media,Dar entrevista,Interviewing
+Musica,Media,Hacer gira,Touring
+Musica,Media,Viajar bus,Bus travel
+Musica,Media,Dormir hotel,Hotel sleep
+Musica,Media,Cargar equipo,Loading gear
+Musica,Media,Armar escenario,Stage setup
+Musica,Media,Desarmar todo,Teardown
+Musica,Media,Cobrar show,Getting paid
+Musica,Media,Pagar sala,Paying rent
+Musica,Media,Comprar instrum,Buying gear
+Musica,Media,Vender entrada,Selling ticket
+Musica,Media,Cortar ticket,Tearing ticket
+Musica,Media,Musica Extra L2 98,Music Extra L2 98
+Musica,Media,Musica Extra L2 99,Music Extra L2 99
+Musica,Alta,Rockero rompiendo guitarra llorando,Rocker smashing guitar crying
+Musica,Alta,Director espantando moscas,Conductor swatting flies
+Musica,Alta,Cantante olvidando letra,Singer forgetting lyrics
+Musica,Alta,DJ durmiendo,DJ falling asleep
+Musica,Alta,Piano con pies,Piano with feet
+Musica,Alta,Violinista con picazón,Violinist itchy
+Musica,Alta,Baterista perdiendo palillos,Drummer losing sticks
+Musica,Alta,Opera rompiendo copas,Opera breaking glass
+Musica,Alta,Rapero tartamudo,Rapper stuttering
+Musica,Alta,Vals con esqueleto,Waltz with skeleton
+Musica,Alta,Guitarrista sin cuerdas,Guitarist no strings
+Musica,Alta,Cantante tragando mosca,Singer swallowing fly
+Musica,Alta,Microfono con calambre,Mic shock
+Musica,Alta,Baterista rompiendo parche,Drum head break
+Musica,Alta,Pianista dedos atados,Pianist tied fingers
+Musica,Alta,Saxofonista sin aire,Saxophonist no air
+Musica,Alta,Trompetista cara roja,Trumpet red face
+Musica,Alta,Flautista encantando serpientes,Flute charming snake
+Musica,Alta,Arpista dedos pegados,Harp sticky fingers
+Musica,Alta,Acordeonista atrapado fuelle,Accordion trap
+Musica,Alta,DJ rayando disco abuelo,DJ scratching grandpa vinyl
+Musica,Alta,Director perdiendo batuta,Director losing baton
+Musica,Alta,Coro cantando mudo,Choir singing mute
+Musica,Alta,Tenor rompiendo ventanas,Tenor breaking windows
+Musica,Alta,Soprano rompiendo lentes,Soprano breaking glasses
+Musica,Alta,Bajista volumen cero,Bassist zero volume
+Musica,Alta,Rockstar tropezando cable,Rockstar tripping cable
+Musica,Alta,Popstar peluca volando,Popstar wig fly
+Musica,Alta,Jazzista tocando dormido,Jazz playing sleep
+Musica,Alta,Metalero pelo enredado,Metal hair tangle
+Musica,Alta,Punk rompiendo todo menos guitarra,Punk breaking all but guitar
+Musica,Alta,Disco bailando resbaloso,Disco slip dance
+Musica,Alta,Funk olor feo,Funk bad smell
+Musica,Alta,Blues llorando verdad,Blues crying real
+Musica,Alta,Soul gritando dolor,Soul screaming pain
+Musica,Alta,Folk perdiendo banjo,Folk losing banjo
+Musica,Alta,Country perdiendo sombrero,Country losing hat
+Musica,Alta,Bachata cintura trabada,Bachata waist locked
+Musica,Alta,Cumbia paso equivocado,Cumbia wrong step
+Musica,Alta,Merengue mareado,Merengue dizzy
+Musica,Alta,Reggaeton perreo suelo,Reggaeton floor grind
+Musica,Alta,Trap sin autotune,Trap no autotune
+Musica,Alta,Hip Hop rimando naranja,HipHop orange rhyme
+Musica,Alta,Electro robot oxidado,Electro rusty robot
+Musica,Alta,Techno disco rayado,Techno broken record
+Musica,Alta,House casa cayendo,House house falling
+Musica,Alta,Trance durmiendo parado,Trance sleep standing
+Musica,Alta,Dubstep convulsionando,Dubstep seizure dance
+Musica,Alta,Clásica director loco,Classical crazy conductor
+Musica,Alta,Barroco peluca cayendo,Baroque wig falling
+Musica,Alta,Gospel desmayado fe,Gospel faint faith
+Musica,Alta,Samba tropiezo pluma,Samba feather trip
+Musica,Alta,Mariachi sombrero tapando ojos,Mariachi hat blind
+Musica,Alta,Flamenco taco roto,Flamenco broken heel
+Musica,Alta,Kpop baile descoordinado,Kpop bad sync
+Musica,Alta,Indie ropa rota,Indie torn clothes
+Musica,Alta,Grunge sucio real,Grunge real dirty
+Musica,Alta,Ska saltando techo,Ska roof jump
+Musica,Alta,R&B llorando lluvia,RnB rain cry
+Musica,Alta,Bolero durmiendo pareja,Bolero sleep partner
+Musica,Alta,Balada moco colgando,Ballad snot drip
+Musica,Alta,Trova guitarra desafinada,Trova out of tune
+Musica,Alta,Zarzuela gallo terrible,Zarzuela bad crack
+Musica,Alta,Vals pisando vestido,Waltz stepping dress
+Musica,Alta,Polka mareo vueltas,Polka dizzy spin
+Musica,Alta,Marcha soldado cayendo,March soldier fall
+Musica,Alta,Himno letra mal,Anthem wrong lyrics
+Musica,Alta,Canción cuna despertando,Lullaby waking up
+Musica,Alta,Melodía pegajosa molesta,Melody stuck annoyance
+Musica,Alta,Ritmo cardíaco rápido,Rhythm heart fast
+Musica,Alta,Nota alta rompe vidrio,High note break glass
+Musica,Alta,Acorde disonante dolor,Chord dissonance pain
+Musica,Alta,Escala infinita,Scale infinite
+Musica,Alta,Pentagrama líneas chuecas,Staff crooked lines
+Musica,Alta,Clave sol dibujada mal,Clef bad draw
+Musica,Alta,Metrónomo muy rápido,Metronome too fast
+Musica,Alta,Diapasón golpeando cabeza,Tuning fork head hit
+Musica,Alta,Batuta volando ojo,Baton eye hit
+Musica,Alta,Atril cayendo pie,Stand foot drop
+Musica,Alta,Partitura volando viento,Sheet music wind fly
+Musica,Alta,Letra ilegible,Lyrics unreadable
+Musica,Alta,Verso olvidado,Verse forgotten
+Musica,Alta,Coro desafinado,Chorus off key
+Musica,Alta,Estribillo repetido mil veces,Refrain repeat 1000
+Musica,Alta,Puente roto canción,Bridge broken song
+Musica,Alta,Intro eterna,Intro eternal
+Musica,Alta,Outro nunca termina,Outro never ends
+Musica,Alta,Solo guitarra 20 minutos,Solo guitar 20 min
+Musica,Alta,Dúo peleando vivo,Duo fighting live
+Musica,Alta,Trío uno falta,Trio missing one
+Musica,Alta,Cuarteto desafinado,Quartet out of tune
+Musica,Alta,Quinteto sin instrumentos,Quintet no instruments
+Musica,Alta,Banda separándose vivo,Band breaking up live
+Musica,Alta,Orquesta tocando mal,Orchestra playing bad
+Musica,Alta,Coro tosiendo todos,Choir coughing all
+Musica,Alta,Musica Extra L3 95,Music Extra L3 95
+Musica,Alta,Musica Extra L3 96,Music Extra L3 96
+Musica,Alta,Musica Extra L3 97,Music Extra L3 97
+Musica,Alta,Musica Extra L3 98,Music Extra L3 98
+Musica,Alta,Musica Extra L3 99,Music Extra L3 99

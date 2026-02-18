@@ -2145,36 +2145,55 @@
                 if (audioCtx.state === 'suspended') audioCtx.resume();
                 if (selectedCats.size === 0) { alert(t('seleccionaCat')); return; }
 
-                // LOGIC: No repeats across teams in the same tournament
-                // Reset pool ONLY if starting Turn 0 (Team Mode) or starting Single Player
-                if (currentTeamIdx === 0 || !isTeamMode) {
-                    tournamentWords = [];
-                    tournamentWordIdx = 0;
-                    wordsHistory = [];
+            
+    // Initialize persistent tracking if not exists
+    if (typeof window.lastDeckSig === 'undefined') window.lastDeckSig = '';
+    
+    // Check configuration
+    const currentSig = JSON.stringify({
+        c: Array.from(selectedCats).sort(),
+        d: difficulty,
+        l: lang
+    });
 
-                    const wordKey = 'words_' + lang;
-                    selectedCats.forEach(id => {
-                        const cat = CATEGORIES.find(c => c.id === id);
-                        if (cat && cat[wordKey]) {
-                            // Support difficulty levels
-                            const diffList = cat[wordKey][difficulty] || [];
-                            tournamentWords.push(...diffList);
-                        }
-                    });
+    let shouldRebuildDeck = false;
 
-                    if (tournamentWords.length === 0) {
-                        alert("¡Ouch! No encontramos palabras para esta categoría y dificultad.");
-                        return;
-                    }
+    // Logic: Rebuild deck ONLY if config changed or deck is empty/exhausted
+    if (currentSig !== window.lastDeckSig) {
+        shouldRebuildDeck = true;
+    } else if (!tournamentWords || tournamentWords.length === 0 || tournamentWordIdx >= tournamentWords.length) {
+        shouldRebuildDeck = true;
+    }
 
-                    // Shuffle the entire pool once per game/tournament
-                    for (let i = tournamentWords.length - 1; i > 0; i--) {
-                        const j = Math.floor(Math.random() * (i + 1));
-                        [tournamentWords[i], tournamentWords[j]] = [tournamentWords[j], tournamentWords[i]];
-                    }
-                } else {
-                    // Turn > 0, we preserve current wordsHistory and tournamentWordIdx
-                }
+    if (shouldRebuildDeck) {
+        tournamentWords = [];
+        tournamentWordIdx = 0;
+        window.lastDeckSig = currentSig;
+
+        const wordKey = 'words_' + lang;
+        selectedCats.forEach(id => {
+            const cat = CATEGORIES.find(c => c.id === id);
+            if (cat && cat[wordKey]) {
+                const diffList = cat[wordKey][difficulty] || [];
+                tournamentWords.push(...diffList);
+            }
+        });
+
+        if (tournamentWords.length === 0) {
+            alert(t('seleccionaCat')); // Fallback alert if empty
+            return;
+        }
+
+        // Shuffle deck
+        for (let i = tournamentWords.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [tournamentWords[i], tournamentWords[j]] = [tournamentWords[j], tournamentWords[i]];
+        }
+    }
+
+    // Always reset session history for the new round/game
+    wordsHistory = [];
+            
 
                 if (isTeamMode) {
                     showReadyScreen();
